@@ -11,7 +11,7 @@ Estancia Las Violetas es un hotel de campo tradicional y confortable, ideal para
 
 ## Integrantes del equipo
 
-- Diego Pertierra - Estudiante de Licenciatura en Informática de la Universidad de Palermo y consultor en integración en SAP Ariba.
+- Diego Pertierra - Estudiante de Licenciatura en Informática de la Universidad de Palermo y consultor de integración en SAP Ariba.
 - Jonatan  Irigoytia - Empleado de atención al cliente
 - Macarena Rodríguez Cañete - Estudiante de Ingeniería Electrónica de la Universidad de Buenos Aires y consultora técnica en SAP Ariba.
 
