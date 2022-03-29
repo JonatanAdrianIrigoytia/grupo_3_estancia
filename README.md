@@ -22,5 +22,4 @@ Estancia Las Violetas es un hotel de campo tradicional y confortable, ideal para
 - [La Bandada](https://labandada.com.ar/) -> El diseño del home en general nos gustó. La transición del navigation bar pensamos utilizarla, mismo lo de tener el menu siempre disponible arriba.
 - [Ubik online](https://www.ubikonline.com.ar/) -> El diseño del carrito, es simple pero funcional. 
 - [Mercado Libre](https://www.mercadolibre.com.ar/) -> Textos de los botones, colores para los links de interacción y algunas cosas para el carrito.
-- []() ->
-
+- [videojuegosydesarrollo](https://www.videojuegosydesarrollo.com) -> Me base en este sitio basicamente porque,todas las páginas de estancias de campo que encontré,ninguna tenia formulario login o de registro.
