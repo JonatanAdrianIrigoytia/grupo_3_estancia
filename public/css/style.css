@@ -117,3 +117,8 @@ section {
 .hidden {
 	display: none;
 }
+
+.detail-button {
+	background-color: rgb(var(--clr-accent));
+	border-radius: 2rem;
+}
