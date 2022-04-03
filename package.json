@@ -1,0 +1,25 @@
+{
+  "name": "grupo_3_estancia",
+  "version": "1.0.0",
+  "description": "Estancia Las Violetas es un hotel de campo tradicional y confortable, ideal para relajarse y conectar con la naturaleza. Posee una amplia oferta de actividades para realizar durante su estadía que pueden seleccionarse individualmente por un costo adicional.",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpertierra/grupo_3_estancia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dpertierra/grupo_3_estancia/issues"
+  },
+  "homepage": "https://github.com/dpertierra/grupo_3_estancia#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
