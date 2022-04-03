@@ -3,16 +3,34 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="/css/style.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			rel="stylesheet"
+		/>
+
 		<title>Las Violetas</title>
 	</head>
 	<body>
 		<header>
-			<nav class="navbar">
-				<a href="#" class="usericon"></a>
-				<img src="/images/logo.png" alt="Logo Las Violetas" />
-				<a href="#" class="shopping-cart"></a>
-				<a href="#" class="menu"></a>
+			<nav>
+				<a href="#" class="user-link"
+					><i class="fa-solid fa-user usericon"></i
+				></a>
+				<!-- <img src="/images/logo.png" alt="Logo Las Violetas" /> -->
+				<a href="#" class="shopping-cart">
+					<i class="fa-solid fa-cart-shopping shopping-cart-icon"></i>
+				</a>
+				<a href="#" class="menu">
+					<i class="fa-solid fa-bars menu-icon"></i>
+				</a>
 			</nav>
 		</header>
 		<main>
@@ -22,11 +40,7 @@
 				exercitationem, doloremque tempore consequatur laudantium.
 			</p>
 			<div class="container">
-				<div class="carrousel">
-					<a href="" class="prev-image"></a>
-					<img src="/images/image1.png" alt="" class="carrousel-image" />
-					<a href="" class="next-image"></a>
-				</div>
+				<!-- <img src="/images/image1.png" alt="" class="first-image" /> -->
 				<p class="description">
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore in
 					similique quibusdam optio repudiandae ipsa consequatur nemo sunt?
@@ -35,21 +49,86 @@
 				</p>
 			</div>
 		</main>
-        <section class="rooms-activities">
-            <div class="tabbar">
-                <input type="radio" name="tab" id="rooms-tab" checked />
-                <label for="rooms-tab">
-                    <div class="rooms-tab">
-                        <span class="rooms">Habitaciones</span>
-                    </div>
-                </label>
-                <input type="radio" name="tab" id="activities-tab" />
-                <label for="activities-tab">
-                    <div class="activities-tab">
-                        <span class="rooms">Actividades</span>
-                    </div>
-                </label>
-            </div>
-        </section>
+		<section class="rooms-activities">
+			<div class="tabbar">
+				<div class="tab active" id="roomstab">
+					<p class="tab-label">Habitaciones</p>
+				</div>
+				<div class="tab" id="activitiestab">
+					<p class="tab-label">Actividades</p>
+				</div>
+			</div>
+			<div class="options container" id="rooms">
+				<p class="option selected-option">01 Habitacion</p>
+				<p class="option">02 Habitacion</p>
+				<p class="option">03 Habitacion</p>
+				<p class="option">04 Habitacion</p>
+				<p class="option">05 Habitacion</p>
+				<p class="option">06 Habitacion</p>
+			</div>
+			<div class="options container hidden" id="activities">
+				<p class="option selected-option">01 Actividad</p>
+				<p class="option">02 Actividad</p>
+				<p class="option">03 Actividad</p>
+				<p class="option">04 Actividad</p>
+				<p class="option">05 Actividad</p>
+				<p class="option">06 Actividad</p>
+			</div>
+			<div class="container">
+				<div class="carrousel">
+					<a href="" class="prev-image"></a>
+					<!-- <img src="/images/image1.png" alt="" class="carrousel-image" /> -->
+					<a href="" class="next-image"></a>
+				</div>
+				<h3 class="titulo">Habitacion/Actividad</h3>
+				<p class="description">
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore in
+					similique quibusdam optio repudiandae ipsa consequatur nemo sunt?
+					Nulla amet eos magnam accusantium repellendus. Ad, inventore sapiente!
+					Fuga, eos temporibus?
+				</p>
+				<span class="icon amenity-bed"></span>
+				<span class="icon amenity-sofa"></span>
+				<span class="icon amenity-key"></span>
+				<button class="detail-button">Ver detalle completo</button>
+			</div>
+		</section>
+		<section class="location">
+			<div class="tabbar">
+				<div class="tab active">
+					<p class="tab-label">Desde el aeropuerto</p>
+				</div>
+				<div class="tab">
+					<p class="tab-label">Desde CABA</p>
+				</div>
+			</div>
+			<div class="container">
+				<p class="description">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque
+					adipisci quam provident eos necessitatibus impedit consequatur optio
+					minus earum ea.
+				</p>
+				<h3 class="maps">Ver en Google Maps</h3>
+				<div class="weather">
+					<span class="dia storm">Dom</span>
+					<span class="dia rain">Lun</span>
+					<span class="dia sunny">Mar</span>
+					<span class="dia cloudy">Mie</span>
+					<span class="dia partially-cloudy">Jue</span>
+					<span class="dia sunny">Vie</span>
+					<span class="dia clody">Sab</span>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<!-- <a href="../views/home.html"
+				><img src="/images/logo.png" alt="Logo Las Violetas"
+			/></a> -->
+			<span>Lorem ipsum dolor sit amet.</span>
+			<a class="facebook" href="https://facebook.com"></a>
+			<a class="twitter" href="https://twitter.com"></a>
+			<a class="email" href="mailto://mail@mail.com"></a>
+		</footer>
+		<script src="/js/script.js"></script>
 	</body>
 </html>
