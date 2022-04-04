@@ -4,7 +4,7 @@ Estancia Las Violetas es un hotel de campo tradicional y confortable, ideal para
 
 ## Tablero de sprints
 
-[Notion](https://grupo3.notion.site/f72c670a9b604d1ca4a9984478be0f82?v=a48ed9434a1848fcb9cacaaa46c436be)
+#### [Notion](https://grupo3.notion.site/f72c670a9b604d1ca4a9984478be0f82?v=a48ed9434a1848fcb9cacaaa46c436be)
 
 ## Público objetivo
 

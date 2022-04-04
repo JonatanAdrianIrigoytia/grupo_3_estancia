@@ -12,8 +12,8 @@ tabs.forEach((clickedTab) => {
 
 		// Add the active class on the clicked tab
 		clickedTab.classList.add("active");
-        //Ocultar habitaciones cuando la tab de 
-        //actividades este activa y viceversa
+		//Ocultar habitaciones cuando la tab de
+		//actividades este activa y viceversa
 		if (clickedTab.id == "activitiestab") {
 			activities = document.querySelector("#activities");
 			activities.classList.remove("hidden");
@@ -26,4 +26,12 @@ tabs.forEach((clickedTab) => {
 			rooms.classList.remove("hidden");
 		}
 	});
+});
+
+const menuBtn = document.querySelector(".menu-btn");
+const menuList = document.querySelector(".menu-list");
+
+menuBtn.addEventListener("click", function () {
+	menuBtn.classList.toggle("is-active");
+	menuList.classList.toggle("is-active");
 });
