@@ -29,9 +29,14 @@ tabs.forEach((clickedTab) => {
 });
 
 const menuBtn = document.querySelector(".menu-btn");
-const menuList = document.querySelector(".menu-list");
+const menu = document.querySelector(".nav");
+const closeMenu = document.querySelector(".close-menu");
 
-menuBtn.addEventListener("click", function () {
-	menuBtn.classList.toggle("is-active");
-	menuList.classList.toggle("is-active");
+menuBtn.addEventListener("click", () => {
+	menu.classList.toggle("show");
+});
+
+closeMenu.addEventListener("click", () => {
+	console.log("close");
+	menu.classList.remove("show");
 });

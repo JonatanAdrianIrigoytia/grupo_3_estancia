@@ -20,28 +20,34 @@
 	</head>
 	<body>
 		<header>
-			<nav>
-				<a href="#" class="user-link"
-					><i class="fa-solid fa-user usericon"></i
-				></a>
-				<!-- <img src="/images/logo.png" alt="Logo Las Violetas" /> -->
+			<div class="nav-icons">
+				<a href="#" class="user-link">
+					<i class="fa-solid fa-user usericon"></i>
+				</a>
+				<div class="logo">
+					hola
+					<!-- <img src="/images/logo.png" alt="Logo Las Violetas" /> -->
+				</div>
 				<a href="#" class="shopping-cart">
 					<i class="fa-solid fa-cart-shopping shopping-cart-icon"></i>
 				</a>
-				<!-- <input type="checkbox" id="menu-btn">
-				<label for="menu-btn">
-					<i class="fas fa-bars menu-icon"></i>
-				</label> -->
-				<button class="menu-btn">
-					<div class="bar"></div>
-				</button>
-				<!-- <ul class="menu-list">
+				<i class="fas fa-bars menu-btn"></i>
+			</div>
+			<nav class="nav">
+				<i class="fa-solid fa-xmark close-menu"></i>
+				<ul class="menu-list">
 					<li><a href="#" class="menu-link">Inicio</a></li>
 					<li><a href="#" class="menu-link">Habitaciones</a></li>
 					<li><a href="#" class="menu-link">Actividades</a></li>
 					<li><a href="#" class="menu-link">Contacto</a></li>
-					<li><a href="#" class="menu-link-cart">Carrito</a></li>
-				</ul> -->
+					<li>
+						<a href="#" class="menu-link">
+							<div class="menu-link-cart">
+								<i class="fa-regular fa-cart-plus menu-cart"></i>Carrito
+							</div></a
+						>
+					</li>
+				</ul>
 			</nav>
 		</header>
 		<main>
@@ -51,7 +57,7 @@
 				exercitationem, doloremque tempore consequatur laudantium.
 			</p>
 			<div class="container">
-				<!-- <img src="/images/image1.png" alt="" class="first-image" /> -->
+				<img src="/images/front.jpg" alt="" class="first-image" />
 				<p class="description">
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure sed
 					ratione aut distinctio sint nostrum maiores minima commodi ullam
@@ -85,14 +91,21 @@
 				<p class="option">06 Actividad</p>
 			</div>
 			<div class="container">
-				<div class="carrousel">
-					<a href="" class="prev-image"
-						><i class="fa-solid fa-caret-left prev-button"></i
-					></a>
-					<!-- <img src="/images/image1.png" alt="" class="carrousel-image" /> -->
-					<a href="" class="next-image">
+				<div class="carrousel icon carrousel-button">
+					<!-- <a href="" class="prev-image">
+						<i class="fa-solid fa-caret-left prev-button"></i>
+					</a> -->
+					<img src="/images/apartment-1.jpg" alt="" class="carrousel-image" />
+					<div class="carrousel-options">
+						<span class="image-selector selected-image"></span>
+						<span class="image-selector"></span>
+						<span class="image-selector"></span>
+						<span class="image-selector"></span>
+						<span class="image-selector"></span>
+					</div>
+					<!-- <a href="" class="next-image">
 						<i class="fa-solid fa-caret-right next-button"></i>
-					</a>
+					</a> -->
 				</div>
 				<h3 class="titulo">Habitacion/Actividad</h3>
 				<p class="description">
@@ -124,24 +137,105 @@
 				</p>
 				<h3 class="maps">Ver en Google Maps</h3>
 				<div class="weather">
-					<span class="dia storm">Dom</span>
-					<span class="dia rain">Lun</span>
-					<span class="dia sunny">Mar</span>
-					<span class="dia cloudy">Mie</span>
-					<span class="dia partially-cloudy">Jue</span>
-					<span class="dia sunny">Vie</span>
-					<span class="dia clody">Sab</span>
+					<div class="weather-option">
+						<span class="day">Dom</span>
+						<div class="weather-icon-container">
+							<img
+								class="weather-icon"
+								src="/images/weather-icons/storm.png"
+								alt="Icono de tormenta"
+							/>
+						</div>
+						<span class="temperature">21°C / 25°C</span>
+					</div>
+					<div class="weather-option">
+						<span class="day">Lun</span>
+						<div class="weather-icon-container">
+							<img
+								class="weather-icon"
+								src="/images/weather-icons/rain.png"
+								alt="Icono de lluvia"
+							/>
+						</div>
+						<span class="temperature">21°C / 28°C</span>
+					</div>
+					<div class="weather-option">
+						<span class="day">Mar</span>
+						<div class="weather-icon-container">
+							<img
+								class="weather-icon"
+								src="/images/weather-icons/sunny.png"
+								alt="Icono de sol"
+							/>
+						</div>
+						<span class="temperature">25°C / 33°C</span>
+					</div>
+					<div class="weather-option">
+						<span class="day">Mie</span>
+						<div class="weather-icon-container">
+							<img
+								class="weather-icon"
+								src="/images/weather-icons/cloudy.png"
+								alt="icono de nubes"
+							/>
+						</div>
+						<span class="temperature">22°C / 28°C</span>
+					</div>
+					<div class="weather-option">
+						<span class="day">Jue</span>
+						<div class="weather-icon-container">
+							<img
+								class="weather-icon"
+								src="/images/weather-icons/partially-cloudy.png"
+								alt="Icono de nube con sol"
+							/>
+						</div>
+						<span class="temperature">25°C / 30°C</span>
+					</div>
+					<div class="weather-option">
+						<span class="day">Vie</span>
+						<div class="weather-icon-container">
+							<img
+								class="weather-icon"
+								src="/images/weather-icons/sunny.png"
+								alt="Icono de sol"
+							/>
+						</div>
+						<span class="temperature">25°C / 33°C</span>
+					</div>
+					<div class="weather-option">
+						<span class="day">Sab</span>
+						<div class="weather-icon-container">
+							<img
+								class="weather-icon"
+								src="/images/weather-icons/cloudy.png"
+								alt="icono de nubes"
+							/>
+						</div>
+						<span class="temperature">22°C / 28°C</span>
+					</div>
 				</div>
 			</div>
 		</section>
 		<footer>
-			<!-- <a href="../views/home.html"
-				><img src="/images/logo.png" alt="Logo Las Violetas"
-			/></a> -->
-			<span>Lorem ipsum dolor sit amet.</span>
-			<a class="facebook" href="https://facebook.com"></a>
-			<a class="twitter" href="https://twitter.com"></a>
-			<a class="email" href="mailto://mail@mail.com"></a>
+			<div class="logo-address">
+				<!-- <a href="../views/home.html"
+					><img src="/images/logo.png" alt="Logo Las Violetas"
+				/></a> -->
+				Logo
+				<span>Lorem ipsum dolor sit amet.</span>
+			</div>
+			<div class="social-icons">
+				<a class="facebook" href="https://facebook.com"
+					><i class="fa-brands fa-facebook social-icon"></i
+				></a>
+				<a class="twitter" href="https://twitter.com"
+					><i class="fa-brands fa-twitter social-icon"></i
+				></a>
+				<a class="email" href="mailto://mail@mail.com"
+					><i class="fa-regular fa-envelope social-icon"></i
+				></a>
+			</div>
 		</footer>
 		<script src="/js/script.js"></script>
 	</body>
