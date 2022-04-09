@@ -37,6 +37,15 @@ menuBtn.addEventListener("click", () => {
 });
 
 closeMenu.addEventListener("click", () => {
-	console.log("close");
 	menu.classList.remove("show");
+});
+
+window.addEventListener("click", (e) => {
+	if (
+		!menu.contains(e.target) &&
+		!menuBtn.contains(e.target) &&
+		menu.classList.contains("show")
+	) {
+		menu.classList.remove("show");
+	}
 });
