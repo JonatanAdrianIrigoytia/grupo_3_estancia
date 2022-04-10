@@ -18,3 +18,31 @@
 
 		<title>Las Violetas</title>
 	</head>
+	<main>
+	<nav><form action="/register" method="POST">
+        
+    
+		<h5>Crea tu cuenta</h5>
+	  
+	<p>
+	  <label>Nombre de usuari@:</label>
+	  <input type="text" name="nombre de usuario" required>
+	</p>
+	<p>
+	  <label>Fecha de nacimiento:</label>
+	  <input type="date" name="fecha de nacimiento" required>
+	</p>
+	<p>
+	  <label>Domicilio:</label>
+	  <input type="text" name="Domicilio" placeholder="calle y numero" required>
+	</p>
+
+	<p>
+	  <label>E-mail:</label>
+	  <input type="email" name="email" required>
+	</p>
+	<input type="text" name="dni" placeholder="introduzca su DNI" pattern="[0-9]{8}" title="Debe poner 8 números">
+	<input type="submit" name="" value="Enviar">
+	<input type="reset" name="" value="Atrás">
+</nav>
+</main>
