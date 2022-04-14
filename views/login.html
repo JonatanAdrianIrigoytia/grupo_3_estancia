@@ -1,11 +1,100 @@
-<form action="/login" method="GET">
-  <section>
-    <h3>Ingresá con tu cuenta</h3>
-    <input type="text" name="usuario" value="" placeholder="Usuario" required>
-    <p>
-      <input name="password" type="password" value="" class="form-control" id="Contraseña" placeholder="Contraseña">
-    </p>
-    <input type="submit" name="" value="Ingresar">
-    <input type="reset" name="" value="Cancelar">
-    <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-  </section>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/form-styles.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			rel="stylesheet"
+		/>
+		<title>Las Violetas - Login</title>
+	</head>
+	<body>
+		<header>
+			<div class="nav-icons">
+				<a href="#" class="user-link">
+					<i class="fa-solid fa-user usericon"></i>
+				</a>
+				<div class="logo">
+					hola
+					<!-- <img src="/images/logo.png" alt="Logo Las Violetas" /> -->
+				</div>
+				<a href="#" class="shopping-cart">
+					<i class="fa-solid fa-cart-shopping shopping-cart-icon"></i>
+				</a>
+				<i class="fas fa-bars menu-btn"></i>
+			</div>
+			<nav class="nav">
+				<i class="fa-solid fa-xmark close-menu"></i>
+				<ul class="menu-list">
+					<li><a href="#" class="menu-link">Inicio</a></li>
+					<li><a href="#" class="menu-link">Habitaciones</a></li>
+					<li><a href="#" class="menu-link">Actividades</a></li>
+					<li><a href="#" class="menu-link">Contacto</a></li>
+					<li>
+						<a href="#" class="menu-link">
+							<div class="menu-link-cart">
+								<i class="fa-regular fa-cart-plus menu-cart"></i>Carrito
+							</div>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h5>Ingrese a su cuenta</h5>
+			<form action="/login" method="POST">
+				<label for="email">E-mail</label>
+				<input
+					type="text"
+					name="email"
+					id="email"
+					placeholder="E-mail"
+					required
+				/>
+				<label for="password">Contraseña</label>
+				<input
+					id="password"
+					name="password"
+					type="password"
+					class="form-control"
+					placeholder="Contraseña"
+					required
+				/>
+				<button type="submit">Ingresar</button>
+				<button type="reset">Cancelar</button>
+			</form>
+			<a href="#">¿Olvidó su contraseña?</a>
+		</main>
+		<footer>
+			<div class="logo-address">
+				<!-- <a href="../views/home.html"
+					><img src="/images/logo.png" alt="Logo Las Violetas"
+				/></a> -->
+				Logo
+				<span>Lorem ipsum dolor sit amet.</span>
+			</div>
+			<div class="social-icons">
+				<a class="facebook" href="https://facebook.com">
+					<i class="fa-brands fa-facebook social-icon"></i>
+				</a>
+				<a class="twitter" href="https://twitter.com">
+					<i class="fa-brands fa-twitter social-icon"></i>
+				</a>
+				<a class="email" href="mailto://mail@mail.com">
+					<i class="fa-regular fa-envelope social-icon"></i>
+				</a>
+			</div>
+		</footer>
+		<script src="/js/script.js"></script>
+	</body>
+</html>
