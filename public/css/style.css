@@ -321,6 +321,7 @@ img {
 	cursor: pointer;
 	text-decoration: none;
 	margin-bottom: 1rem;
+	width: fit-content;
 }
 
 .location-icon {
@@ -416,11 +417,6 @@ footer {
 		align-self: center;
 	}
 
-	.first-image,
-	.carrousel-image {
-		width: 85%;
-	}
-
 	.tab-label {
 		font-size: 1.15rem;
 	}
@@ -459,9 +455,6 @@ footer {
 		width: 15vw;
 		margin: 0;
 		padding: 0;
-		/* margin-bottom: 0.5rem; */
-		/* margin-left: 1.5rem; */
-		/* margin-top: 0.75rem; */
 	}
 	.arrow-icon {
 		font-size: 80%;
@@ -527,11 +520,15 @@ footer {
 		padding-top: 4rem;
 	}
 
+	.image-container {
+		width: 100%;
+	}
+
 	.first-image,
 	.carrousel-image {
+		display: block;
 		margin: 0 auto;
-		align-self: center;
-		width: 70%;
+		width: 85%;
 	}
 
 	.tab-label {
@@ -547,29 +544,39 @@ footer {
 		width: 30%;
 	}
 
+	.carrousel-button {
+		position: relative;
+		display: block;
+	}
+
 	.prev-button,
 	.next-button {
 		position: absolute;
-		top: 50%;
 		font-size: 2rem;
 		color: rgb(var(--clr-accent));
 		background-color: rgb(var(--clr-bg));
+		border: 1px solid rgb(var(--clr-dark));
 		border-radius: 50%;
 		padding-block: 0.25rem;
 		padding-inline: 0.5rem;
 		transition: color, background-color 250ms ease-in-out;
 	}
+
+	.prev-button {
+		/* top: 22rem; */
+		top: 28vh;
+		left: 2%;
+	}
+
+	.next-button {
+		bottom: 25vh;
+		right: 2%;
+	}
+
 	.prev-button:hover,
 	.next-button:hover {
 		background-color: rgb(var(--clr-accent));
 		color: rgb(var(--clr-bg));
-	}
-	.prev-button {
-		left: 1rem;
-	}
-
-	.next-button {
-		right: 1rem;
 	}
 
 	.weather-icon {
