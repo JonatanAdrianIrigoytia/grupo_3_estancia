@@ -416,6 +416,11 @@ footer {
 		align-self: center;
 	}
 
+	.first-image,
+	.carrousel-image {
+		width: 85%;
+	}
+
 	.tab-label {
 		font-size: 1.15rem;
 	}
@@ -444,25 +449,32 @@ footer {
 }
 
 @media (min-width: 768px) {
+	header {
+		max-height: none;
+	}
 	.nav {
 		all: unset;
 	}
 	.logo {
-		width: 60%;
-		margin-bottom: 0.5rem;
-		margin-left: 1.5rem;
-		margin-top: 0.75rem;
+		width: 15vw;
+		margin: 0;
+		padding: 0;
+		/* margin-bottom: 0.5rem; */
+		/* margin-left: 1.5rem; */
+		/* margin-top: 0.75rem; */
 	}
 	.arrow-icon {
-		font-size: 1rem;
+		font-size: 80%;
 	}
 
 	.usericon {
 		border: 1px solid rgb(var(--clr-accent));
 		border-radius: 50%;
-		padding: 0.3rem;
+		padding: 0.3em;
+		margin-left: 1em;
+		margin-top: 0.25em;
 		color: rgb(var(--clr-bg));
-		font-size: 1.25rem;
+		font-size: 90%;
 	}
 	.menu-list {
 		display: flex;
@@ -470,8 +482,8 @@ footer {
 		padding: 0;
 		justify-content: space-between;
 		align-items: center;
-		gap: 1rem;
-		margin-top: 0.5rem;
+		gap: 1em;
+		margin-top: 0.5em;
 	}
 	.menu-list li {
 		align-self: center;
@@ -482,6 +494,7 @@ footer {
 		color: rgb(var(--clr-bg));
 		text-decoration: none;
 		text-align: center;
+		font-size: 90%;
 	}
 	.shopping-cart {
 		display: none;
@@ -489,8 +502,8 @@ footer {
 	.menu-link-cart {
 		display: flex;
 		border: 1px solid rgb(var(--clr-bg));
-		border-radius: 20px;
-		padding-inline: 1rem;
+		border-radius: 50px;
+		padding-inline: 1.5rem;
 		padding-block: 0.5rem;
 		margin-right: 1rem;
 		color: rgb(var(--clr-bg));
@@ -508,6 +521,17 @@ footer {
 	}
 	div > .close-menu {
 		display: none;
+	}
+
+	main {
+		padding-top: 4rem;
+	}
+
+	.first-image,
+	.carrousel-image {
+		margin: 0 auto;
+		align-self: center;
+		width: 70%;
 	}
 
 	.tab-label {
@@ -562,6 +586,49 @@ footer {
 	.logo-footer {
 		width: 30%;
 	}
+}
+@media (min-width: 1200px) {
+	.logo {
+		width: 18vw;
+	}
 
+	.user-link {
+		margin-top: 1rem;
+		margin-left: 1rem;
+	}
 
+	.arrow-icon {
+		font-size: 1.25rem;
+	}
+	.usericon {
+		border: 1px solid rgb(var(--clr-accent));
+		border-radius: 50%;
+		padding: 0.3rem;
+		margin: 0 auto;
+		color: rgb(var(--clr-bg));
+		font-size: 1.5rem;
+	}
+	.menu-list {
+		display: flex;
+		flex-direction: row;
+		padding: 0;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1.5em;
+		margin-top: 1rem;
+	}
+	.menu-list li {
+		align-self: center;
+		text-align: center;
+	}
+	.menu-link {
+		color: rgb(var(--clr-bg));
+		text-decoration: none;
+		text-align: center;
+		font-size: 1.2rem;
+	}
+
+	main {
+		padding-top: 5rem;
+	}
 }
