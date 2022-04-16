@@ -39,9 +39,19 @@ header {
 	/* padding-block: 1rem; */
 }
 
+.logo-container {
+	width: 30%;
+	/* display: block; */
+	margin-bottom: 2rem;
+	height: 100%;
+}
+
 .logo {
+	padding: 0;
+	width: 35%;
 	align-self: center;
-	width: 25%;
+	margin-right: 1rem;
+	/* margin: auto; */
 }
 
 .nav {
@@ -61,7 +71,7 @@ header {
 	position: relative;
 	width: 100%;
 	padding-block: 1rem;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	justify-content: space-between;
 	text-decoration: none;
 }
@@ -123,6 +133,7 @@ header {
 	color: rgb(var(--clr-bg));
 	margin-left: 0.25rem;
 	align-self: center;
+	font-size: 0.9rem;
 	transition: color 250ms ease;
 }
 
@@ -134,19 +145,20 @@ header {
 	border: 1px solid rgb(var(--clr-accent));
 	border-radius: 50%;
 	padding: 0.3rem;
+	font-size: 1rem;
 	color: rgb(var(--clr-bg));
 }
 .shopping-cart-icon {
 	display: block;
-	margin-top: 0.5rem;
-	margin-right: 3.5rem;
+	margin-top: 0.35rem;
+	margin-right: 0.5rem;
 	color: rgb(var(--clr-accent));
 }
 
 .menu-btn {
 	display: inline;
 	align-self: center;
-	margin-top: 0.5rem;
+	margin-top: 0.35rem;
 	margin-right: 1.25rem;
 	color: rgb(var(--clr-bg));
 	border-radius: 3px;
@@ -362,7 +374,7 @@ img {
 footer {
 	display: flex;
 	background-color: rgb(var(--clr-dark));
-	max-height: 3rem;
+	/* max-height: 3rem; */
 	padding-block: 0.5rem;
 	justify-content: space-around;
 }
@@ -371,15 +383,17 @@ footer {
 	display: flex;
 	flex-direction: column;
 	color: rgb(var(--clr-bg));
+	gap: 0.5rem;
 	font-size: 0.8rem;
 }
-.logo-address span {
-	margin-bottom: 0.25;
+
+.logo-footer {
+	width: 40%;
 }
 
 .social-icons {
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	gap: 2rem;
 }
 .social-icon {
@@ -424,11 +438,31 @@ footer {
 	.social-icons {
 		margin-right: 1rem;
 	}
+	.social-icon {
+		font-size: 1.75rem;
+	}
 }
 
 @media (min-width: 768px) {
 	.nav {
 		all: unset;
+	}
+	.logo {
+		width: 60%;
+		margin-bottom: 0.5rem;
+		margin-left: 1.5rem;
+		margin-top: 0.75rem;
+	}
+	.arrow-icon {
+		font-size: 1rem;
+	}
+
+	.usericon {
+		border: 1px solid rgb(var(--clr-accent));
+		border-radius: 50%;
+		padding: 0.3rem;
+		color: rgb(var(--clr-bg));
+		font-size: 1.25rem;
 	}
 	.menu-list {
 		display: flex;
@@ -436,7 +470,7 @@ footer {
 		padding: 0;
 		justify-content: space-between;
 		align-items: center;
-		gap: 2rem;
+		gap: 1rem;
 		margin-top: 0.5rem;
 	}
 	.menu-list li {
@@ -514,10 +548,20 @@ footer {
 		right: 1rem;
 	}
 
+	.weather-icon {
+		width: 45%;
+	}
+
 	.day {
 		font-size: 1.15rem;
 	}
 	.temperature {
 		font-size: 0.8rem;
 	}
+
+	.logo-footer {
+		width: 30%;
+	}
+
+
 }
