@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/product-styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    />
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        rel="stylesheet"
+    />
+
+    <title>Las Violetas - Detalle de Producto</title>
+</head>
+<body>
+    <header>
+        <div class="nav-icons">
+            <!-- Icono de usuario y fecha -->
+            <a href="#" class="user-link"> 
+                <i class="fa-solid fa-user usericon"></i>
+                <i class="fa-solid fa-angle-down arrow-icon"></i>
+            </a>
+            <!-- Logo de las violetas -->
+            <img
+                class="logo"
+                src="/images/logo-small.png"
+                alt="Logo Las Violetas"
+            /> 
+            <!-- Icono de carrito -->
+            <div>
+                <a href="#" class="shopping-cart">
+                    <i class="fa-solid fa-cart-shopping shopping-cart-icon"></i>
+                </a>
+            </div>
+            <!-- Menu hamburguesa -->
+            <div><i class="fas fa-bars menu-btn"></i></div>
+        </div>
+        <nav class="nav">
+            <div><i class="fa-solid fa-xmark close-menu"></i></div>
+            <ul class="menu-list">
+                <li><a href="#" class="menu-link">Inicio</a></li>
+                <li><a href="#" class="menu-link">Habitaciones</a></li>
+                <li><a href="#" class="menu-link">Actividades</a></li>
+                <li><a href="#" class="menu-link">Contacto</a></li>
+                <li>
+                    <a href="#" class="menu-link">
+                        <div class="menu-link-cart">
+                            <i class="fa-solid fa-cart-plus menu-cart"></i>
+                            <span>Carrito</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h3 class="subtitulo">Habitación</h3>
+        <h2 class="titulo-principal">Las Lavandas</h2>
+        <p class="description">
+            
+        </p>
+        <div class="container">
+            <div class="image-container">
+                <img src="/images/habitacion1.jpg" alt="" class="first-image" />
+            </div>
+            <p class="description">
+                Habitación doble de 40m² con baño privado. 
+            Decorada en estilo clásico, poseee un gran ventanal colonial con vista a los jardines internos.
+            </p>
+        </div>
+        <div class="container">
+            <h3 class="subsubtitulo">Servicios incluidos</h3>
+            <ul class="servicios-list">
+                <li>Aire acondicionado</li>
+                <li>Calefacción</li>
+                <li>WiFi</li>
+                <li>Desayuno</li>
+            </ul>
+        </div>
+        <!-- <div class="date-guests"> -->
+            <span class="date-section">
+                <i class="fa-solid fa-calendar-day date-icon"></i>
+                <input class="date-picker" type="date" name="date1" id="date1">
+            </span>
+            <span class="date-section">
+                <i class="fa-solid fa-calendar-day date-icon"></i>
+                <input class="date-picker" type="date" name="date2" id="date2">
+            </span>
+            <span class="date-section dropdown">
+                <i class="fa-solid fa-user date-icon"></i>
+                <span class="date-text">2 Adultos</span>
+                <div class="dropdown-content">
+                    <p class="date-text">1 Adulto</p>
+                    <p class="date-text">2 Adultos</p>
+                    <p class="date-text">3 Adultos</p>
+                    <p class="date-text">4 Adultos</p>
+                </div>
+            </span>
+            <span class="date-section" id="search-button"> 
+                <button class="date-button">
+                    <i class="fa-solid fa-magnifying-glass date-icon"></i>
+                </button>
+            </span>
+            <div class="button-container">
+                <button class="add-to-cart">
+                    <i class="fa-solid fa-plus"></i> 
+                    <div>
+                        <span>Añadir al</span>
+                        <span>carrito</span>
+                    </div>
+                </button>
+            </div>
+    </main>
+    <footer>
+        <div class="logo-address">
+            <a href="/">
+                <img
+                    class="logo-footer"
+                    src="/images/logo.png"
+                    alt="Logo Las Violetas"
+                />
+            </a>
+            <span>Calle Falsa 123, Springfield</span>
+        </div>
+        <div class="social-icons">
+            <a class="facebook" href="https://facebook.com">
+                <i class="fa-brands fa-facebook social-icon"></i>
+            </a>
+            <a class="twitter" href="https://twitter.com">
+                <i class="fa-brands fa-twitter social-icon"></i>
+            </a>
+            <a class="email" href="mailto://mail@mail.com">
+                <i class="fa-regular fa-envelope social-icon"></i>
+            </a>
+        </div>
+    </footer>
+    <script src="/js/script.js"></script>    
+</body>
+</html>

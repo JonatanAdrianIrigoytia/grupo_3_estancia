@@ -1,0 +1,126 @@
+main{
+    font-size: 14px;
+}
+.servicios-list{
+    margin-left: 1rem;
+    padding-bottom: 1rem;
+}
+.titulo-principal, .subtitulo, .subsubtitulo{
+    font-weight: 500;
+}
+
+.subsubtitulo{
+    margin-block: 1rem;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(var(--clr-bg));
+    min-width: 70px;
+    box-shadow: 0px 8px 16px 0px rgba(var(--clr-dark),0.2);
+    /* padding: 12px 16px; */
+    z-index: 1;
+ }
+ 
+.dropdown-content p {
+    color: rgb(var(--clr-dark));
+    padding: 4px 8px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content p:hover {background-color: rgba(var(--clr-dark),0.2)}  
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover {
+    background-color: rgba(var(--clr-dark),0.2);
+}
+
+.date-icon{
+    color: rgb(var(--clr-accent));
+    font-size: 0.6rem;
+}
+.date-picker{
+    font-size: 0.6rem;
+    border: none;
+    outline: none;
+}
+.date-section{
+    border: solid 1px rgb(var(--clr-dark));
+    padding: 0.25rem;
+}
+.date-text{
+    font-size: 0.6rem;
+}
+.date-button{
+    background-color: white;
+    border: none;
+}
+#search-button{
+    position: relative;
+    right: 0.35rem;
+}
+.button-container{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.add-to-cart {
+	background-color: rgb(var(--clr-accent));
+	border: 0;
+	border-radius: 2rem;
+	color: #fff;
+	font-size: 0.8rem;
+	cursor: pointer;
+    margin-block: 1rem;
+    display: flex;
+}
+.add-to-cart > div{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-right: 1rem;
+}
+.add-to-cart > i{
+    align-self: center;
+    margin-inline: 0.5rem;
+}
+
+@media (min-width: 480px) {
+    .date-icon{
+        font-size: 0.8rem;
+    }
+    .date-picker{
+        font-size: 0.8rem;
+    }
+    .date-text{
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .date-icon{
+        font-size: 1rem;
+    }
+    .date-picker{
+        font-size: 1rem;
+    }
+    .date-text{
+        font-size: 1rem;
+    }
+}
+
+ @media (min-width: 1200px) {
+    .date-picker{
+        font-size: 1.15rem;
+    }
+
+}
