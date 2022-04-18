@@ -6,7 +6,7 @@
 }
 
 html {
-	height: 100%;
+	height: 100%; /* Sin esto el HTML solo ocupa el contenido cuando la pagina es corta y el footer queda muy arriba*/
 }
 
 *,
@@ -25,12 +25,13 @@ html {
 }
 
 body {
+	font-family: "Inter", sans-serif;
 	color: rgb(var(--clr-dark));
 	margin: 0;
+	/* Con las siguientes 3 propiedades podemos hacer que el footer quede abajo sin importar el largo del contenido de la pagina*/
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
-	font-family: "Inter", sans-serif;
 }
 
 header {
@@ -405,7 +406,7 @@ footer {
 	display: flex;
 	align-items: flex-end;
 	gap: 2rem;
-	padding-right: 0.5rem;
+	padding-right: 1rem;
 }
 .social-icon {
 	color: rgb(var(--clr-accent));
