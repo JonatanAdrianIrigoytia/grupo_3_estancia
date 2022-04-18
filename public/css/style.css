@@ -5,6 +5,11 @@
 	--icon-font: "Font Awesome 5 Free";
 	--clr-rgb: 134, 97, 193;
 }
+
+html {
+	height: 100%;
+}
+
 *,
 *::before,
 *::after {
@@ -23,6 +28,9 @@
 body {
 	color: rgb(var(--clr-dark));
 	margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 	font-family: "Inter", sans-serif;
 }
 
@@ -376,6 +384,7 @@ footer {
 	display: flex;
 	background-color: rgb(var(--clr-dark));
 	/* max-height: 3rem; */
+	margin-top: 2rem;
 	padding-block: 0.5rem;
 	justify-content: space-around;
 }
@@ -396,6 +405,7 @@ footer {
 	display: flex;
 	align-items: flex-end;
 	gap: 2rem;
+	margin-right: 1rem;
 }
 .social-icon {
 	color: rgb(var(--clr-accent));
