@@ -3,7 +3,6 @@
 	--clr-dark: 13, 6, 40;
 	--clr-accent: 134, 97, 193;
 	--icon-font: "Font Awesome 5 Free";
-	--clr-rgb: 134, 97, 193;
 }
 
 html {
@@ -206,6 +205,7 @@ section {
 	margin-bottom: 1rem;
 	background-color: rgb(var(--clr-bg));
 	border: 1px solid rgb(var(--clr-dark));
+	border-radius: 16px;
 }
 
 img {
@@ -222,7 +222,7 @@ img {
 	display: flex;
 	justify-content: space-between;
 	border-radius: 1rem;
-	background-color: rgba(var(--clr-rgb), 0.43);
+	background-color: rgba(var(--clr-accent), 0.43);
 }
 
 .tab {
@@ -405,7 +405,7 @@ footer {
 	display: flex;
 	align-items: flex-end;
 	gap: 2rem;
-	margin-right: 1rem;
+	padding-right: 0.5rem;
 }
 .social-icon {
 	color: rgb(var(--clr-accent));
