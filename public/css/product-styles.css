@@ -5,12 +5,18 @@ main{
     margin-left: 1rem;
     padding-bottom: 1rem;
 }
-.titulo-principal, .subtitulo, .subsubtitulo{
+.titulo-principal, .subtitulo, .subsubtitulo, .shopping-cart-title{
     font-weight: 500;
 }
 
 .subsubtitulo{
     margin-block: 1rem;
+}
+.titulo-principal{
+    margin-bottom: 1rem;
+}
+.shopping-cart-title{
+    text-align: center;
 }
 
 .dropdown {
@@ -44,7 +50,7 @@ main{
     background-color: rgba(var(--clr-dark),0.2);
 }
 
-.date-icon{
+.date-icon, .cart-icon{
     color: rgb(var(--clr-accent));
     font-size: 0.6rem;
 }
@@ -54,7 +60,7 @@ main{
     outline: none;
 }
 .date-section{
-    border: solid 1px rgb(var(--clr-dark));
+    border: solid 1px rgba(var(--clr-dark),0.5);
     padding: 0.25rem;
 }
 .date-text{
@@ -94,6 +100,87 @@ main{
     margin-inline: 0.5rem;
 }
 
+.article-container{
+    display: flex;
+    gap: 1rem;
+    background-color: rgb(var(--clr-bg));
+    border: solid 1px rgba(var(--clr-dark),0.2);
+    border-radius: 5px;
+    /* offset-x | offset-y | blur-radius | color */
+    box-shadow: 1px 3px 5px rgba(var(--clr-dark),0.5);
+    position: relative;
+    margin: 1rem;
+}
+.article-image{
+    width: 22vw;
+    padding: 0.5rem;
+}
+.tiny-image{
+    width: 100%;
+}
+.article-description{
+    width: 20vw;
+    font-size: 10px;
+    align-self: center;
+}
+
+.action-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    justify-content: flex-end;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+}
+
+.incremental-buttons{
+    display: flex;
+}
+.cart-icon-section{
+    flex-grow: 0.3;
+    border: solid 1px rgba(var(--clr-dark),0.5);
+    padding-inline: 0.5rem;
+    padding-bottom: 0.1rem;
+}
+.edit-remove-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.cart-button{
+    border: none;
+    background-color: rgb(var(--clr-bg));
+    cursor: pointer;
+}
+hr{
+    color: rgba(var(--clr-dark),0.3);
+    margin-block: 1.5rem;
+}
+.cart-total-cost{
+    text-align: right;
+}
+.cart-total-cost > h3{
+display: inline;
+}
+.cart-total-cost > a{
+    color: rgb(var(--clr-accent));
+    text-decoration: none; /*Para sacar el subrayado */
+    font-size: 12px;
+}
+.cart-total-cost > button{
+    background-color: rgb(var(--clr-accent));
+	border: 0;
+	border-radius: 2rem;
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+    margin-block: 1rem;
+    margin-left: 0.5rem;
+    padding-inline: 0.8rem;
+    padding-block: 0.5rem;
+}
+
 @media (min-width: 480px) {
     .date-icon{
         font-size: 0.8rem;
@@ -104,17 +191,25 @@ main{
     .date-text{
         font-size: 0.8rem;
     }
+
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .date-icon{
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     .date-picker{
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     .date-text{
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+    .add-to-cart {
+        font-size: 0.9rem;
+    }
+    .cart-footer{
+        width: 100%; 
+        height: 10%;            
     }
 }
 
@@ -122,5 +217,15 @@ main{
     .date-picker{
         font-size: 1.15rem;
     }
+    .add-to-cart {
+        font-size: 1.1rem;
+    }
+
+    .first-image {
+		display: block;
+		margin-inline: auto;
+        margin-bottom: 1rem;
+		width: 85%;
+	}
 
 }
