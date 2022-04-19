@@ -24,18 +24,22 @@
 			<div class="nav-icons">
 				<a href="#" class="user-link">
 					<i class="fa-solid fa-user usericon"></i>
+					<i class="fa-solid fa-angle-down arrow-icon"></i>
 				</a>
-				<div class="logo">
-					hola
-					<!-- <img src="/images/logo.png" alt="Logo Las Violetas" /> -->
+				<img
+					class="logo"
+					src="/images/logo-small.png"
+					alt="Logo Las Violetas"
+				/>
+				<div>
+					<a href="#" class="shopping-cart">
+						<i class="fa-solid fa-cart-shopping shopping-cart-icon"></i>
+					</a>
 				</div>
-				<a href="#" class="shopping-cart">
-					<i class="fa-solid fa-cart-shopping shopping-cart-icon"></i>
-				</a>
-				<i class="fas fa-bars menu-btn"></i>
+				<div><i class="fas fa-bars menu-btn"></i></div>
 			</div>
 			<nav class="nav">
-				<i class="fa-solid fa-xmark close-menu"></i>
+				<div><i class="fa-solid fa-xmark close-menu"></i></div>
 				<ul class="menu-list">
 					<li><a href="#" class="menu-link">Inicio</a></li>
 					<li><a href="#" class="menu-link">Habitaciones</a></li>
@@ -44,7 +48,8 @@
 					<li>
 						<a href="#" class="menu-link">
 							<div class="menu-link-cart">
-								<i class="fa-regular fa-cart-plus menu-cart"></i>Carrito
+								<i class="fa-solid fa-cart-plus menu-cart"></i>
+								<span>Carrito</span>
 							</div>
 						</a>
 					</li>
@@ -52,64 +57,71 @@
 			</nav>
 		</header>
 		<main>
-			
 			<form action="/register" method="POST">
-			<div class="form-register"><h5>Bienvenido a Las Violetas</h5><label for="name"></label>
-				<input
-				class="controls"
-					type="text"
-					name="name"
-					id="name"
-					placeholder="Nombre"
-					required
-				/><label for="name"></label>
-				<input
-				class="controls"
-					type="text"
-					name="name"
-					id="name"
-					placeholder="Apellido"
-					required
-				/>
-				<label for="email"></label>
-				<input
-				class="controls"
-					type="email"
-					name="email"
-					id="email"
-					placeholder="E-mail"
-					required
-				/>
-				<label for="password"></label>
-				<input
-					class="controls"
-					name="password"
-					type="password"
-					class="form-control"
-					id="password"
-					placeholder="Contraseña"
-				/>
-				<label for="password2"></label>
-				<input
-					class="controls"
-					name="password2"
-					type="password"
-					class="form-control"
-					id="password2"
-					placeholder="Confirme su contraseña"
-				/>
-				<button class="button" type="submit"><h3>Registrarse</h3></button>
-				<button class="button" type="reset"><h3>Cancelar</h3></button>	
-    <section>¿Ya tenés una cuenta?<a href="#">Iniciá sesión</a></section>
-			</div></form>
+				<div class="form-container">
+					<h5>Bienvenido a Las Violetas</h5>
+					<label for="name">Nombre</label>
+					<input
+						class="controls"
+						type="text"
+						name="name"
+						id="name"
+						placeholder="Nombre"
+						required
+					/>
+					<label for="lastname">Apellido</label>
+					<input
+						class="controls"
+						type="text"
+						name="lastname"
+						id="lastname"
+						placeholder="Apellido"
+						required
+					/>
+					<label for="email">E-mail</label>
+					<input
+						class="controls"
+						type="email"
+						name="email"
+						id="email"
+						placeholder="E-mail"
+						required
+					/>
+					<label for="password">Contraseña</label>
+					<input
+						class="controls"
+						name="password"
+						type="password"
+						id="password"
+						placeholder="Contraseña"
+					/>
+					<label for="password2">Confime su contraseña</label>
+					<input
+						class="controls"
+						name="password2"
+						type="password"
+						id="password2"
+						placeholder="Confirme su contraseña"
+					/>
+					<button class="button" type="submit"><h3>Registrarse</h3></button>
+					<button class="button" type="reset"><h3>Cancelar</h3></button>
+					<div class="has-account">
+						<span>¿Ya tiene una cuenta?</span>
+						<a class="has-account-link" href="#">Inicie sesión</a>
+					</div>
+				</div>
+			</form>
 		</main>
 		<footer>
 			<div class="logo-address">
-				<!-- <a href="../views/home.html"
-					><img src="/images/logo.png" alt="Logo Las Violetas"
-				/></a> -->
-				Logo
-				<span>Lorem ipsum dolor sit amet.</span>
+				<a href="/">
+					<img
+						class="logo-footer"
+						src="/images/logo.png"
+						alt="Logo Las Violetas"
+					/>
+				</a>
+				<span>Calle Falsa 123, Springfield</span>
 			</div>
 			<div class="social-icons">
 				<a class="facebook" href="https://facebook.com">
