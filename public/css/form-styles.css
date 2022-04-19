@@ -10,7 +10,14 @@ html {
 
 body {
 	position: relative;
-	
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 8rem;
+	justify-content: center;
+	align-items: center;
 }
 
 /* .form-login {
@@ -26,7 +33,7 @@ body {
 } */
 
 .form-container {
-	width: 80%;
+	width: 100%;
 	/* height:550px; */
 	background: #f2f4f8;
 	margin-inline: auto;
@@ -42,6 +49,7 @@ body {
 
 .login-form {
 	margin-top: 10vh;
+	/* align-self: center; */
 }
 
 .form-container h5 {
@@ -153,12 +161,13 @@ body {
 	width: 100%;
 	align-self: flex-end;
 } */
-/* .login-footer {
+.login-footer {
 	position: absolute;
-	max-height: 5rem;
+	width: 100%;
+	max-height: 20vh;
 	bottom: 0;
 	left: 0;
-} */
+}
 @media (min-width: 480px) {
 	/* header nav {
 		display: block;
