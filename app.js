@@ -4,6 +4,8 @@ const path = require("path");
 
 app.use(express.static(path.resolve(__dirname, "public")));
 
+app.set("view engine", "ejs"); //Preparando el projecto para usar EJS.
+
 app.listen(3000, () => console.log("Corriendo en http://localhost:3000"));
 
 app.get("/", (req, res) =>

@@ -32,14 +32,17 @@ const menuBtn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".nav");
 const closeMenu = document.querySelector(".close-menu");
 
+//Agrega la clase show al menu cuando haces click en el icono
 menuBtn.addEventListener("click", () => {
 	menu.classList.toggle("show");
 });
 
+//Elimina la clase show al menu cuando haces click en el icono de cerrar
 closeMenu.addEventListener("click", () => {
 	menu.classList.remove("show");
 });
 
+//Permite cerrar el menu cuando haces click fuera del mismo
 window.addEventListener("click", (e) => {
 	if (
 		!menu.contains(e.target) &&
