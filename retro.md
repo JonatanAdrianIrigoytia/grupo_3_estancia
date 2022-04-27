@@ -29,7 +29,7 @@ Usar la terminal para ejecutar comandos de git, ya que se vuelve díficil de man
 
 ## 1. Comenzar a hacer
 
-Hacer una reunión semanal para chequear el progreso del trabajo.
+Hacer una reunión semanal para chequear el progreso del trabajo y explicar al resto del equipo, cómo se hizo la tarea.
 
 ## 2. Hacer más
 
