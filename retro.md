@@ -22,3 +22,27 @@ Usar Figma con herramienta para los wireframes, la versión gratuita tiene ciert
 ## 5. Dejar de hacer
 
 Usar la terminal para ejecutar comandos de git, ya que se vuelve díficil de manejar para nuevos usuarios.
+
+
+
+# Retrospectiva del Sprint 2
+
+## 1. Comenzar a hacer
+
+Hacer una reunión semanal para chequear el progreso del trabajo.
+
+## 2. Hacer más
+
+Utilizar Liveshare para compartir el código, si bien los instalamos no pudimos probarlo del todo por problemas técnicos.
+
+## 3. Continuar haciendo
+
+Utilizar la interfaz de Visual Studio Code para sincronizar los cambios en github.
+
+## 4. Hacer menos
+
+El sprint anterior no tuvo suficiente complejidad como para implementar el issue tracker, pero si llegara a ser necesario podemos probarlo en este.
+
+## 5. Dejar de hacer
+
+De momento no encontramos ninguna tarea que debamos dejar de hacer.
