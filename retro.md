@@ -23,8 +23,6 @@ Usar Figma con herramienta para los wireframes, la versión gratuita tiene ciert
 
 Usar la terminal para ejecutar comandos de git, ya que se vuelve díficil de manejar para nuevos usuarios.
 
-
-
 # Retrospectiva del Sprint 2
 
 ## 1. Comenzar a hacer
