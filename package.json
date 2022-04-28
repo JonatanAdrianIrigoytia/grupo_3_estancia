@@ -4,7 +4,7 @@
   "description": "Estancia Las Violetas es un hotel de campo tradicional y confortable, ideal para relajarse y conectar con la naturaleza. Posee una amplia oferta de actividades para realizar durante su estadía que pueden seleccionarse individualmente por un costo adicional.",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon app.js"
+    "test": "nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",
