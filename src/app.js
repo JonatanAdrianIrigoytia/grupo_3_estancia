@@ -4,6 +4,7 @@ const path = require("path");
 const mainRouter = require("./routes/mainRouter");
 const userRouter = require("./routes/userRouter");
 const productRouter = require("./routes/productRouter");
+const methodOverride = require("method-override");
 
 app.use(express.static(path.resolve(__dirname, "../public")));
 app.set("view engine", "ejs");
@@ -14,6 +15,7 @@ app.set("views", [
 	path.resolve(__dirname, "views/products"),
 	path.resolve(__dirname, "views/users"),
 ]);
+app.use(methodOverride("_method"));
 
 app.use("/", mainRouter);
 app.use("/user", userRouter);
