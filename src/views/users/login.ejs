@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {style: "form-styles", title: " - Iniciar Sesión"})%>
+	<body>
+	<%- include("../partials/header.ejs")%>
+		<main>
+			<form action="/login" method="POST">
+				<div class="form-container login-form">
+					<h5>Bienvenidos a Las Violetas</h5>
+
+					<label for="email">E-mail</label>
+					<input
+						class="controls"
+						type="text"
+						name="email"
+						id="email"
+						placeholder="E-mail"
+						required
+					/>
+					<label for="password">Contraseña</label>
+					<input
+						id="password"
+						name="password"
+						type="password"
+						class="controls"
+						placeholder="Contraseña"
+						required
+					/>
+					<button class="button" type="submit"><h3>Iniciar Sesión</h3></button>
+					<button class="button" type="reset"><h3>Cancelar</h3></button>
+
+					<section class="form-questions">
+						<div class="forgot-password">
+							<span>¿Olvidó su contraseña?</span>
+							<a class="forgot-password-link" href="/forgot-password"
+								>Restablezcala</a
+							>
+						</div>
+						<div class="create-account">
+							<span>¿No tiene una cuenta?</span>
+							<a class="create-account-link" href="/register">Registrese</a>
+						</div>
+					</section>
+				</div>
+			</form>
+		</main>
+		<%- include("../partials/footer.ejs")%>
+		<%- include("../partials/scripts.ejs")%>
+	</body>
+</html>

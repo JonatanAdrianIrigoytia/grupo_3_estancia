@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head.ejs", {style: "product-styles", title: " - Carrito de compras"})%>
+    <body>
+        <%- include("../partials/header.ejs")%>
+        <main>
+            <h2 class="shopping-cart-title">Carrito de compras</h2>
+            <article class="article-container">
+                <div class="article-image">
+                    <img class="tiny-image"                    
+                        src="/images/habitacion1.jpg"
+                        alt="Habitacion Las Lavandas"
+                    />
+                </div>
+                <div class="article-description">
+                    Habitación doble de 40m² con baño privado. 
+                </div>
+                <div class="action-buttons">
+                    <div class="incremental-buttons">
+                        <span class="cart-icon-section">
+                            <button class="cart-button"><i class="fa-solid fa-minus cart-icon"></i></button>
+                        </span>
+                        <div class="cart-icon-quantity">
+                            <p>1</p>
+                        </div>
+                        <span class="cart-icon-section">
+                            <button class="cart-button"><i class="fa-solid fa-plus cart-icon"></i></button>
+                        </span>
+                    </div>
+                    <div class="edit-remove-buttons">
+                        <button class="cart-button"><i class="fa-solid fa-pen-to-square cart-icon"></i></button>
+                        <button class="cart-button"><i class="fa-solid fa-trash-can cart-icon"></i></button>
+                    </div>
+                </div>
+            </article>
+            <article class="article-container">
+                <div class="article-image">
+                    <img class="tiny-image"                    
+                        src="/images/masaje.jpg"
+                        alt="Masaje con piedras calientes"
+                    />
+                </div>
+                <div class="article-description">
+                    Masajes con piedras calientes
+                </div>
+                <div class="action-buttons">
+                    <div class="incremental-buttons">
+                        <span class="cart-icon-section">
+                            <button class="cart-button"><i class="fa-solid fa-minus cart-icon"></i></button>
+                        </span>
+                        <div class="cart-icon-quantity">
+                            <p>2</p>
+                        </div>
+                        <span class="cart-icon-section">
+                            <button class="cart-button"><i class="fa-solid fa-plus cart-icon"></i></button>
+                        </span>
+                    </div>
+                    <div class="edit-remove-buttons">
+                        <button class="cart-button"><i class="fa-solid fa-pen-to-square cart-icon"></i></button>
+                        <button class="cart-button"><i class="fa-solid fa-trash-can cart-icon"></i></button>
+                    </div>
+                </div>
+            </article>
+            <article class="article-container">
+                <div class="article-image">
+                    <img class="tiny-image"                    
+                        src="/images/yoga.jpg"
+                        alt="Clase de Yoga"
+                    />
+                </div>
+                <div class="article-description">
+                Clase de Yoga y relajación con cuencos tibetanos. 
+                </div>
+                <div class="action-buttons">
+                    <div class="incremental-buttons">
+                        <span class="cart-icon-section">
+                            <button class="cart-button"><i class="fa-solid fa-minus cart-icon"></i></button>
+                        </span>
+                        <div class="cart-icon-quantity">
+                                <p>2</p>
+                        </div>
+                        <span class="cart-icon-section">
+                            <button class="cart-button"><i class="fa-solid fa-plus cart-icon"></i></button>
+                        </span>
+                    </div>
+                    <div class="edit-remove-buttons">
+                        <button class="cart-button"><i class="fa-solid fa-pen-to-square cart-icon"></i></button>
+                        <button class="cart-button"><i class="fa-solid fa-trash-can cart-icon"></i></button>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <section class="cart-total-cost">
+                <h3>
+                    Total
+                </h3>
+                <span>
+                    $100.000
+                </span>
+            </section>
+            <section class="cart-total-cost">
+                <a href="#"> Volver</a>
+                <button>
+                    Iniciar reserva
+                </button>
+            </section>
+        </main>
+		<%- include("../partials/footer.ejs")%>
+		<%- include("../partials/scripts.ejs")%>
+    </body>
+</html>
