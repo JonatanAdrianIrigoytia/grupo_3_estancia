@@ -22,27 +22,37 @@
 		</main>
 		<section class="rooms-activities">
 			<div class="tabbar">
-				<div class="tab active" id="roomstab">
+				<div onClick="tabclick(this)" class="tab active" id="roomstab">
 					<p class="tab-label">Habitaciones</p>
 				</div>
-				<div class="tab" id="activitiestab">
+				<div onClick="tabclick(this)" class="tab" id="activitiestab">
 					<p class="tab-label">Actividades</p>
 				</div>
 			</div>
 			<div class="options container" id="rooms">
-				<p class="option selected-option">01 Las Lavandas</p>
-				<p class="option">02 Los Lirios</p>
-				<p class="option">03 Las Glicinas</p>
-				<p class="option">04 Las Petunias</p>
-				<p class="option">05 Los Aza		<%- include("../partials/header.ejs")%>
-			<div class="options container hidden" id="activities">
-				<p class="option selected-option">01 Cabalgatas</p>
-				<p class="option">02 Clases de Polo</p>
-				<p class="option">03 Masajes</p>
-				<p class="option">04 Limpieza de cutis</p>
-				<p class="option">05 Clases de Yoga</p>
-				<p class="option">06 Clases de empanadas</p>
+				<% rooms.forEach((room, index) => { %>
+				 	<% let number = (index + 1).toString().padStart(2, "0")%>
+					<% if (index == 0) { %>
+				 		<p onClick="select(this)" data-id = <%=room.id%> class="option selected-option"><%=number%> <%=room.name%></p>
+					<% }else { %>
+						<p onClick="select(this)" data-id = <%=room.id%> class="option"><%=number%> <%=room.name%></p>
+					<% } %>
+				<% }) %>
+			<!--	<p onClick="select(this)" class="option">02 Los Lirios</p>
+				<p onClick="select(this)" class="option">03 Las Glicinas</p>
+				<p onClick="select(this)" class="option">04 Las Petunias</p>
+				<p onClick="select(this)" class="option">05 Los Azafranes</p>
+				<p onClick="select(this)" class="option">06 Las Pasionarias</p> 
+				-->
 			</div>
+			<div class="options container hidden" id="activities">
+				<p onClick="select(this)" class="option selected-option">01 Cabalgatas</p>
+				<p onClick="select(this)" class="option">02 Clases de Polo</p>
+				<p onClick="select(this)" class="option">03 Masajes</p>
+				<p onClick="select(this)" class="option">04 Limpieza de cutis</p>
+				<p onClick="select(this)" class="option">05 Clases de Yoga</p>
+				<p onClick="select(this)" class="option">06 Clases de empanadas</p>
+			</div>				 
 			<div class="container">
 				<div class="carrousel-button">
 					<a href="" class="prev-image">
@@ -50,7 +60,7 @@
 					</a>
 				</div>
 				<div class="image-container">
-					<img src="/images/apartment-1.jpg" alt="" class="carrousel-image" />
+					<img src="/images/rooms/apartment-1.jpg" alt="" class="carrousel-image" />
 				</div>
 				<div class="carrousel-options">
 					<span class="image-selector selected-image"></span>
@@ -64,33 +74,34 @@
 						<i class="fa-solid fa-caret-right next-button"></i>
 					</a>
 				</div>
+				<div class="item-description">
+					<h3 class="titulo">sadazd</h3>
+					<p class="description">
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore in
+						similique quibusdam optio repudiandae ipsa consequatur nemo sunt? Nulla
+						amet eos magnam accusantium repellendus. Ad, inventore sapiente! Fuga,
+						eos temporibus?
+					</p>
+					<span class="icon amenity-bed"></span>
+					<span class="icon amenity-sofa"></span>
+					<span class="icon amenity-key"></span>
+					<button class="detail-button">Ver detalle completo</button>
+				</div>
 			</div>
-			<h3 class="titulo">Habitacion/Actividad</h3>
-			<p class="description">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore in
-				similique quibusdam optio repudiandae ipsa consequatur nemo sunt? Nulla
-				amet eos magnam accusantium repellendus. Ad, inventore sapiente! Fuga,
-				eos temporibus?
-			</p>
-			<span class="icon amenity-bed"></span>
-			<span class="icon amenity-sofa"></span>
-			<span class="icon amenity-key"></span>
-			<button class="detail-button">Ver detalle completo</button>
+
 		</section>
 		<section class="location">
 			<div class="tabbar">
-				<div class="tab active">
+				<div onClick="tabclick(this)" class="tab active" id="airporttab">
 					<p class="tab-label">Desde el aeropuerto</p>
 				</div>
-				<div class="tab">
+				<div onClick="tabclick(this)" class="tab" id="cabatab">
 					<p class="tab-label">Desde CABA</p>
 				</div>
 			</div>
 			<div class="container">
-				<p class="description">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque
-					adipisci quam provident eos necessitatibus impedit consequatur optio
-					minus earum ea.around
+				<p class="description directions">
+					Desde el aeropuerto
 				</p>
 				<a href="#" class="location-text">
 					<i class="fa-solid fa-location-dot location-icon"></i>

@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("../partials/head.ejs", {style: "product-styles" , title: " - Crear Producto" })%>
+<%- include("../partials/head.ejs", {style: "form-styles" , title: " - Crear Producto" })%>
 
 	<body>
 		<%- include("../partials/header.ejs")%>
 			<main>
+			<h3 class="products-title">Formulario de creación de productos</h3>
 				<div class="container">
-
-					<h5 class="products-title">Formulario de creación de productos</h5>
-				</div>
-				</div>
-
-				<form action="/products" method="POST">
-					<div class="createProduct">
-
-						<label for="name" class="form-label">Nombre del producto:</label>
-						<input type="text" id="name" name="name" placeholder="Ej: Habitación de lujo" class="controls">
-
-						<label for="price" class="form-label">Precio de la Habitación:</label>
-						<input type="number" id="price" name="price" placeholder="Ej: 5678" class="controls">
-
-						<label for="price" class="form-label">Cantidad de camas:</label>
-						<input type="number" id="price" name="price" placeholder="Ej: 1 matrimonial" class="controls">
-
-
-						<label for="discount" class="form-label">cantidad de personas</label>
-						<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls">
-
-
-						<label for="category" class="form-label">Categoría:</label>
-						<select name="category" id="category" class="controls">
-							<option value="">all inclusive</option>
-							<option value="in-sale">En oferta</option>
-							<option value="visited">Habitación con vista a las sierras</option>
-							<option value="visited">Habitación con vista al atardecer</option>
-							<option value="visited">Habitación con vista al amanecer</option>
-						</select>
-					</div>
-					<div class="textarea">
-						<label for="description" class="form-label">Descipción:</label>
-						<textarea name="description" id="description" class="form-input"></textarea>
-					</div>
-
-					<button class="button" type="submit" class="buy-now-button">
-						<h3>Guardar producto</h3>
-					</button>
-
+				<form action="/products/" method="POST">
+						<div class="form-fields">
+							<label for="name" class="form-label">Nombre del producto:</label>
+							<input type="text" id="name" name="name" placeholder="Ej: Habitación de lujo" class="controls">
+							
+							<label for="price" class="form-label">Precio de la Habitación:</label>
+							<input type="number" id="price" name="price" placeholder="Ej: 5678" class="controls">
+							
+							<label for="category" class="form-label">Categoría:</label>
+							<select name="category" id="category" class="controls">
+								<option id=room value="room">Habitación</option>
+								<option id=activity value="activity">Actividad</option>
+							</select>
+							
+							<label for="description" class="form-label">Descripción:</label>
+							<input type="text" id="description" name="description" placeholder="Ej: Habitación de lujo" class="controls">
+							
+							<label for="long-description" class="form-label">Descripción:</label>
+							<textarea name="longDescription" id="long-description" class="controls"></textarea>
+							
+							<label for="capacity" class="form-label">Capacidad:</label>
+							<input type="number" id="capacity" name="capacity" placeholder="Ej: 2" class="controls">
+							
+							<label for="discount" class="form-label">Cantidad de personas</label>
+							<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls">
+							
+							<button class="button buy-now-button" type="submit">Guardar producto</button>
+						</div>
 					</div>
 				</form>
-				</div>
-
-				</div>
+			</div>
 			</main>
 			<%- include("../partials/footer.ejs")%>
-				<%- include("../partials/scripts.ejs")%>
+			<%- include("../partials/scripts.ejs")%>
 
 	</body>
 

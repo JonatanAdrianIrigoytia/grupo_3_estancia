@@ -79,6 +79,7 @@ header {
 	position: relative;
 	width: 100%;
 	padding-block: 1rem;
+	/* margin-top: 1rem; */
 	font-size: 1.25rem;
 	justify-content: space-between;
 	text-decoration: none;
@@ -133,20 +134,13 @@ header {
 }
 
 .user-link {
+	margin-left: 0.75rem;
 	text-decoration: none;
-	margin-left: 0.5rem;
 }
 
-.arrow-icon {
-	color: rgb(var(--clr-bg));
+.user-link > span {
 	margin-left: 0.25rem;
-	align-self: center;
-	font-size: 0.9rem;
-	transition: color 250ms ease;
-}
-
-.arrow-icon:hover {
-	color: rgb(var(--clr-accent));
+	color: rgb(var(--clr-bg));
 }
 
 .usericon {

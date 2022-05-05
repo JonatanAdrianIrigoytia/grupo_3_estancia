@@ -1,1 +1,122 @@
-[]
+[
+	{
+		"id": 1,
+		"name": "Los Lavandas",
+		"description": "",
+		"category": "room",
+		"price": 1233,
+		"capacity": 4,
+		"discount": 0,
+		"amenities": [],
+		"services": []
+	},
+	{
+		"id": 2,
+		"name": "Los Lirios",
+		"description": "",
+		"category": "room",
+		"price": 1233,
+		"capacity": 4,
+		"discount": 0,
+		"amenities": [],
+		"services": []
+	},
+	{
+		"id": 3,
+		"name": "Las Glicinas",
+		"description": "",
+		"category": "room",
+		"price": 1233,
+		"capacity": 4,
+		"discount": 0,
+		"amenities": [],
+		"services": []
+	},
+	{
+		"id": 4,
+		"name": "Las Petunias",
+		"description": "",
+		"category": "room",
+		"price": 1233,
+		"capacity": 4,
+		"discount": 0,
+		"amenities": [],
+		"services": []
+	},
+	{
+		"id": 5,
+		"name": "Los Azafranes",
+		"description": "",
+		"category": "room",
+		"price": 1233,
+		"capacity": 4,
+		"discount": 0,
+		"amenities": [],
+		"services": []
+	},
+	{
+		"id": 6,
+		"name": "Las Pasionarias",
+		"description": "",
+		"category": "room",
+		"price": 1233,
+		"capacity": 4,
+		"discount": 0,
+		"amenities": [],
+		"services": []
+	},
+	{
+		"id": 7,
+		"name": "Cabalgatas",
+		"description": "",
+		"category": "activity",
+		"price": 1233,
+		"duration": 60,
+		"discount": 0
+	},
+	{
+		"id": 8,
+		"name": "Clases de Polo",
+		"description": "",
+		"category": "activity",
+		"price": 1233,
+		"duration": 60,
+		"discount": 0
+	},
+	{
+		"id": 9,
+		"name": "Masajes",
+		"description": "",
+		"category": "activity",
+		"price": 1233,
+		"duration": 60,
+		"discount": 0
+	},
+	{
+		"id": 10,
+		"name": "Limpieza de cutis",
+		"description": "",
+		"category": "activity",
+		"price": 1233,
+		"duration": 60,
+		"discount": 0
+	},
+	{
+		"id": 11,
+		"name": "Clases de Yoga",
+		"description": "",
+		"category": "activity",
+		"price": 1233,
+		"duration": 60,
+		"discount": 0
+	},
+	{
+		"id": 12,
+		"name": "Clases de empanadas",
+		"description": "",
+		"category": "activity",
+		"price": 1233,
+		"duration": 60,
+		"discount": 0
+	}
+]

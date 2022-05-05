@@ -68,7 +68,9 @@ main {
 	padding: 8px;
 	background: white;
 }
-
+.products-title {
+	margin-bottom: 0.5rem;
+}
 /* .controls {
 	width: 100%;
 	border: 1px solid rgb(var(--clr-dark));
@@ -87,7 +89,14 @@ main {
 	cursor: pointer;
 	border: none;
 	outline: none;
+	color: rgb(var(--clr-bg));
+	font-size: 1.25rem;
 }
+
+.form-fields {
+	margin-top: 0.5rem;
+}
+
 .button h3 {
 	color: #8661c1;
 }
