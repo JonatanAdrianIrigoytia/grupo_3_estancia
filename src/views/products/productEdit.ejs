@@ -3,7 +3,49 @@
 	<%- include("../partials/head.ejs", {style: "product-styles", title: " - Editar Producto"})%>
 	<body>
 		<%- include("../partials/header.ejs")%>
-		<main></main>
+		<main>
+			<form action="/products/edit/<%= productToEdit.id %>?_method=PATCH" method="POST">
+				<div class="createProduct">
+
+					<label for="name" class="form-label">Nombre del producto:</label>
+					<input type="text" id="name" name="name" placeholder="Ej: Habitación de lujo" class="controls">
+
+					<label for="price" class="form-label">Precio de la Habitación:</label>
+					<input type="number" id="price" name="price" placeholder="Ej: 5678" class="controls">
+
+					<label for="price" class="form-label">Cantidad de camas:</label>
+					<input type="number" id="price" name="price" placeholder="Ej: 1 matrimonial" class="controls">
+
+
+					<label for="discount" class="form-label">Cantidad de personas</label>
+					<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls">
+
+
+					<label for="category" class="form-label">Categoría:</label>
+					<select name="category" id="category" class="controls">
+						
+						<option value="in-sale">En oferta</option>
+						<option value="">all inclusive</option>
+						<option value="visited">Habitación con vista a las sierras</option>
+						<option value="visited">Habitación con vista al atardecer</option>
+						<option value="visited">Habitación con vista al amanecer</option>
+					</select>
+				</div>
+				<div class="textarea">
+					<label for="description" class="form-label">Descipción:</label>
+					<textarea name="description" id="description" class="form-input"></textarea>
+				</div>
+
+				<button class="button" type="submit" class="buy-now-button">
+					<h3>Modificar</h3>
+				</button>
+
+				</div>
+			</form>
+			</div>
+
+			</div>
+		</main>
 		<%- include("../partials/footer.ejs")%>
 		<%- include("../partials/scripts.ejs")%>
 	</body>
