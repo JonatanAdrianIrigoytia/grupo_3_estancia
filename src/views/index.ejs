@@ -38,41 +38,39 @@
 						<p onClick="select(this)" data-id = <%=room.id%> class="option"><%=number%> <%=room.name%></p>
 					<% } %>
 				<% }) %>
-			<!--	<p onClick="select(this)" class="option">02 Los Lirios</p>
-				<p onClick="select(this)" class="option">03 Las Glicinas</p>
-				<p onClick="select(this)" class="option">04 Las Petunias</p>
-				<p onClick="select(this)" class="option">05 Los Azafranes</p>
-				<p onClick="select(this)" class="option">06 Las Pasionarias</p> 
-				-->
 			</div>
 			<div class="options container hidden" id="activities">
-				<p onClick="select(this)" class="option selected-option">01 Cabalgatas</p>
-				<p onClick="select(this)" class="option">02 Clases de Polo</p>
-				<p onClick="select(this)" class="option">03 Masajes</p>
-				<p onClick="select(this)" class="option">04 Limpieza de cutis</p>
-				<p onClick="select(this)" class="option">05 Clases de Yoga</p>
-				<p onClick="select(this)" class="option">06 Clases de empanadas</p>
+				<% activities.forEach((activity, index) => { %>
+				 	<% let number = (index + 1).toString().padStart(2, "0")%>
+					<% if (index == 0) { %>
+				 		<p onClick="select(this)" data-id = <%=activity.id%> class="option selected-option"><%=number%> <%=activity.name%></p>
+					<% }else { %>
+						<p onClick="select(this)" data-id = <%=activity.id%> class="option"><%=number%> <%=activity.name%></p>
+					<% } %>
+				<% }) %>
 			</div>				 
 			<div class="container">
-				<div class="carrousel-button">
-					<a href="" class="prev-image">
-						<i class="fa-solid fa-caret-left prev-button"></i>
-					</a>
-				</div>
-				<div class="image-container">
-					<img src="/images/rooms/apartment-1.jpg" alt="" class="carrousel-image" />
-				</div>
-				<div class="carrousel-options">
-					<span class="image-selector selected-image"></span>
-					<span class="image-selector"></span>
-					<span class="image-selector"></span>
-					<span class="image-selector"></span>
-					<span class="image-selector"></span>
-				</div>
-				<div class="carrousel-button">
-					<a href="" class="next-image">
-						<i class="fa-solid fa-caret-right next-button"></i>
-					</a>
+				<div class="carrousel">
+					<div class="carrousel-button">
+						<a href="" class="prev-image">
+							<i class="fa-solid fa-caret-left prev-button"></i>
+						</a>
+					</div>
+					<div class="image-container">
+						<img src="/images/rooms/apartment-1.jpg" alt="" class="carrousel-image" />
+					</div>
+					<div class="carrousel-options">
+						<span class="image-selector selected-image"></span>
+						<span class="image-selector"></span>
+						<span class="image-selector"></span>
+						<span class="image-selector"></span>
+						<span class="image-selector"></span>
+					</div>
+					<div class="carrousel-button">
+						<a href="" class="next-image">
+							<i class="fa-solid fa-caret-right next-button"></i>
+						</a>
+					</div>
 				</div>
 				<div class="item-description">
 					<h3 class="titulo">sadazd</h3>

@@ -1,10 +1,25 @@
+const res = require("express/lib/response");
 const fs = require("fs");
 const path = require("path");
-const { title } = require("process");
+
+/* En la constante "products" ya tienen los productos que están 
+guardados en la carpeta Data como Json (un array de objetos literales) */
+const productsFilePath = path.join(__dirname, "../data/products.json");
+const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productController = {
 	list: (req, res) => {
-		res.render("productsList", { productsList: getProducts() });
+		res.render("productsList", { productsList: products });
+	},
+	listRooms: (req, res) => {
+		let rooms = products.filter((product) => product.category == "room");
+		res.render("roomList", { rooms });
+	},
+	listActivities: (req, res) => {
+		let activities = products.filter(
+			(product) => product.category == "activity",
+		);
+		res.render("roomList", { activities });
 	},
 	detail: (req, res) => {
 		res.render("productDetail", { product: getProduct(req.params.id) });
@@ -25,19 +40,8 @@ const productController = {
 		res.redirect("/products");
 	},
 };
-
-const getProducts = () => {
-	let products = JSON.parse(
-		fs.readFileSync(
-			path.resolve(__dirname, "../data/products.json"),
-			"utf-8",
-		) || [],
-	);
-	return products.sort((product1, product2) => product1 - product2);
-};
-
 const getProduct = (productId) => {
-	return getProducts().find((product) => product.id == productId);
+	return products.find((product) => product.id == productId);
 };
 
 function edit(id, data) {
