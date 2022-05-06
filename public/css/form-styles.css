@@ -44,9 +44,19 @@ main {
 	border: 1px solid rgb(var(--clr-dark));
 	display: flex;
 	flex-direction: column;
+
 	gap: 0.5rem;
 }
 
+  input[type="file"]::-webkit-file-upload-button {
+	border: none;
+    background: #8661c1;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 20px;
+	
+  }
+  
 .login-form {
 	margin-top: 10vh;
 	/* align-self: center; */

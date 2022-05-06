@@ -7,7 +7,8 @@
 			<main>
 			<h3 class="products-title">Formulario de creación de productos</h3>
 				<div class="container">
-				<form action="/products/" method="POST">
+					
+				<form action="/products/" method="POST" enctype="multipart/formdata" >
 						<div class="form-fields">
 							<label for="name" class="form-label">Nombre del producto:</label>
 							<input type="text" id="name" name="name" placeholder="Ej: Habitación de lujo" class="controls">
@@ -32,6 +33,9 @@
 							
 							<label for="discount" class="form-label">Cantidad de personas</label>
 							<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls">
+							
+							<label for="product-image" class="form-label">Imagen del producto</label>
+							<input type="file" id="product-image" name="product-image" multiple="multiple" class="controls">
 							
 							<button class="button buy-now-button" type="submit">Guardar producto</button>
 						</div>
