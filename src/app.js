@@ -18,7 +18,7 @@ app.set("views", [
 app.use(methodOverride("_method"));
 
 app.use("/", mainRouter);
-app.use("/user", userRouter);
+app.use("/users", userRouter);
 app.use("/products", productRouter);
 
 app.listen(3000, () => console.log("Corriendo en http://localhost:3000"));
