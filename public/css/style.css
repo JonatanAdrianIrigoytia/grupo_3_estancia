@@ -115,22 +115,24 @@ header {
 	padding-inline: 0.75rem;
 	padding-block: 0.25rem;
 	color: rgb(var(--clr-dark));
-	transition: color, border-color 250ms ease;
+	transition: border-color, color 250ms ease;
 }
 .menu-cart {
 	padding-right: 0.5rem;
+	transition: color 250ms ease;
 }
 
 .menu-link:hover,
-.menu-link:active,
-.menu-cart:hover,
-.menu-cart:active {
+.menu-link:active {
 	color: rgb(var(--clr-accent));
+	filter: brightness(1.5);
 }
+
 .menu-link-cart:hover,
-.menu-link-cart:active {
+.menu-link-cart:hover > * {
 	color: rgb(var(--clr-accent));
 	border-color: rgb(var(--clr-accent));
+	/* filter: brightness(1.25); */
 }
 
 .user-link {
@@ -142,6 +144,15 @@ header {
 .user-link > span {
 	margin-left: 0.25rem;
 	color: rgb(var(--clr-bg));
+}
+
+.user-link > * {
+	transition: filer, color 280 ease;
+}
+
+.user-link:hover > * {
+	color: rgb(var(--clr-accent));
+	filter: brightness(1.5);
 }
 
 .usericon {
@@ -519,12 +530,6 @@ footer {
 		padding-block: 0.5rem;
 		margin-right: 1rem;
 		color: rgb(var(--clr-bg));
-	}
-
-	.menu-link:hover,
-	.menu-link:active {
-		color: rgb(var(--clr-accent));
-		filter: brightness(1.5);
 	}
 
 	div > .menu-btn {
