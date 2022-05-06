@@ -13,6 +13,9 @@ const userController = {
 	register: (req, res) => {
 		res.render("index");
 	},
+	forgotPassword: (req, res) => {
+		res.send("Revise su correo electronico");
+	},
 };
 
 module.exports = userController;

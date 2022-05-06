@@ -22,6 +22,7 @@ const uploads = multer({ storage });
 
 router.get("/login", userController.renderLogin);
 router.get("/register", userController.renderRegister);
+router.get("/forgot-password", userController.forgotPassword);
 router.post("/login", userController.login);
 router.post("/register", uploads.single("user-image"), userController.register);
 
