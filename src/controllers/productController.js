@@ -9,17 +9,23 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productController = {
 	list: (req, res) => {
-		res.render("productsList", { productsList: products });
+		res.render("productsList", { products });
 	},
 	listRooms: (req, res) => {
 		let rooms = products.filter((product) => product.category == "room");
-		res.render("roomList", { rooms });
+		res.render("productsList", {
+			title: "Todas las habitaciones",
+			products: rooms,
+		});
 	},
 	listActivities: (req, res) => {
 		let activities = products.filter(
 			(product) => product.category == "activity",
 		);
-		res.render("roomList", { activities });
+		res.render("productsList", {
+			title: "Todas las actividades",
+			products: activities,
+		});
 	},
 	detail: (req, res) => {
 		res.render("productDetail", { product: getProduct(req.params.id) });

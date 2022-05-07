@@ -22,15 +22,6 @@ const storage = multer.diskStorage({
 	},
 });
 
-// const activityStorage = multer.diskStorage({
-// 	destination: (req, file, cb) =>
-// 		cb(null, path.resolve(__dirname, "../../public/images/activities")),
-// 	filename: (req, file, cb) => {
-// 		let filename = getFileName(req.body);
-// 		cb(null, filename);
-// 	},
-// });
-
 const uploads = multer({ storage });
 
 function getFileName(body) {
@@ -46,7 +37,7 @@ function getFileName(body) {
 router.get("/", productController.list);
 router.get("/rooms", productController.listRooms);
 router.get("/activities", productController.listActivities);
-router.get("/detail/", productController.detail);
+router.get("/detail/:id", productController.detail);
 router.get("/cart", productController.cart);
 router.get("/create", productController.create);
 router.post("/create", uploads.single("product-image"), productController.save);

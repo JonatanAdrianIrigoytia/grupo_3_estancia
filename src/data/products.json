@@ -1,14 +1,15 @@
 [
 	{
 		"id": 1,
-		"name": "Los Lavandas",
-		"description": "",
+		"name": "Las Lavandas",
+		"description": "fsdegsdrgdrhgerdb tsrgsytrdcbtyerterdtbger grasdet retgretygrd gregrd gerg4ergnregh eryb ",
 		"category": "room",
 		"price": 1233,
 		"capacity": 4,
 		"discount": 0,
 		"amenities": [],
-		"services": []
+		"services": [],
+		"image": "/rooms/habitacion1.jpg"
 	},
 	{
 		"id": 2,
@@ -19,7 +20,8 @@
 		"capacity": 4,
 		"discount": 0,
 		"amenities": [],
-		"services": []
+		"services": [],
+		"image": "/rooms/habitacion1.jpg"
 	},
 	{
 		"id": 3,
@@ -30,7 +32,8 @@
 		"capacity": 4,
 		"discount": 0,
 		"amenities": [],
-		"services": []
+		"services": [],
+		"image": "/rooms/habitacion1.jpg"
 	},
 	{
 		"id": 4,

@@ -47,19 +47,11 @@ header {
 	/* padding-block: 1rem; */
 }
 
-/* .logo-container {
-	width: 30%;
-	display: block;
-	margin-bottom: 2rem;
-	height: 100%;
-} */
-
 .logo {
 	padding: 0;
 	width: 35%;
 	align-self: center;
 	margin-right: 1rem;
-	/* margin: auto; */
 }
 
 .nav {
@@ -79,7 +71,7 @@ header {
 	position: relative;
 	width: 100%;
 	padding-bottom: 1rem;
-	/* margin-top: 1rem; */
+	margin-top: 1rem;
 	font-size: 1.25rem;
 	justify-content: space-between;
 	text-decoration: none;
@@ -136,13 +128,15 @@ header {
 }
 
 .user-link {
+	display: flex;
+	gap: 0.5rem;
 	margin-top: 0.25rem;
 	margin-left: 0.75rem;
 	text-decoration: none;
 }
 
 .user-link > span {
-	margin-left: 0.25rem;
+	/* margin-left: 0.25rem; */
 	color: rgb(var(--clr-bg));
 }
 
@@ -478,15 +472,15 @@ footer {
 		margin-left: 1rem;
 		align-self: center;
 	}
-	.arrow-icon {
-		font-size: 80%;
+	.nav-icons {
+		margin-top: 0;
 	}
 
 	.user-link {
 		margin-top: 0.75rem;
 		margin-left: 1rem;
-		align-self: center;
 		font-size: 1.25rem;
+		align-items: center;
 	}
 	.usericon {
 		border: 1px solid rgb(var(--clr-accent));
@@ -541,6 +535,7 @@ footer {
 	}
 
 	main {
+		margin: 0;
 		padding-top: 4rem;
 	}
 
@@ -619,6 +614,17 @@ footer {
 		width: 30%;
 	}
 }
+
+@media (min-width: 768px) and (max-width: 900px) {
+	.user-link {
+		flex-direction: column;
+	}
+
+	.usericon {
+		margin: 0;
+	}
+}
+
 @media (min-width: 1200px) {
 	.logo {
 		width: 18vw;
@@ -664,22 +670,8 @@ footer {
 		padding-top: 5rem;
 	}
 
-	/* .container {
-		margin: 0 auto;
-		width: 70%;
-	} */
 	.first-image,
 	.carrousel-image {
 		width: 55%;
 	}
-
-	/* .prev-button {
-		top: 28vh;
-		left: 2%;
-	}
-
-	.next-button {
-		bottom: 25vh;
-		right: 2%;
-	} */
 }
