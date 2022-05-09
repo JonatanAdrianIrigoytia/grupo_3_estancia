@@ -9,7 +9,7 @@ const rooms = products.filter((product) => product.category == "room");
 const activities = products.filter((product) => product.category == "activity");
 const mainController = {
 	home: (req, res) => {
-		res.render("index", { rooms, activities });
+		res.render("index", { rooms, activities, selected: rooms[0] });
 	},
 };
 

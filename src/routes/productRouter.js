@@ -8,12 +8,9 @@ const path = require("path");
 const storage = multer.diskStorage({
 	// La idea de la logica extra en el metodo destination es que si el producto que se esta creando es una habitacion
 	// La imagen se guarde en /images/rooms pero si es una actividad se guarde en /images/activities
-	// En caso de que esto no funcione la solucion seria luego de que se guarde la imagen moverla a la carpeta que corresponda
 	destination: (req, file, cb) => {
 		let dest = "../../public/images/products/";
 		dest += req.body.category == "room" ? "rooms" : "activities";
-		// if (req.body.category == "room") dest += "rooms";
-		// else if (req.body.category == "activity") dest += "activities";
 		console.log(dest);
 		cb(null, path.resolve(__dirname, dest));
 	},

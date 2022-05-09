@@ -62,7 +62,7 @@
 						</a>
 					</div>
 					<div class="image-container">
-						<img src="/images/rooms/apartment-1.jpg" alt="" class="carrousel-image" />
+						<img src="/images/<%=selected.image%>" alt="Primera imagen del producto seleccionado" class="carrousel-image" />
 					</div>
 					<div class="carrousel-options">
 						<span class="image-selector selected-image"></span>
@@ -78,12 +78,9 @@
 					</div>
 				</div>
 				<div class="item-description">
-					<h3 class="titulo">Titulo del producto</h3>
+					<h3 class="titulo"><%=selected.name%></h3>
 					<p class="description">
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore in
-						similique quibusdam optio repudiandae ipsa consequatur nemo sunt? Nulla
-						amet eos magnam accusantium repellendus. Ad, inventore sapiente! Fuga,
-						eos temporibus?
+						<%=selected.description%>
 					</p>
 					<div class="icons">
 						<div class="amenity bed">
@@ -97,7 +94,9 @@
 						</div>
 					</div>
 					<div class="buttons">
-						<button class="detail-button">Ver detalle completo</button>
+						<a class="detail-link" href="/products/detail/<%=selected.id%>">
+							<button class="detail-button">Ver detalle completo</button>
+						</a>
 						<a class="all-products" href="/products">Ver todos los productos</a>
 					</div>
 				</div>

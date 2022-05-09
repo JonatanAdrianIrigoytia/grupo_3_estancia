@@ -301,6 +301,9 @@ img {
 	width: 50%;
 }
 
+.detail-link {
+	text-decoration: none;
+}
 .detail-button {
 	background-color: rgb(var(--clr-accent));
 	border: 0;
