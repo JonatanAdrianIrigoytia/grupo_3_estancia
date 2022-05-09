@@ -5,11 +5,11 @@
         <%- include("../partials/header.ejs")%>
         <main>
             <h2 class="shopping-cart-title">Carrito de compras</h2>
-            <form action="/products/cart" method="POST">
+            <form action="/products/cart" method="POST" enctype="multipart/formdata">
                 <% let total = 0 %>
                <% products.forEach((product, index) => { %>
                  <article class="article-container">
-                    <input type="number" name="id" id="id" value="<%=product.id%>" hidden>
+                    <input type="number" name="id<%=index%>" id="id<%=index%>" value="<%=product.id%>" hidden>
                     <div class="article-image">
                         <img class="tiny-image"
                             src="/images/<%=product.image%>"
@@ -41,70 +41,6 @@
                     </div>
                 </article>
                <% }) %>
-               <!--
-                <article class="article-container">
-                    <div class="article-image">
-                        <img class="tiny-image"
-                            src="/images/masaje.jpg"
-                            alt="Masaje con piedras calientes"
-                        />
-                    </div>
-                    <div class="article-description">
-                        Masajes con piedras calientes
-                    </div>
-                    <div class="action-buttons">
-                        <div class="incremental-buttons">
-                            <span class="cart-icon-section">
-                                <button class="cart-button"><i class="fa-solid fa-minus cart-icon"></i></button>
-                            </span>
-                            <div class="cart-icon-quantity">
-                           Esto no lo vimos pero la idea seria que aca el iniciar reserva envie una
-                            lista de objetos literales con todos campos iguales no se ahi como se maneja 
-                            el name en los inputs por ahora voy a poner todos names distintos
-                                <input type="number" name="quantity2" id="quantity2">
-                            </div>
-                            <span class="cart-icon-section">
-                                <button class="cart-button"><i class="fa-solid fa-plus cart-icon"></i></button>
-                            </span>
-                        </div>
-                        <div class="edit-remove-buttons">
-                            <button class="cart-button"><i class="fa-solid fa-pen-to-square cart-icon"></i></button>
-                            <button class="cart-button"><i class="fa-solid fa-trash-can cart-icon"></i></button>
-                        </div>
-                    </div>
-                </article>
-                <article class="article-container">
-                    <div class="article-image">
-                        <img class="tiny-image"
-                            src="/images/yoga.jpg"
-                            alt="Clase de Yoga"
-                        />
-                    </div>
-                    <div class="article-description">
-                    Clase de Yoga y relajación con cuencos tibetanos.
-                    </div>
-                    <div class="action-buttons">
-                        <div class="incremental-buttons">
-                            <span class="cart-icon-section">
-                                <button class="cart-button"><i class="fa-solid fa-minus cart-icon"></i></button>
-                            </span>
-                            <div class="cart-icon-quantity">
-                            Esto no lo vimos pero la idea seria que aca el iniciar reserva envie una
-                            lista de objetos literales con todos campos iguales no se ahi como se maneja 
-                            el name en los inputs por ahora voy a poner todos names distintos
-                                <input type="number" name="quantity3" id="quantity3">
-                            </div>
-                            <span class="cart-icon-section">
-                                <button class="cart-button"><i class="fa-solid fa-plus cart-icon"></i></button>
-                            </span>
-                        </div>
-                        <div class="edit-remove-buttons">
-                            <button class="cart-button"><i class="fa-solid fa-pen-to-square cart-icon"></i></button>
-                            <button class="cart-button"><i class="fa-solid fa-trash-can cart-icon"></i></button>
-                        </div>
-                    </div>
-                </article>
-                -->
                 <hr>
                 <section class="cart-total-cost">
                     <h3>

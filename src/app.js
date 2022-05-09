@@ -15,6 +15,8 @@ app.set("views", [
 	path.resolve(__dirname, "views/products"),
 	path.resolve(__dirname, "views/users"),
 ]);
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(methodOverride("_method"));
 
 app.use("/", mainRouter);

@@ -16,7 +16,7 @@
                 <%=product.description%>
                 </p>
             </div>
-            <% if (product.services.length > 0) { %>
+            <% if (product.services && product.services.length > 0) { %>
                 <div class="container">
                     <h3 class="subsubtitle">Servicios incluidos</h3>
                     <ul class="services-list">
@@ -27,7 +27,7 @@
                 </div>
             <% } %>
 
-            <!-- <div class="date-guests"> -->
+            <div class="date-guests">
                 <span class="date-section">
                     <i class="fa-solid fa-calendar-day date-icon"></i>
                     <input class="date-picker" type="date" name="date1" id="date1">
@@ -51,15 +51,29 @@
                         <i class="fa-solid fa-magnifying-glass date-icon"></i>
                     </button>
                 </span>
-                <div class="button-container">
-                    <button class="add-to-cart">
-                        <i class="fa-solid fa-plus"></i> 
-                        <div>
-                            <span>Añadir al</span>
-                            <span>carrito</span>
-                        </div>
-                    </button>
-                </div>
+            </div>
+            <div class="button-container">
+            
+                    <form action="/products/<%=product.id%>?_method=DELETE" method="POST">
+                        <button class="delete-button">
+                            <i class="fa-solid fa-trash-can"></i>
+                            <span>Eliminar producto</span>
+                        </button>
+                    </form>
+                 <a class="edit-button-link" href="/products/edit/<%=product.id%>">
+                     <button class="edit-button">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span>Editar Producto</span>
+                     </button>
+                 </a>
+                <button class="add-to-cart">
+                    <i class="fa-solid fa-plus"></i> 
+                    <div>
+                        <span>Añadir al</span>
+                        <span>carrito</span>
+                    </div>
+                </button>
+            </div>
         </main>
 		<%- include("../partials/footer.ejs")%>
 		<%- include("../partials/scripts.ejs")%>

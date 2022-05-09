@@ -9,7 +9,7 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productController = {
 	list: (req, res) => {
-		res.render("productsList", { products });
+		res.render("productsList", { products, title: "Nuestros productos" });
 	},
 	listRooms: (req, res) => {
 		let rooms = products.filter((product) => product.category == "room");
@@ -31,7 +31,8 @@ const productController = {
 		res.render("productDetail", { product: getProduct(req.params.id) });
 	},
 	cart: (req, res) => {
-		res.render("productCart", { cart: cart });
+		let cart = products.slice(0, 3);
+		res.render("productCart", { products: cart });
 	},
 	create: (req, res) => {
 		res.render("productCreate");
@@ -39,42 +40,68 @@ const productController = {
 	edit: (req, res) => {
 		res.render("productEdit", { product: getProduct(req.params.id) });
 	},
-	//El save deberia crear o actualizar el producto en la base de datos
+
 	save: (req, res) => {
-		if (req.params.id) edit(req.params.id, req.body);
-		else create(req.body);
+		console.log(req.file);
+		console.log(req.body);
+		if (req.params.id) edit(req.params.id, req);
+		else create(req);
 		res.redirect("/products");
+	},
+
+	delete: (req, res) => {
+		let productIndex = products.findIndex(
+			(product) => product.id == req.params.id,
+		);
+		products.splice(productIndex, 1);
+		fs.writeFileSync(productsFilePath, JSON.stringify(products));
+		res.redirect("/products");
+	},
+
+	buy: (req, res) => {
+		console.log(req.body);
+		res.send("Reserva recibida");
 	},
 };
 const getProduct = (productId) => {
 	return products.find((product) => product.id == productId);
 };
 
-function edit(id, data) {
-	let editedProduct = fillProductData(id, data);
-	let products = getProducts();
+function edit(id, req) {
+	let editedProduct = fillProductData(id, req);
 	let index = products.findIndex((product) => product.id == id);
 	products[index] = editedProduct;
-	fs.writeFileSync("../data/products.json", JSON.stringify(products));
+	fs.writeFileSync(productsFilePath, JSON.stringify(products));
 }
-function create(data) {
-	let products = getProducts();
+function create(req) {
 	let id = 1;
 	if (products.length > 0) id = products[products.length - 1].id + 1;
-	let product = fillProductData(id, data);
+	let product = fillProductData(id, req);
 	products.push(product);
-	fs.writeFileSync("../data/products.json", JSON.stringify(products));
+	fs.writeFileSync(productsFilePath, JSON.stringify(products));
 }
 
-function fillProductData(id, data) {
-	return {
+function fillProductData(id, req) {
+	let product = {
 		id: id,
-		title: data.title,
-		category: data.category,
-		description: data.description,
-		services: data.services,
-		image: data.image,
+		...req.body,
+		image: getFile(req.body.category, req.file),
 	};
+	product.discount = req.body.discount || 0;
+	if (req.body.category == "room") {
+		product.capacity = req.body.capacity || 0;
+		product.services = req.body.services ? [req.body.services] : [];
+	} else product.duration = req.body.duration;
+
+	return product;
+}
+
+function getFile(category, file) {
+	if (file) {
+		if (category == "room") return "/products/rooms/" + file.filename;
+		return "/products/activities/" + file.filename;
+	}
+	return "default-image.png";
 }
 
 module.exports = productController;

@@ -49,9 +49,13 @@ header {
 
 .logo {
 	padding: 0;
-	width: 35%;
+	width: 100%;
 	align-self: center;
 	margin-right: 1rem;
+}
+
+.logo-link {
+	width: 35%;
 }
 
 .nav {
@@ -192,13 +196,17 @@ header {
 
 main {
 	margin: 1.5rem auto;
-	width: 95%;
+	width: 90%;
+	display: block;
 	padding-top: 3rem;
 }
 
+.title {
+	margin-top: 2rem;
+}
 section {
 	margin: auto;
-	width: 95%;
+	width: 90%;
 }
 
 .container {
@@ -283,6 +291,16 @@ img {
 	padding-block: 0.5rem;
 }
 
+.icons {
+	display: flex;
+	justify-content: space-evenly;
+	margin-left: 2rem;
+}
+
+.amenity > img {
+	width: 50%;
+}
+
 .detail-button {
 	background-color: rgb(var(--clr-accent));
 	border: 0;
@@ -293,6 +311,13 @@ img {
 	font-size: 1rem;
 	cursor: pointer;
 }
+
+.all-products {
+	display: inline;
+	margin-left: 0.5rem;
+	/* font-size: 0.7rem; */
+}
+
 .carrousel-image {
 	width: 100%;
 }
@@ -535,7 +560,6 @@ footer {
 	}
 
 	main {
-		margin: 0;
 		padding-top: 4rem;
 	}
 
@@ -668,6 +692,10 @@ footer {
 
 	main {
 		padding-top: 5rem;
+	}
+
+	.center {
+		margin-left: 4rem;
 	}
 
 	.first-image,

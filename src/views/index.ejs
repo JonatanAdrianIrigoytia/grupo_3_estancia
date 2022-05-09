@@ -4,11 +4,13 @@
 	<body>
 		<%- include("../partials/header.ejs")%>
 		<main>
-			<h1 class="title">Las Violetas</h1>
-			<p class="description">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum autem
-				exercitationem, doloremque tempore consequatur laudantium.
-			</p>
+			<div class="intro-text">
+				<h1 class="title">Las Violetas</h1>
+				<p class="description">
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum autem
+					exercitationem, doloremque tempore consequatur laudantium.
+				</p>
+			</div>
 			<div class="container">
 				<div class="image-container">
 					<img src="/images/front.jpg" alt="" class="first-image" />
@@ -48,7 +50,10 @@
 						<p onClick="select(this)" data-id = <%=activity.id%> class="option"><%=number%> <%=activity.name%></p>
 					<% } %>
 				<% }) %>
-			</div>				 
+			</div>			
+			<!-- Aca seria que cuando seleccionen el producto arriba los datos de aca abajo se actualicen pero aun no vimos como,
+			Con lo que vimos lo unico que se me ocurre es que cada vez que haga click para selecionar un producto se haga un nuevo render
+			con los datos del producto seleccionado, pero tiene que haber una forma mejor, tal vez con JS en el front end o algo-->	 
 			<div class="container">
 				<div class="carrousel">
 					<div class="carrousel-button">
@@ -73,17 +78,28 @@
 					</div>
 				</div>
 				<div class="item-description">
-					<h3 class="titulo">sadazd</h3>
+					<h3 class="titulo">Titulo del producto</h3>
 					<p class="description">
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore in
 						similique quibusdam optio repudiandae ipsa consequatur nemo sunt? Nulla
 						amet eos magnam accusantium repellendus. Ad, inventore sapiente! Fuga,
 						eos temporibus?
 					</p>
-					<span class="icon amenity-bed"></span>
-					<span class="icon amenity-sofa"></span>
-					<span class="icon amenity-key"></span>
-					<button class="detail-button">Ver detalle completo</button>
+					<div class="icons">
+						<div class="amenity bed">
+							<img src="/images/icons/bed.png"></img>
+						</div>
+						<div class="amenity sofa">
+							<img src="/images/icons/sofa.png"></img>
+						</div>
+						<div class="amenity key">
+							<img src="/images/icons/key.png"></img>
+						</div>
+					</div>
+					<div class="buttons">
+						<button class="detail-button">Ver detalle completo</button>
+						<a class="all-products" href="/products">Ver todos los productos</a>
+					</div>
 				</div>
 			</div>
 
