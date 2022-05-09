@@ -3,78 +3,79 @@
     <%- include("../partials/head.ejs", {style: "product-styles", title: " - Detalle del producto"})%>
     <body>
         <%- include("../partials/header.ejs")%>
-        <main>
-            <div class="titles">
-                <h3 class="subtititle"><%= product.category == "room" ? "Habitación" : "Actividad"%></h3>
-                <h2 class="main-titulo"><%=product.name%></h2>
-            </div>
-            <div class="container">
-                <div class="image-container">
-                    <img src="/images/<%=product.image%>" alt="" class="first-image" />
+        <div class="page-container">
+            <main>
+                <div class="titles">
+                    <h3 class="subtititle"><%= product.category == "room" ? "Habitación" : "Actividad"%></h3>
+                    <h2 class="main-titulo"><%=product.name%></h2>
                 </div>
-                <p class="description">
-                <%=product.description%>
-                </p>
-            </div>
-            <% if (product.services && product.services.length > 0) { %>
                 <div class="container">
-                    <h3 class="subsubtitle">Servicios incluidos</h3>
-                    <ul class="services-list">
-                        <% product.services.forEach(service => { %>
-                            <li><%=service%></li> 
-                        <% }) %>
-                    </ul>
+                    <div class="image-container">
+                        <img src="/images/<%=product.image%>" alt="" class="first-image" />
+                    </div>
+                    <p class="description">
+                    <%=product.description%>
+                    </p>
                 </div>
-            <% } %>
-
-            <div class="date-guests">
-                <span class="date-section">
-                    <i class="fa-solid fa-calendar-day date-icon"></i>
-                    <input class="date-picker" type="date" name="date1" id="date1">
-                </span>
-                <span class="date-section">
-                    <i class="fa-solid fa-calendar-day date-icon"></i>
-                    <input class="date-picker" type="date" name="date2" id="date2">
-                </span>
-                <span class="date-section dropdown">
-                    <i class="fa-solid fa-user date-icon"></i>
-                    <span class="date-text">2 Adultos</span>
-                    <div class="dropdown-content">
-                        <p class="date-text">1 Adulto</p>
-                        <p class="date-text">2 Adultos</p>
-                        <p class="date-text">3 Adultos</p>
-                        <p class="date-text">4 Adultos</p>
+                <% if (product.services && product.services.length > 0) { %>
+                    <div class="container">
+                        <h3 class="subsubtitle">Servicios incluidos</h3>
+                        <ul class="services-list">
+                            <% product.services.forEach(service => { %>
+                                <li><%=service%></li>
+                            <% }) %>
+                        </ul>
                     </div>
-                </span>
-                <span class="date-section" id="search-button"> 
-                    <button class="date-button">
-                        <i class="fa-solid fa-magnifying-glass date-icon"></i>
-                    </button>
-                </span>
-            </div>
-            <div class="button-container">
-            
-                    <form action="/products/<%=product.id%>?_method=DELETE" method="POST">
-                        <button class="delete-button">
-                            <i class="fa-solid fa-trash-can"></i>
-                            <span>Eliminar producto</span>
+                <% } %>
+                <div class="date-guests">
+                    <span class="date-section">
+                        <i class="fa-solid fa-calendar-day date-icon"></i>
+                        <input class="date-picker" type="date" name="date1" id="date1">
+                    </span>
+                    <span class="date-section">
+                        <i class="fa-solid fa-calendar-day date-icon"></i>
+                        <input class="date-picker" type="date" name="date2" id="date2">
+                    </span>
+                    <span class="date-section dropdown">
+                        <i class="fa-solid fa-user date-icon"></i>
+                        <span class="date-text">2 Adultos</span>
+                        <div class="dropdown-content">
+                            <p class="date-text">1 Adulto</p>
+                            <p class="date-text">2 Adultos</p>
+                            <p class="date-text">3 Adultos</p>
+                            <p class="date-text">4 Adultos</p>
+                        </div>
+                    </span>
+                    <span class="date-section" id="search-button">
+                        <button class="date-button">
+                            <i class="fa-solid fa-magnifying-glass date-icon"></i>
                         </button>
-                    </form>
-                 <a class="edit-button-link" href="/products/edit/<%=product.id%>">
-                     <button class="edit-button">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        <span>Editar Producto</span>
-                     </button>
-                 </a>
-                <button class="add-to-cart">
-                    <i class="fa-solid fa-plus"></i> 
-                    <div>
-                        <span>Añadir al</span>
-                        <span>carrito</span>
-                    </div>
-                </button>
-            </div>
-        </main>
+                    </span>
+                </div>
+                <div class="button-container">
+            
+                        <form action="/products/<%=product.id%>?_method=DELETE" method="POST">
+                            <button class="delete-button">
+                                <i class="fa-solid fa-trash-can"></i>
+                                <span>Eliminar producto</span>
+                            </button>
+                        </form>
+                     <a class="edit-button-link" href="/products/edit/<%=product.id%>">
+                         <button class="edit-button">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <span>Editar Producto</span>
+                         </button>
+                     </a>
+                    <button class="add-to-cart">
+                        <i class="fa-solid fa-plus"></i>
+                        <div>
+                            <span>Añadir al</span>
+                            <span>carrito</span>
+                        </div>
+                    </button>
+                </div>
+            </main>
+        </div>
 		<%- include("../partials/footer.ejs")%>
 		<%- include("../partials/scripts.ejs")%>
     </body>

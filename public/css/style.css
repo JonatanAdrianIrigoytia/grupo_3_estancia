@@ -417,6 +417,9 @@ footer {
 	margin-top: 2rem;
 	padding-block: 0.5rem;
 	justify-content: space-around;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 
 .logo-address {

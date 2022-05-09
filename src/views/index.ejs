@@ -3,204 +3,205 @@
 <%- include("../partials/head.ejs", {style: "styles", title: ""})%>
 	<body>
 		<%- include("../partials/header.ejs")%>
-		<main>
-			<div class="intro-text">
-				<h1 class="title">Las Violetas</h1>
-				<p class="description">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum autem
-					exercitationem, doloremque tempore consequatur laudantium.
-				</p>
-			</div>
-			<div class="container">
-				<div class="image-container">
-					<img src="/images/front.jpg" alt="" class="first-image" />
-				</div>
-				<p class="description">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure sed
-					ratione aut distinctio sint nostrum maiores minima commodi ullam
-					repellendus!
-				</p>
-			</div>
-		</main>
-		<section class="rooms-activities">
-			<div class="tabbar">
-				<div onClick="tabclick(this)" class="tab active" id="roomstab">
-					<p class="tab-label">Habitaciones</p>
-				</div>
-				<div onClick="tabclick(this)" class="tab" id="activitiestab">
-					<p class="tab-label">Actividades</p>
-				</div>
-			</div>
-			<div class="options container" id="rooms">
-				<% rooms.forEach((room, index) => { %>
-				 	<% let number = (index + 1).toString().padStart(2, "0")%>
-					<% if (index == 0) { %>
-				 		<p onClick="select(this)" data-id = <%=room.id%> class="option selected-option"><%=number%> <%=room.name%></p>
-					<% }else { %>
-						<p onClick="select(this)" data-id = <%=room.id%> class="option"><%=number%> <%=room.name%></p>
-					<% } %>
-				<% }) %>
-			</div>
-			<div class="options container hidden" id="activities">
-				<% activities.forEach((activity, index) => { %>
-				 	<% let number = (index + 1).toString().padStart(2, "0")%>
-					<% if (index == 0) { %>
-				 		<p onClick="select(this)" data-id = <%=activity.id%> class="option selected-option"><%=number%> <%=activity.name%></p>
-					<% }else { %>
-						<p onClick="select(this)" data-id = <%=activity.id%> class="option"><%=number%> <%=activity.name%></p>
-					<% } %>
-				<% }) %>
-			</div>			
-			<!-- Aca seria que cuando seleccionen el producto arriba los datos de aca abajo se actualicen pero aun no vimos como,
-			Con lo que vimos lo unico que se me ocurre es que cada vez que haga click para selecionar un producto se haga un nuevo render
-			con los datos del producto seleccionado, pero tiene que haber una forma mejor, tal vez con JS en el front end o algo-->	 
-			<div class="container">
-				<div class="carrousel">
-					<div class="carrousel-button">
-						<a href="" class="prev-image">
-							<i class="fa-solid fa-caret-left prev-button"></i>
-						</a>
-					</div>
-					<div class="image-container">
-						<img src="/images/<%=selected.image%>" alt="Primera imagen del producto seleccionado" class="carrousel-image" />
-					</div>
-					<div class="carrousel-options">
-						<span class="image-selector selected-image"></span>
-						<span class="image-selector"></span>
-						<span class="image-selector"></span>
-						<span class="image-selector"></span>
-						<span class="image-selector"></span>
-					</div>
-					<div class="carrousel-button">
-						<a href="" class="next-image">
-							<i class="fa-solid fa-caret-right next-button"></i>
-						</a>
-					</div>
-				</div>
-				<div class="item-description">
-					<h3 class="titulo"><%=selected.name%></h3>
+		<div class="page-container">
+			<main>
+				<div class="intro-text">
+					<h1 class="title">Las Violetas</h1>
 					<p class="description">
-						<%=selected.description%>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum autem
+						exercitationem, doloremque tempore consequatur laudantium.
 					</p>
-					<div class="icons">
-						<div class="amenity bed">
-							<img src="/images/icons/bed.png"></img>
-						</div>
-						<div class="amenity sofa">
-							<img src="/images/icons/sofa.png"></img>
-						</div>
-						<div class="amenity key">
-							<img src="/images/icons/key.png"></img>
-						</div>
+				</div>
+				<div class="container">
+					<div class="image-container">
+						<img src="/images/front.jpg" alt="" class="first-image" />
 					</div>
-					<div class="buttons">
-						<a class="detail-link" href="/products/detail/<%=selected.id%>">
-							<button class="detail-button">Ver detalle completo</button>
-						</a>
-						<a class="all-products" href="/products">Ver todos los productos</a>
+					<p class="description">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure sed
+						ratione aut distinctio sint nostrum maiores minima commodi ullam
+						repellendus!
+					</p>
+				</div>
+			</main>
+			<section class="rooms-activities">
+				<div class="tabbar">
+					<div onClick="tabclick(this)" class="tab active" id="roomstab">
+						<p class="tab-label">Habitaciones</p>
+					</div>
+					<div onClick="tabclick(this)" class="tab" id="activitiestab">
+						<p class="tab-label">Actividades</p>
 					</div>
 				</div>
-			</div>
-
-		</section>
-		<section class="location">
-			<div class="tabbar">
-				<div onClick="tabclick(this)" class="tab active" id="airporttab">
-					<p class="tab-label">Desde el aeropuerto</p>
+				<div class="options container" id="rooms">
+					<% rooms.forEach((room, index) => { %>
+						 <% let number = (index + 1).toString().padStart(2, "0")%>
+						<% if (index == 0) { %>
+							 <p onClick="select(this)" data-id = <%=room.id%> class="option selected-option"><%=number%> <%=room.name%></p>
+						<% }else { %>
+							<p onClick="select(this)" data-id = <%=room.id%> class="option"><%=number%> <%=room.name%></p>
+						<% } %>
+					<% }) %>
 				</div>
-				<div onClick="tabclick(this)" class="tab" id="cabatab">
-					<p class="tab-label">Desde CABA</p>
+				<div class="options container hidden" id="activities">
+					<% activities.forEach((activity, index) => { %>
+						 <% let number = (index + 1).toString().padStart(2, "0")%>
+						<% if (index == 0) { %>
+							 <p onClick="select(this)" data-id = <%=activity.id%> class="option selected-option"><%=number%> <%=activity.name%></p>
+						<% }else { %>
+							<p onClick="select(this)" data-id = <%=activity.id%> class="option"><%=number%> <%=activity.name%></p>
+						<% } %>
+					<% }) %>
 				</div>
-			</div>
-			<div class="container">
-				<p class="description directions">
-					Desde el aeropuerto
-				</p>
-				<a href="#" class="location-text">
-					<i class="fa-solid fa-location-dot location-icon"></i>
-					<h3 class="maps">Ver en Google Maps</h3>
-				</a>
-				<div class="weather">
-					<div class="weather-option">
-						<span class="day">Dom</span>
-						<div class="weather-icon-container">
-							<img
-								class="weather-icon"
-								src="/images/weather-icons/storm.png"
-								alt="Icono de tormenta"
-							/>
+				<!-- Aca seria que cuando seleccionen el producto arriba los datos de aca abajo se actualicen pero aun no vimos como,
+				Con lo que vimos lo unico que se me ocurre es que cada vez que haga click para selecionar un producto se haga un nuevo render
+				con los datos del producto seleccionado, pero tiene que haber una forma mejor, tal vez con JS en el front end o algo-->
+				<div class="container">
+					<div class="carrousel">
+						<div class="carrousel-button">
+							<a href="" class="prev-image">
+								<i class="fa-solid fa-caret-left prev-button"></i>
+							</a>
 						</div>
-						<span class="temperature">21°C / 25°C</span>
+						<div class="image-container">
+							<img src="/images/<%=selected.image%>" alt="Primera imagen del producto seleccionado" class="carrousel-image" />
+						</div>
+						<div class="carrousel-options">
+							<span class="image-selector selected-image"></span>
+							<span class="image-selector"></span>
+							<span class="image-selector"></span>
+							<span class="image-selector"></span>
+							<span class="image-selector"></span>
+						</div>
+						<div class="carrousel-button">
+							<a href="" class="next-image">
+								<i class="fa-solid fa-caret-right next-button"></i>
+							</a>
+						</div>
 					</div>
-					<div class="weather-option">
-						<span class="day">Lun</span>
-						<div class="weather-icon-container">
-							<img
-								class="weather-icon"
-								src="/images/weather-icons/rain.png"
-								alt="Icono de lluvia"
-							/>
+					<div class="item-description">
+						<h3 class="titulo"><%=selected.name%></h3>
+						<p class="description">
+							<%=selected.description%>
+						</p>
+						<div class="icons">
+							<div class="amenity bed">
+								<img src="/images/icons/bed.png"></img>
+							</div>
+							<div class="amenity sofa">
+								<img src="/images/icons/sofa.png"></img>
+							</div>
+							<div class="amenity key">
+								<img src="/images/icons/key.png"></img>
+							</div>
 						</div>
-						<span class="temperature">21°C / 28°C</span>
-					</div>
-					<div class="weather-option">
-						<span class="day">Mar</span>
-						<div class="weather-icon-container">
-							<img
-								class="weather-icon"
-								src="/images/weather-icons/sunny.png"
-								alt="Icono de sol"
-							/>
+						<div class="buttons">
+							<a class="detail-link" href="/products/detail/<%=selected.id%>">
+								<button class="detail-button">Ver detalle completo</button>
+							</a>
+							<a class="all-products" href="/products">Ver todos los productos</a>
 						</div>
-						<span class="temperature">25°C / 33°C</span>
-					</div>
-					<div class="weather-option">
-						<span class="day">Mie</span>
-						<div class="weather-icon-container">
-							<img
-								class="weather-icon"
-								src="/images/weather-icons/cloudy.png"
-								alt="icono de nubes"
-							/>
-						</div>
-						<span class="temperature">22°C / 28°C</span>
-					</div>
-					<div class="weather-option">
-						<span class="day">Jue</span>
-						<div class="weather-icon-container">
-							<img
-								class="weather-icon"
-								src="/images/weather-icons/partially-cloudy.png"
-								alt="Icono de nube con sol"
-							/>
-						</div>
-						<span class="temperature">25°C / 30°C</span>
-					</div>
-					<div class="weather-option">
-						<span class="day">Vie</span>
-						<div class="weather-icon-container">
-							<img
-								class="weather-icon"
-								src="/images/weather-icons/sunny.png"
-								alt="Icono de sol"
-							/>
-						</div>
-						<span class="temperature">25°C / 33°C</span>
-					</div>
-					<div class="weather-option">
-						<span class="day">Sab</span>
-						<div class="weather-icon-container">
-							<img
-								class="weather-icon"
-								src="/images/weather-icons/cloudy.png"
-								alt="icono de nubes"
-							/>
-						</div>
-						<span class="temperature">22°C / 28°C</span>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+			<section class="location">
+				<div class="tabbar">
+					<div onClick="tabclick(this)" class="tab active" id="airporttab">
+						<p class="tab-label">Desde el aeropuerto</p>
+					</div>
+					<div onClick="tabclick(this)" class="tab" id="cabatab">
+						<p class="tab-label">Desde CABA</p>
+					</div>
+				</div>
+				<div class="container">
+					<p class="description directions">
+						Desde el aeropuerto
+					</p>
+					<a href="#" class="location-text">
+						<i class="fa-solid fa-location-dot location-icon"></i>
+						<h3 class="maps">Ver en Google Maps</h3>
+					</a>
+					<div class="weather">
+						<div class="weather-option">
+							<span class="day">Dom</span>
+							<div class="weather-icon-container">
+								<img
+									class="weather-icon"
+									src="/images/weather-icons/storm.png"
+									alt="Icono de tormenta"
+								/>
+							</div>
+							<span class="temperature">21°C / 25°C</span>
+						</div>
+						<div class="weather-option">
+							<span class="day">Lun</span>
+							<div class="weather-icon-container">
+								<img
+									class="weather-icon"
+									src="/images/weather-icons/rain.png"
+									alt="Icono de lluvia"
+								/>
+							</div>
+							<span class="temperature">21°C / 28°C</span>
+						</div>
+						<div class="weather-option">
+							<span class="day">Mar</span>
+							<div class="weather-icon-container">
+								<img
+									class="weather-icon"
+									src="/images/weather-icons/sunny.png"
+									alt="Icono de sol"
+								/>
+							</div>
+							<span class="temperature">25°C / 33°C</span>
+						</div>
+						<div class="weather-option">
+							<span class="day">Mie</span>
+							<div class="weather-icon-container">
+								<img
+									class="weather-icon"
+									src="/images/weather-icons/cloudy.png"
+									alt="icono de nubes"
+								/>
+							</div>
+							<span class="temperature">22°C / 28°C</span>
+						</div>
+						<div class="weather-option">
+							<span class="day">Jue</span>
+							<div class="weather-icon-container">
+								<img
+									class="weather-icon"
+									src="/images/weather-icons/partially-cloudy.png"
+									alt="Icono de nube con sol"
+								/>
+							</div>
+							<span class="temperature">25°C / 30°C</span>
+						</div>
+						<div class="weather-option">
+							<span class="day">Vie</span>
+							<div class="weather-icon-container">
+								<img
+									class="weather-icon"
+									src="/images/weather-icons/sunny.png"
+									alt="Icono de sol"
+								/>
+							</div>
+							<span class="temperature">25°C / 33°C</span>
+						</div>
+						<div class="weather-option">
+							<span class="day">Sab</span>
+							<div class="weather-icon-container">
+								<img
+									class="weather-icon"
+									src="/images/weather-icons/cloudy.png"
+									alt="icono de nubes"
+								/>
+							</div>
+							<span class="temperature">22°C / 28°C</span>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
 		<%- include("../partials/footer.ejs")%>
 		<%- include("../partials/scripts.ejs")%>
 	</body>

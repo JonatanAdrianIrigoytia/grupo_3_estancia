@@ -3,63 +3,65 @@
     <%- include("../partials/head.ejs", {style: "product-styles", title: " - Carrito de compras"})%>
     <body>
         <%- include("../partials/header.ejs")%>
-        <main>
-            <h2 class="shopping-cart-title">Carrito de compras</h2>
-            <form action="/products/cart" method="POST" enctype="multipart/formdata">
-                <% let total = 0 %>
-               <% products.forEach((product, index) => { %>
-                 <article class="article-container">
-                    <input type="number" name="id<%=index%>" id="id<%=index%>" value="<%=product.id%>" hidden>
-                    <div class="article-image">
-                        <img class="tiny-image"
-                            src="/images/<%=product.image%>"
-                            alt="Habitacion Las Lavandas"
-                        />
-                    </div>
-                    <div class="article-description">
-                        <%=product.description%>
-                    </div>
-                    <div class="action-buttons">
-                        <div class="incremental-buttons">
-                            <span class="cart-icon-section">
-                                <button class="cart-button"><i class="fa-solid fa-minus cart-icon"></i></button>
-                            </span>
-                            <div class="cart-icon-quantity">
-                            <!-- Esto no lo vimos pero la idea seria que aca el iniciar reserva envie una
-                            lista de objetos literales con todos campos iguales no se ahi como se maneja 
-                            el name en los inputs por ahora voy a poner todos names distintos-->
-                                <input type="number" name="quantity<%=index%>" id="quantity<%=index%>">
+        <div class="page-container">
+            <main>
+                <h2 class="shopping-cart-title">Carrito de compras</h2>
+                <form action="/products/cart" method="POST" enctype="multipart/formdata">
+                    <% let total = 0 %>
+                   <% products.forEach((product, index) => { %>
+                     <article class="article-container">
+                        <input type="number" name="id<%=index%>" id="id<%=index%>" value="<%=product.id%>" hidden>
+                        <div class="article-image">
+                            <img class="tiny-image"
+                                src="/images/<%=product.image%>"
+                                alt="Habitacion Las Lavandas"
+                            />
+                        </div>
+                        <div class="article-description">
+                            <%=product.description%>
+                        </div>
+                        <div class="action-buttons">
+                            <div class="incremental-buttons">
+                                <span class="cart-icon-section">
+                                    <button class="cart-button"><i class="fa-solid fa-minus cart-icon"></i></button>
+                                </span>
+                                <div class="cart-icon-quantity">
+                                <!-- Esto no lo vimos pero la idea seria que aca el iniciar reserva envie una
+                                lista de objetos literales con todos campos iguales no se ahi como se maneja
+                                el name en los inputs por ahora voy a poner todos names distintos-->
+                                    <input class="input-quantity" type="number" name="quantity<%=index%>" id="quantity<%=index%>">
+                                </div>
+                                <span class="cart-icon-section">
+                                    <button class="cart-button"><i class="fa-solid fa-plus cart-icon"></i></button>
+                                </span>
                             </div>
-                            <span class="cart-icon-section">
-                                <button class="cart-button"><i class="fa-solid fa-plus cart-icon"></i></button>
-                            </span>
+                            <div class="edit-remove-buttons">
+                                <button class="cart-button"><i class="fa-solid fa-pen-to-square cart-icon"></i></button>
+                                <button class="cart-button"><i class="fa-solid fa-trash-can cart-icon"></i></button>
+                            </div>
                         </div>
-                        <div class="edit-remove-buttons">
-                            <button class="cart-button"><i class="fa-solid fa-pen-to-square cart-icon"></i></button>
-                            <button class="cart-button"><i class="fa-solid fa-trash-can cart-icon"></i></button>
-                        </div>
-                    </div>
-                </article>
-               <% }) %>
-                <hr>
-                <section class="cart-total-cost">
-                    <h3>
-                        Total
-                    </h3>
-                    <span>
-                    <!-- Aca tendriamos que usar javascript en el frontend supongo 
-                    para poder mostrar el precio actualizado a medida que modifican la cantidad de cada producto -->
-                        $100.000
-                    </span>
-                </section>
-                <section class="cart-total-cost">
-                    <a href="/"> Volver</a>
-                    <button type="submit">
-                        Iniciar reserva
-                    </button>
-                </section>
-            </form>
-        </main>
+                    </article>
+                   <% }) %>
+                    <hr>
+                    <section class="cart-total-cost">
+                        <h3>
+                            Total
+                        </h3>
+                        <span>
+                        <!-- Aca tendriamos que usar javascript en el frontend supongo
+                        para poder mostrar el precio actualizado a medida que modifican la cantidad de cada producto -->
+                            $100.000
+                        </span>
+                    </section>
+                    <section class="cart-total-cost">
+                        <a href="/"> Volver</a>
+                        <button type="submit">
+                            Iniciar reserva
+                        </button>
+                    </section>
+                </form>
+            </main>
+        </div>
 		<%- include("../partials/footer.ejs")%>
 		<%- include("../partials/scripts.ejs")%>
     </body>

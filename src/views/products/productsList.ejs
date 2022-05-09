@@ -3,36 +3,38 @@
     <%- include("../partials/head.ejs", {style: "product-styles", title: " - Listado de productos"})%>
     <body>
         <%- include("../partials/header.ejs")%>
-        <main>	
-        <h2 class="products-title"><%=title%></h2>
-            <div class="products-container">
-                <% for (let product of products) { %>
-                    <div class="product-card">
-                        <a href="/products/detail/<%= product.id %> ">
-                            <article>
-                                    <figure class="image-container product-image-container">
-                                        <img class="product-image"
-                                            src="/images/<%= product.image %>"
-                                            alt="imagen de producto"
-                                        />
-                                    </figure>
-                                    <section class="product-text">
-                                        <p class="product-name"><%= product.name %></p>
-                                        <p class="product-category"><%= product.category == "room" ? "Habitación" : "Actividad"%></p>
-                                        <p class="product-price"><%= product.price %></p>
-                                        <span class="product-discount"><%= product.discount %> % OFF</span>
-                                    </section>
-                            </article>
-                        </a>
-                    </div>
-                <% } %>
-            </div>
-            <div class="button-container">
-                <a href="/products/create" class="create-product-link">
-                    <button class="create-product"><i class="fa-solid fa-plus plus-icon"></i></button>
-                </a>
-            </div>
-        </main>
+        <div class="page-container">
+            <main>
+            <h2 class="products-title"><%=title%></h2>
+                <div class="products-container">
+                    <% for (let product of products) { %>
+                        <div class="product-card">
+                            <a href="/products/detail/<%= product.id %> ">
+                                <article>
+                                        <figure class="image-container product-image-container">
+                                            <img class="product-image"
+                                                src="/images/<%= product.image %>"
+                                                alt="imagen de producto"
+                                            />
+                                        </figure>
+                                        <section class="product-text">
+                                            <p class="product-name"><%= product.name %></p>
+                                            <p class="product-category"><%= product.category == "room" ? "Habitación" : "Actividad"%></p>
+                                            <p class="product-price"><%= product.price %></p>
+                                            <span class="product-discount"><%= product.discount %> % OFF</span>
+                                        </section>
+                                </article>
+                            </a>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="button-container">
+                    <a href="/products/create" class="create-product-link">
+                        <button class="create-product"><i class="fa-solid fa-plus plus-icon"></i></button>
+                    </a>
+                </div>
+            </main>
+        </div>
         <%- include("../partials/footer.ejs")%>
 		<%- include("../partials/scripts.ejs")%>
     </body>

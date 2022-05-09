@@ -4,96 +4,96 @@
 
 	<body>
 		<%- include("../partials/header.ejs")%>
-			<main>
-			<h3 class="products-title">Formulario de edición de productos</h3>
-				<div class="container">
-				<form action="/products/" method="POST" enctype="multipart/form-data">
-					
-					<div class="form-fields">
-
-							<label for="name" class="form-label">Nombre del producto:</label>
-							<input type="text" id="name" name="name" placeholder="Ej: Habitación de lujo" class="controls" value="<%=product.name%>"required>
-							
-							<label for="price" class="form-label">Precio de la Habitación:</label>
-							<input type="number" id="price" name="price" placeholder="Ej: 5678" class="controls" value="<%=product.price%>"required>
-							
-							<label for="category" class="form-label">Categoría:</label>
-							<select name="category" id="category" class="controls" required>
+			<div class="page-container">
+				<main>
+				<h3 class="products-title">Formulario de edición de productos</h3>
+					<div class="container">
+					<form action="/products/" method="POST" enctype="multipart/form-data">
+				
+						<div class="form-fields">
+								<label for="name" class="form-label">Nombre del producto:</label>
+								<input type="text" id="name" name="name" placeholder="Ej: Habitación de lujo" class="controls" value="<%=product.name%>"required>
+				
+								<label for="price" class="form-label">Precio de la Habitación:</label>
+								<input type="number" id="price" name="price" placeholder="Ej: 5678" class="controls" value="<%=product.price%>"required>
+				
+								<label for="category" class="form-label">Categoría:</label>
+								<select name="category" id="category" class="controls" required>
+									<% if (product.category == "room") { %>
+										<option id=room value="room" selected>Habitación</option>
+										<option id=activity value="activity">Actividad</option>
+									<% }else { %>
+										<option id=room value="room">Habitación</option>
+										<option id=activity value="activity" selected>Actividad</option>
+									<%}%>
+								</select>
+				
+								<label for="description" class="form-label">Descripción:</label>
+								<input type="text" id="description" name="description" placeholder="Ej: Habitación de lujo" class="controls" value="<%=product.description%>">
+				
+								<label for="long-description" class="form-label">Descripción:</label>
+								<textarea name="longDescription" id="long-description" class="controls"><%=product.longDescription%></textarea>
 								<% if (product.category == "room") { %>
-									<option id=room value="room" selected>Habitación</option>
-									<option id=activity value="activity">Actividad</option>								 
+									<label for="capacity" class="form-label">Capacidad:</label>
+									<input type="number" id="capacity" name="capacity" placeholder="Ej: 2" class="controls" value="<%=product.capacity || ""%>">
 								<% }else { %>
-									<option id=room value="room">Habitación</option>
-									<option id=activity value="activity" selected>Actividad</option>
-								<%}%>
-
-							</select>
-							
-							<label for="description" class="form-label">Descripción:</label>
-							<input type="text" id="description" name="description" placeholder="Ej: Habitación de lujo" class="controls" value="<%=product.description%>">
-							
-							<label for="long-description" class="form-label">Descripción:</label>
-							<textarea name="longDescription" id="long-description" class="controls"><%=product.longDescription%></textarea>
-							<% if (product.category == "room") { %>	
-								<label for="capacity" class="form-label">Capacidad:</label>
-								<input type="number" id="capacity" name="capacity" placeholder="Ej: 2" class="controls" value="<%=product.capacity || ""%>">
-							<% }else { %>
-								<label for="duration" class="form-label">Duración:</label>
-								<input type="number" id="duration" name="duration" placeholder="Ej: 60" class="controls" value="<%=product.duration || ""%>">
-							<% } %>
-							<label for="discount" class="form-label">Porcentaje de descuento</label>
-							<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls" value="<%=product.discount%>">
-							
-							<label for="product-image" class="form-label">Imagen del producto</label>
-							<input type="file" id="product-image" name="product-image" multiple="multiple" class="controls">
-					
-							<% if (product.category == "room") { %>	
-								<label for="services" class="form-label">Serivicios:</label>
-									<div class="services">
-										<label for="king">
-											<input
-												type="checkbox"
-												name="services"
-												id="king"
-												value="Cama tamaño King"
-											/>
-											Cama tamaño King
-										</label>
-										<label for="hidro">
-											<input type="checkbox" name="services" id="hidro" value="hidromasaje" />
-											Hidromasaje
-										</label>
-										<label for="balcony">
-											<input type="checkbox" name="services" id="balcony" value="Balcón" />
-											Balcón
-										</label>
-										<label for="fireplace">
-											<input
-												type="checkbox"
-												name="services"
-												id="fireplace"
-												value="hogar a leña"
-											/>
-											Hogar a leña
-										</label>
-										<label for="living">
-											<input
-												type="checkbox"
-												name="services"
-												id="living"
-												value="Sala de estar"
-											/>
-											Sala de estar
-										</label>
-									</div>
-								</label>
-							<% } %>
-							<button class="button buy-now-button" type="submit">Modificar</button>
+									<label for="duration" class="form-label">Duración:</label>
+									<input type="number" id="duration" name="duration" placeholder="Ej: 60" class="controls" value="<%=product.duration || ""%>">
+								<% } %>
+								<label for="discount" class="form-label">Porcentaje de descuento</label>
+								<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls" value="<%=product.discount%>">
+				
+								<label for="product-image" class="form-label">Imagen del producto</label>
+								<input type="file" id="product-image" name="product-image" multiple="multiple" class="controls">
+				
+								<% if (product.category == "room") { %>
+									<label for="services" class="form-label">Serivicios:</label>
+										<div class="services">
+											<label for="king">
+												<input
+													type="checkbox"
+													name="services"
+													id="king"
+													value="Cama tamaño King"
+												/>
+												Cama tamaño King
+											</label>
+											<label for="hidro">
+												<input type="checkbox" name="services" id="hidro" value="hidromasaje" />
+												Hidromasaje
+											</label>
+											<label for="balcony">
+												<input type="checkbox" name="services" id="balcony" value="Balcón" />
+												Balcón
+											</label>
+											<label for="fireplace">
+												<input
+													type="checkbox"
+													name="services"
+													id="fireplace"
+													value="hogar a leña"
+												/>
+												Hogar a leña
+											</label>
+											<label for="living">
+												<input
+													type="checkbox"
+													name="services"
+													id="living"
+													value="Sala de estar"
+												/>
+												Sala de estar
+											</label>
+										</div>
+									</label>
+								<% } %>
+								<button class="button buy-now-button" type="submit">Modificar</button>
+							</div>
 						</div>
-					</div>
-				</form>
+					</form>
+				</div>
+				</main>
 			</div>
-			</main>
 			<%- include("../partials/footer.ejs")%>
 			<%- include("../partials/scripts.ejs")%>
 
