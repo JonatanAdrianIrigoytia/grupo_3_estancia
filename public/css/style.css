@@ -44,11 +44,11 @@ header {
 	max-height: 4rem;
 	width: 100%;
 	z-index: 100;
-	/* padding-block: 1rem; */
 }
 
 .logo {
 	padding: 0;
+
 	width: 100%;
 	align-self: center;
 	margin-right: 1rem;
@@ -56,6 +56,9 @@ header {
 
 .logo-link {
 	width: 35%;
+	height: fit-content;
+	align-self: center;
+	margin-top: 0.25rem;
 }
 
 .nav {
@@ -410,16 +413,22 @@ img {
 	text-align: center;
 }
 
+.page-container {
+	min-height: 90vh;
+	padding-bottom: 7rem;
+}
+
 footer {
 	display: flex;
 	background-color: rgb(var(--clr-dark));
-	/* max-height: 3rem; */
 	margin-top: 2rem;
+	height: 7rem;
 	padding-block: 0.5rem;
 	justify-content: space-around;
-	position: absolute;
+	position: relative;
 	bottom: 0;
 	width: 100%;
+	align-self: flex-end;
 }
 
 .logo-address {

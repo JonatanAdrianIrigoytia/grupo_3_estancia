@@ -8,10 +8,6 @@ html {
 	height: 100%;
 }
 
-body {
-	position: relative;
-}
-
 main {
 	display: flex;
 	flex-direction: column;
@@ -22,8 +18,7 @@ main {
 
 .form-container {
 	width: 100%;
-	/* height:550px; */
-	background: #f2f4f8;
+	background: rgb(var(--clr-bg));
 	margin-inline: auto;
 	margin-top: 1.5rem;
 	box-shadow: 5px 5px 10px rgb(var(--clr-dark), 0.5);
@@ -32,13 +27,12 @@ main {
 	border: 1px solid rgb(var(--clr-dark));
 	display: flex;
 	flex-direction: column;
-
 	gap: 0.5rem;
 }
 
 input[type="file"]::-webkit-file-upload-button {
 	border: none;
-	background: #8661c1;
+	background: rgb(var(--clr-accent));
 	color: #fff;
 	font-size: 1em;
 	border-radius: 20px;
@@ -71,7 +65,7 @@ input[type="file"]::-webkit-file-upload-button {
 .button {
 	width: 100%;
 	border-radius: 4rem;
-	background-color: #8661c1;
+	background-color: rgb(var(--clr-accent));
 	margin-bottom: 10px;
 	padding: 0.5rem;
 	cursor: pointer;
@@ -86,7 +80,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .button h3 {
-	color: #8661c1;
+	color: rgb(var(--clr-accent));
 }
 
 .form-container a:hover {
@@ -136,9 +130,7 @@ input[type="file"]::-webkit-file-upload-button {
 .login-footer {
 	position: absolute;
 	width: 100%;
-	max-height: 20vh;
 	bottom: 0;
-	left: 0;
 }
 
 .services {
@@ -147,9 +139,14 @@ input[type="file"]::-webkit-file-upload-button {
 	gap: 1rem;
 	margin-block: 0.5rem;
 }
-
+@media (min-width: 480px) {
+	.form-container {
+		margin-top: 7rem;
+	}
+}
 @media (min-width: 768px) {
 	.form-container {
+		margin-top: 10rem;
 		width: 50vw;
 	}
 	.login-form {
@@ -160,7 +157,6 @@ input[type="file"]::-webkit-file-upload-button {
 }
 @media (min-width: 1200px) {
 	.form-container {
-		margin-top: 5rem;
 		width: 45vw;
 	}
 	.login-form {
