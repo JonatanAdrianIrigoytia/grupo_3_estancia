@@ -24,6 +24,7 @@ router.get("/login", userController.renderLogin);
 router.get("/register", userController.renderRegister);
 router.get("/forgot-password", userController.forgotPassword);
 router.post("/login", userController.login);
-router.post("/register", uploads.single("user-image"), userController.register);
+router.post("/", uploads.single("image"), userController.save);
+router.put("/:id", uploads.single("image"), userController.save);
 
 module.exports = router;

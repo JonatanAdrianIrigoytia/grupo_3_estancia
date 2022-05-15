@@ -8,7 +8,7 @@
 				<main>
 				<h3 class="products-title">Formulario de edición de productos</h3>
 					<div class="container">
-					<form action="/products/" method="POST" enctype="multipart/form-data">
+					<form action="/products/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
 				
 						<div class="form-fields">
 								<label for="name" class="form-label">Nombre del producto:</label>
