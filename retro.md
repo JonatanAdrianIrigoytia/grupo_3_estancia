@@ -44,3 +44,25 @@ El sprint anterior no tuvo suficiente complejidad como para implementar el issue
 ## 5. Dejar de hacer
 
 De momento no encontramos ninguna tarea que debamos dejar de hacer.
+
+# Retrospectiva del Sprint 3
+
+## 1. Comenzar a hacer
+
+Ahora que somos solo 2 personas y la carga de trabajo va a aumentar, estaria bueno trackear en Notion las tareas con las cuales tenemos dudas o estamos trabados para que podamos ayudarnos entre si en todas las tareas y no solo dividirnos las tareas en general.
+
+## 2. Hacer más
+
+Si bien la llamada semanal, no nos tomamos el tiempo de crear el archivo, weekly.md, deberiamos empezar a crear ese archivo con el status semanal.
+
+## 3. Continuar haciendo
+
+Utilizar la interfaz de Visual Studio Code para sincronizar los cambios en github.
+
+## 4. Hacer menos
+
+El sprint anterior no tuvo suficiente complejidad como para implementar el issue tracker, pero si llegara a ser necesario podemos probarlo en este.
+
+## 5. Dejar de hacer
+
+Utilizar Liveshare para compartir el código, no le encontramos valor ya que por problemas tecnicos y ahora que solo somos 2 personas en el grupo es mas simple hacer una videollamada y compartir pantalla.
