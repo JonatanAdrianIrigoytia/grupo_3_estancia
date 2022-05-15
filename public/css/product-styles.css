@@ -402,6 +402,7 @@ input[type="number"] {
 	}
 
 	.products-container {
+		margin-top: 2rem;
 		flex-direction: row;
 	}
 
