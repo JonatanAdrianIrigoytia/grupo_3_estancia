@@ -42,8 +42,6 @@ const productController = {
 	},
 
 	save: (req, res) => {
-		console.log(req.file);
-		console.log(req.body);
 		if (req.params.id) edit(req.params.id, req);
 		else create(req);
 		res.redirect("/products");
@@ -59,7 +57,6 @@ const productController = {
 	},
 
 	buy: (req, res) => {
-		console.log(req.body);
 		res.send("Reserva recibida");
 	},
 };
