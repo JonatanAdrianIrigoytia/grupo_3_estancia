@@ -144,7 +144,6 @@ body {
 	cursor: pointer;
 	margin-block: 1rem;
 	padding: 0.75rem;
-
 	transition: background-color 250 ease-in-out;
 }
 
@@ -354,7 +353,17 @@ input[type="number"] {
 	border-radius: 50%;
 	color: rgb(var(--clr-bg));
 	cursor: pointer;
+	/* Esto podria hacer que el boton este siempre visible y 
+	se mueva a medida que el usuario hacer scroll pero no me convence del todo */
+	/* position: fixed;
+	bottom: 20vh;
+	right: 5vw; */
 }
+
+.create-product-text {
+	display: none;
+}
+
 .plus-icon {
 	font-size: 1.8rem;
 	padding: 0.5rem;
@@ -505,6 +514,21 @@ input[type="number"] {
 
 	.cart-total-cost > button {
 		font-size: 1.1rem;
+	}
+
+	.create-product-container {
+		display: flex;
+		padding-right: 0.5rem;
+	}
+
+	.create-product {
+		border-radius: 2rem;
+	}
+
+	.create-product-text {
+		display: inline;
+		align-self: center;
+		font-size: 1rem;
 	}
 }
 
