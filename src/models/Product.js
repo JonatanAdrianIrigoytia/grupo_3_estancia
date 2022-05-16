@@ -46,11 +46,11 @@ const Product = {
 		products.splice(index, 1);
 		fs.writeFileSync(this.filepath, JSON.stringify(products), null, " ");
 	},
-	fillProductData: function (id, productData, file) {
+	fillProductData: function (id, productData, filename) {
 		let product = {
 			id: id,
 			...productData,
-			image: this.getFile(productData.category, file),
+			image: this.getFile(productData.category, filename),
 		};
 		product.discount = productData.discount || 0;
 		if (productData.category == "room") {
@@ -60,10 +60,10 @@ const Product = {
 
 		return product;
 	},
-	getFile: function (category, file) {
-		if (file) {
-			if (category == "room") return "/products/rooms/" + file.filename;
-			return "/products/activities/" + file.filename;
+	getFilePath: function (category, filename) {
+		if (filename) {
+			if (category == "room") return "/products/rooms/" + filename;
+			return "/products/activities/" + filename;
 		}
 		return "default-image.png";
 	},
