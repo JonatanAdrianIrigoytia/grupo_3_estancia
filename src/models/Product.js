@@ -2,45 +2,51 @@ const path = require("path");
 const fs = require("fs");
 const Product = {
 	filepath: path.resolve(__dirname, "../data/products.json"),
-	getData: () => JSON.parse(fs.readFileSync(this.filepath, "utf-8")),
-	findAll: () => this.getData(),
-	generateID: (products = undefined) => {
+	getData: function () {
+		return JSON.parse(fs.readFileSync(this.filepath, "utf-8"));
+	},
+	findAll: function () {
+		return this.getData();
+	},
+	generateID: function (products = undefined) {
 		if (!products) products = this.findAll();
 		let id = 1;
 		if (products.length > 0) id = products.at(-1).id + 1;
 		return id;
 	},
-	findByID: (id) => this.findAll().find((product) => product.id == id),
-	findByField: (field, value) => {
+	findByID: function (id) {
+		return this.findAll().find((product) => product.id == id);
+	},
+	findByField: function (field, value) {
 		let products = this.findAll();
 		return products.find((product) => product[field] == value);
 	},
-	findIndexByID: (id, products = undefined) => {
+	findIndexByID: function (id, products = undefined) {
 		if (!products) products = this.findAll();
 		let productIndex = products.findIndex((product) => product.id == id);
 		return productIndex;
 	},
-	create: (productData) => {
+	create: function (productData) {
 		let products = this.findAll();
 		let id = this.generateID(products);
 		let product = fillProductData(id, productData);
 		products.push(product);
 		fs.writeFileSync(this.filepath, JSON.stringify(products), null, " ");
 	},
-	edit: (id, productData) => {
+	edit: function (id, productData) {
 		let editedProduct = fillProductData(id, productData);
 		let products = this.findAll();
 		let index = this.findIndexByID(id, products);
 		products[index] = editedProduct;
 		fs.writeFileSync(this.filepath, JSON.stringify(products, null, " "));
 	},
-	delete: (id) => {
+	delete: function (id) {
 		let products = this.findAll();
 		let index = this.findIndexByID(id, products);
 		products.splice(index, 1);
 		fs.writeFileSync(this.filepath, JSON.stringify(products), null, " ");
 	},
-	fillProductData: (id, productData, file) => {
+	fillProductData: function (id, productData, file) {
 		let product = {
 			id: id,
 			...productData,
@@ -54,7 +60,7 @@ const Product = {
 
 		return product;
 	},
-	getFile: (category, file) => {
+	getFile: function (category, file) {
 		if (file) {
 			if (category == "room") return "/products/rooms/" + file.filename;
 			return "/products/activities/" + file.filename;
