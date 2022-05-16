@@ -134,16 +134,20 @@ header {
 	/* filter: brightness(1.25); */
 }
 
+.usericon {
+	cursor: pointer;
+}
+
 .user-link {
 	display: flex;
-	gap: 0.5rem;
+	gap: 1rem;
 	margin-top: 0.25rem;
 	margin-left: 0.75rem;
 	text-decoration: none;
 }
 
-.user-link > span {
-	/* margin-left: 0.25rem; */
+.loginout-link {
+	text-decoration: none;
 	color: rgb(var(--clr-bg));
 }
 
@@ -151,7 +155,8 @@ header {
 	transition: filer, color 280 ease;
 }
 
-.user-link:hover > * {
+.usericon:hover,
+.loginout-link:hover {
 	color: rgb(var(--clr-accent));
 	filter: brightness(1.5);
 }
