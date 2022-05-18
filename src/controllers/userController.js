@@ -28,8 +28,14 @@ const userController = {
 				oldData: req.body,
 			});
 		}
-		if (req.params.id) User.edit(req.params.id, req);
-		else User.create(req);
+
+		if (req.params.id)
+			User.edit(
+				req.params.id,
+				req.body,
+				req.file ? req.file.filename : undefined,
+			);
+		else User.create(req.body, req.file ? req.file.filename : undefined);
 		res.redirect("/");
 	},
 };

@@ -185,7 +185,7 @@
 		"lastName": "Pertierra",
 		"email": "dpertierra@hotmail.com",
 		"password": "123456",
-		"isAdmin": false,
+		"category": "admin",
 		"image": "default-image.png"
 	}
 ]

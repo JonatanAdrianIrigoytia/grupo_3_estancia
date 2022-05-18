@@ -26,6 +26,9 @@ const Product = {
 		let productIndex = products.findIndex((product) => product.id == id);
 		return productIndex;
 	},
+	findByCategory: function (category) {
+		return this.findAll().filter((product) => product.category == category);
+	},
 	create: function (productData) {
 		let products = this.findAll();
 		let id = this.generateID(products);
