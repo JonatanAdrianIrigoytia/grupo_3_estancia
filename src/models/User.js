@@ -29,7 +29,7 @@ let User = {
 
 	create: function (userData) {
 		let users = this.findAll();
-		let id = this.generateID(users);
+		let id = this.generateId(users);
 		let user = fillUserData(id, userData);
 		users.push(user);
 		fs.writeFileSync(this.filepath, JSON.stringify(users), null, " ");
