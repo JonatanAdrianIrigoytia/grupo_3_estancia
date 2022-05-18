@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {style: "user-styles", title: " - Perfil"})%>
+<body>
+    <%- include("../partials/header.ejs")%>
+    <main>
+        <div class="container user-profile-container">
+            <div class=" user-image-container">
+                <img class="user-image" src="/images/<%=user.image%>" alt="Imagen de perfil del usuario">
+            </div>
+            <div class="user-data-container">
+                <div class="field-container">
+                    <b>Nombre completo:</b>
+                    <p><%=user.name%> <%=user.lastName%></p>
+                </div>
+                <div class="field-container">
+                    <b>Email:</b>
+                    <p><%=user.email%></p>
+                </div>
+                <div class="button-container">
+                    <form action="/users/delete/<%=user.id%>?_method=DELETE" method="post">
+                        <button class="delete-button" type="submit">
+                            <i class="fa-solid fa-trash-can"></i>
+                            <span>Eliminar</span>
+                        </button>
+                    </form>
+                    <a class="edit-button-link" href="/users/edit/<%=user.id%>">
+                        <button class="edit-button">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <span>Editar Perfil</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+   	<%- include("../partials/footer.ejs")%>
+	<%- include("../partials/scripts.ejs")%> 
+</body>
+</html>

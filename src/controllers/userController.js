@@ -15,6 +15,10 @@ const userController = {
 	forgotPassword: (req, res) => {
 		res.send("Revise su correo electronico");
 	},
+	profile: (req, res) => {
+		let user = User.findById(req.params.id);
+		res.render("profile", { user });
+	},
 	save: (req, res) => {
 		const resultValidation = validationResult(req);
 
