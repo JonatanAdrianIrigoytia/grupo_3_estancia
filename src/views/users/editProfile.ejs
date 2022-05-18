@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {style: "form-styles", title: " - Crear cuenta"})%>
+	<body>
+	<%- include("../partials/header.ejs")%>
+		<div class="page-container">
+			<main>
+			<div class="form-container">
+				<h5>Bienvenido a Las Violetas</h5>
+					<form action="/users/<%=user.id%>?_method=PUT" method='POST' enctype="multipart/form-data">
+						<div>
+							<label for="name">Nombre</label>
+							<input
+								class="controls"
+								type="text"
+								name="name"
+								id="name"
+								placeholder="Nombre"
+								required
+							/>
+							<label for="lastName">Apellido</label>
+							<input
+								class="controls"
+								type="text"
+								name="lastName"
+								id="lastName"
+								placeholder="Apellido"
+								required
+							/>
+							<label for="email">E-mail</label>
+							<input
+								class="controls"
+								type="email"
+								name="email"
+								id="email"
+								placeholder="E-mail"
+								required
+							/>
+							
+							<label for="image" class="form-label">Imagen de perfil</label>
+							<input type="file" id="image" name="image" class="controls">
+
+							<button class="button" type="submit"><h3>Aceptar</h3></button>
+                            <button class="button" type="submit"><h3>Aceptar</h3></button>
+						</div>
+					</form>
+					
+			</div>
+			</main>
+		</div>
+		<%- include("../partials/footer.ejs")%>
+		<%- include("../partials/scripts.ejs")%>
+	</body>
+</html>
