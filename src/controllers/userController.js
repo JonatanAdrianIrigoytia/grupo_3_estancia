@@ -8,7 +8,7 @@ const userController = {
 	register: (req, res) => {
 		res.render("register");
 	},
-	//El login no va a hacer esto sino que deberia autenticar al usuario pero aun no vimos como hacer esto
+	//El login no va a hacer esto sino que deberia autenticar al usuario (SPRINT 5)
 	login: (req, res) => {
 		res.render("index");
 	},
@@ -28,14 +28,19 @@ const userController = {
 				oldData: req.body,
 			});
 		}
-
+		let id = undefined;
 		if (req.params.id)
-			User.edit(
+			id = User.edit(
 				req.params.id,
 				req.body,
 				req.file ? req.file.filename : undefined,
 			);
-		else User.create(req.body, req.file ? req.file.filename : undefined);
+		else id = User.create(req.body, req.file ? req.file.filename : undefined);
+		res.redirect(id ? `/profile/${id}` : "/");
+	},
+
+	delete: (req, res) => {
+		User.delete(req.params.id);
 		res.redirect("/");
 	},
 };

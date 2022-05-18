@@ -16,6 +16,7 @@ router.post(
 	validationMiddleware.userRegisterValidations,
 	userController.save,
 );
+router.delete("/:id", userController.delete);
 router.put("/:id", multerMiddleware.user.single("image"), userController.save);
 
 module.exports = router;
