@@ -37,16 +37,16 @@ const Product = {
 		return this.findAll().filter((product) => product.category == category);
 	},
 
-	create: function (productData) {
+	create: function (productData, filename) {
 		let products = this.findAll();
 		let id = this.generateID(products);
-		let product = fillProductData(id, productData);
+		let product = fillProductData(id, productData, filename);
 		products.push(product);
 		fs.writeFileSync(this.filepath, JSON.stringify(products), null, " ");
 	},
 
-	edit: function (id, productData) {
-		let editedProduct = fillProductData(id, productData);
+	edit: function (id, productData, filename) {
+		let editedProduct = fillProductData(id, productData, filename);
 		let products = this.findAll();
 		let index = this.findIndexByID(id, products);
 		products[index] = editedProduct;
@@ -72,7 +72,7 @@ const Product = {
 		if (productData.category == "room") {
 			product.capacity = productData.capacity || 0;
 			product.services = productData.services ? [productData.services] : [];
-		} else product.duration = productData.duration;
+		} else product.duration = productData.duration || 0;
 
 		return product;
 	},
