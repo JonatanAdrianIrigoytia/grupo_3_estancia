@@ -43,10 +43,10 @@ let User = {
 		fs.writeFileSync(usersFilePath, JSON.stringify(users));
 	},
 	delete: function (id) {
-		let allUsers = this.findAll();
-		let finalUsers = allUsers.filter((oneUser) => oneUser.id !== id);
-		fs.writeFileSync(this.fileName, JSON.stringify(finalUsers, null, " "));
-		return true;
+		let users = this.findAll();
+		let index = this.findIndexByID(id, users);
+		users.splice(index, 1);
+		fs.writeFileSync(this.fileName, JSON.stringify(users, null, " "));
 	},
 	fillUserData: function (id, userData, filename) {
 		let user = {
