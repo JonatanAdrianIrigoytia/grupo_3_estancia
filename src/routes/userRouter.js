@@ -9,6 +9,7 @@ router.get("/login", userController.renderLogin);
 router.get("/register", userController.register);
 router.get("/forgot-password", userController.forgotPassword);
 router.get("/profile/:id", userController.profile);
+router.get("/edit/:id", userController.editProfile);
 router.post("/login", userController.login);
 router.post(
 	"/register",
