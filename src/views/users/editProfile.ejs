@@ -5,58 +5,103 @@
 	<%- include("../partials/header.ejs")%>
 		<div class="page-container">
 			<main>
-                <div class="container-user-container">
-            
-			<div class="form-container">
-				<h5>Actualice sus datos</h5>
-					<div class="image-container">
-						<img src="/images/<%=user.image%>" alt="Imagen de perfil del usuario">
-					</div>
-                    <div class="user-data">
-					<form action="/users/<%=user.id%>?_method=PUT" method='POST' enctype="multipart/form-data">
-						<div>
-							<label for="name">Nombre</label>
-							<input
-								class="controls"
-								type="text"
-								name="name"
-								id="name"
-								placeholder="Nombre"
-								value="<%=user.name%>"
-								required
-							/>
-							<label for="lastName">Apellido</label>
-							<input
-								class="controls"
-								type="text"
-								name="lastName"
-								id="lastName"
-								placeholder="Apellido"
-								value="<%=user.lastName%>"
-								required
-							/>
-							<label for="email">E-mail</label>
-							<input
-								class="controls"
-								type="email"
-								name="email"
-								id="email"
-								placeholder="E-mail"
-								value="<%=user.email%>"
-								required
-							/>
-							
-							<label for="image" class="form-label">Imagen de perfil</label>
-							<input type="file" id="image" name="image" class="controls">
-
-							<button class="button" type="submit"><h3>Editar</h3></button>
-                            <button class="button" type="submit"><h3>Aceptar</h3></button>
+				<div class="form-container edit-profile-container">
+					<h5>Actualice sus datos</h5>
+					<div class="edit-profile">
+						<div class="image-container">
+							<img src="/images/<%=user.image%>" alt="Imagen de perfil del usuario">
 						</div>
-                    </div>
-                    </div>
-					</form>
-					
-			</div>
+						<div class="user-data">
+							<form action="/users/<%=user.id%>?_method=PUT" method='POST' enctype="multipart/form-data">
+								<div class="input-container">
+									<div class="field-container">
+										<label for="name">Nombre</label>
+										<input
+											class="controls"
+											type="text"
+											name="name"
+											id="name"
+											placeholder="Nombre"
+											value="<%=user.name%>"
+											required
+										/>
+									</div>
+									<div class="field-container">
+										<label for="lastName">Apellido</label>
+										<input
+											class="controls"
+											type="text"
+											name="lastName"
+											id="lastName"
+											placeholder="Apellido"
+											value="<%=user.lastName%>"
+											required
+										/>
+									</div>
+									<div class="field-container">
+										<label for="email">E-mail</label>
+										<input
+											class="controls"
+											type="email"
+											name="email"
+											id="email"
+											placeholder="E-mail"
+											value="<%=user.email%>"
+											required
+										/>
+									</div>
+
+									<input type="checkbox" id="change-password">
+									<label id="change-password-label" for="changePassword">¿Desea cambiar su contraseña?</label>
+									<div class="password-fields">
+										<div class="field-container">
+											<label for="currentPassword">Contraseña actual</label>
+											<input
+												class="controls"
+												type="password"
+												name="currentPassword"
+												id="currentPassword"
+												placeholder="Contrseña actual"
+											
+											/>
+										</div>
+										<div class="field-container">
+											<label for="newPassword">Nueva contraseña</label>
+											<input
+												class="controls"
+												type="password"
+												name="newPassword"
+												id="newPassword"
+												placeholder="Nueva contraseña"
+											
+											/>
+										</div>
+										<div class="field-container">
+											<label for="newPassword2">Confirme su nueva contraseña</label>
+											<input
+												class="controls"
+												type="password"
+												name="newPassword2"
+												id="newPassword2"
+												placeholder="Nueva contraseña"
+											
+											/>
+										</div>
+									</div>
+						
+									<div class="field-container">
+										<label for="image" class="form-label">Imagen de perfil</label>
+										<input type="file" id="image" name="image" class="controls">
+									</div>
+									<div class="button-container">
+										<button class="button profile-button profile-button-save" type="submit"><span class="button-text">Editar</span></button>
+										<button class="button profile-button"><a class="profile-back-link" href="/users/profile/<%=user.id%>"><span class="button-text">Cancelar</span></a></button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 			</main>
 		</div>
 		<%- include("../partials/footer.ejs")%>

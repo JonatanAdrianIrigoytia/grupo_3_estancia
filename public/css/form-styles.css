@@ -45,7 +45,7 @@ input[type="file"]::-webkit-file-upload-button {
 .form-container h5 {
 	margin-top: 10px;
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	color: rgb(var(--clr-dark));
 	font-size: 20px;
 }
@@ -67,7 +67,7 @@ input[type="file"]::-webkit-file-upload-button {
 	border-radius: 4rem;
 	background-color: rgb(var(--clr-accent));
 	margin-bottom: 10px;
-	padding: 0.5rem;
+	padding: 0.25rem;
 	cursor: pointer;
 	border: none;
 	outline: none;
@@ -139,6 +139,40 @@ input[type="file"]::-webkit-file-upload-button {
 	gap: 1rem;
 	margin-block: 0.5rem;
 }
+
+.image-container > img {
+	display: block;
+	padding: 0;
+	margin: 0 auto;
+	width: 60%;
+}
+
+.button-text {
+	font-size: 1rem;
+	text-align: center;
+}
+
+.profile-back-link {
+	text-decoration: none;
+	color: rgb(var(--clr-bg));
+	text-align: center;
+}
+
+.password-fields {
+	margin-top: 0.5rem;
+	display: none;
+}
+#change-password {
+	margin-bottom: 1rem;
+}
+#change-password:checked {
+	margin-bottom: 0;
+}
+#change-password:checked ~ #change-password-label ~ .password-fields {
+	display: flex;
+	flex-direction: column;
+}
+
 @media (min-width: 480px) {
 	.form-container {
 		margin-top: 7rem;
@@ -154,6 +188,45 @@ input[type="file"]::-webkit-file-upload-button {
 		margin-top: 5vh;
 		margin-inline: auto;
 	}
+
+	.edit-profile-container {
+		width: 70vw;
+	}
+
+	.edit-profile {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.image-container {
+		align-self: center;
+		margin-bottom: 4rem;
+		margin-right: 1rem;
+		width: 100%;
+		height: 21rem;
+	}
+	.image-container > img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.button-container {
+		display: flex;
+		gap: 1rem;
+		justify-content: flex-end;
+		margin-top: 1rem;
+	}
+
+	.profile-button {
+		width: initial;
+		align-self: center;
+		padding-block: 0.5rem;
+		padding-inline: 1rem;
+		/* width: 5rem; */
+	}
+	.profile-button-save {
+		padding-inline: 1.5rem;
+	}
 }
 @media (min-width: 1200px) {
 	.form-container {
@@ -161,5 +234,11 @@ input[type="file"]::-webkit-file-upload-button {
 	}
 	.login-form {
 		width: 40vw;
+	}
+	.image-container {
+		width: 50%;
+	}
+	.edit-profile-container {
+		width: 55vw;
 	}
 }
