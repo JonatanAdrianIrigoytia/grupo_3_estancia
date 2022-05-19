@@ -18,7 +18,7 @@
                     <p><%=user.email%></p>
                 </div>
                 <div class="button-container">
-                    <form action="/users/delete/<%=user.id%>?_method=DELETE" method="post">
+                    <form action="/users/<%=user.id%>?_method=DELETE" method="POST">
                         <button class="delete-button" type="submit">
                             <i class="fa-solid fa-trash-can"></i>
                             <span>Eliminar</span>

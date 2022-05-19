@@ -180,12 +180,12 @@
 		"image": "user_20.jpg"
 	},
 	{
-		"id": 21,
-		"name": "Diego",
+		"id": "21",
+		"name": "Diego2",
 		"lastName": "Pertierra",
 		"email": "dpertierra@hotmail.com",
-		"password": "123456",
-		"category": "admin",
+		"password": "654321",
+		"category": "user",
 		"image": "default-image.png"
 	}
 ]

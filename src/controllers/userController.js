@@ -17,11 +17,13 @@ const userController = {
 	},
 	profile: (req, res) => {
 		let user = User.findById(req.params.id);
-		res.render("profile", { user });
+		if (user) return res.render("profile", { user });
+		res.redirect("/");
 	},
 	editProfile: (req, res) => {
 		let user = User.findById(req.params.id);
-		res.render("editProfile", { user });
+		if (user) return res.render("editProfile", { user });
+		res.redirect("/");
 	},
 	save: (req, res) => {
 		const resultValidation = validationResult(req);
@@ -40,10 +42,11 @@ const userController = {
 				req.file ? req.file.filename : undefined,
 			);
 		else id = User.create(req.body, req.file ? req.file.filename : undefined);
-		res.redirect(id ? `/profile/${id}` : "/");
+		res.redirect(id ? `/users/profile/${id}` : "/");
 	},
 
 	delete: (req, res) => {
+		console.log("DELETE");
 		User.delete(req.params.id);
 		res.redirect("/");
 	},
