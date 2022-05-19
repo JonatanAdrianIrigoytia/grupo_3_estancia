@@ -2,32 +2,34 @@ const path = require("path");
 const { check } = require("express-validator");
 
 const userRegisterValidations = [
-	check("name").notEmpty().withMessage("tienes que escribir un nombre"),
-	check("lastName").notEmpty().withMessage("tienes que escribir un apellido"),
+	check("name").notEmpty().withMessage("Debe ingresar un nombre"),
+	check("lastName").notEmpty().withMessage("Debe ingresar un apellido"),
 	check("email")
 		.notEmpty()
-		.withMessage("tienes que escribir un email")
+		.withMessage("Debe ingresar un email")
 		.bail()
 		.isEmail()
-		.withMessage("debes escribir un formato de email valido"),
+		.withMessage("Debe ingresar un formato de email valido"),
 	check("password")
 		.notEmpty()
-		.withMessage("tienes que escribir una contraseña"),
+		.withMessage("Debe ingresar una contraseña")
+		.bail()
+		.isLength({ min: 5 })
+		.withMessage("La contraseña debe tener como mínimo 5 caracteres"),
 	check("password2")
 		.notEmpty()
-		.withMessage("tienes que escribir una contraseña"),
+		.withMessage("Debe confirmar su contraseña")
+		.bail()
+		.isLength({ min: 5 })
+		.withMessage("La contraseña debe tener como mínimo 5 caracteres"),
 	check("image").custom((value, { req }) => {
 		let file = req.file;
 		let acceptedExtensions = [".jpg", ".png"];
-		if (!file) {
-			throw new Error("tienes que subir una imagen");
-		} else {
-			let fileExtension = path.extname(file.originalname);
-			if (!acceptedExtensions.includes(fileExtension)) {
-				throw new Error(
-					`los formatos permitidos son ${acceptedExtensions.join(", ")}`,
-				);
-			}
+		let fileExtension = path.extname(file.originalname);
+		if (!acceptedExtensions.includes(fileExtension)) {
+			throw new Error(
+				`los formatos permitidos son ${acceptedExtensions.join(", ")}`,
+			);
 		}
 		return true;
 	}),
