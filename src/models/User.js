@@ -27,20 +27,22 @@ let User = {
 		return userFound;
 	},
 
-	create: function (userData) {
+	create: function (userData, filename) {
 		let users = this.findAll();
 		let id = this.generateId(users);
-		let user = fillUserData(id, userData);
+		let user = fillUserData(id, userData, filename);
 		users.push(user);
 		fs.writeFileSync(this.filepath, JSON.stringify(users), null, " ");
+		return id;
 	},
-	edit: function (id, userData) {
-		let editedUser = fillUserData(id, userData);
+	edit: function (id, userData, filename) {
+		let editedUser = fillUserData(id, userData, filename);
 		let users = this.findAll();
 		// let index = users.findIndex((user) => user.id == id);
 		let userTobeEdited = this.findById(id, users);
 		userTobeEdited = editedUser;
 		fs.writeFileSync(this.filepath, JSON.stringify(users));
+		return userTobeEdited.id;
 	},
 	delete: function (id) {
 		let users = this.findAll();

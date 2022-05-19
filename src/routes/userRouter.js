@@ -2,7 +2,7 @@ const express = require("express");
 const userController = require("../controllers/userController");
 const router = express.Router();
 const multerMiddleware = require("../middlewares/multerMiddleware");
-
+const validationMiddleware = require("../middlewares/validationMiddleware");
 // ************ Multer Configuration ************\
 
 router.get("/login", userController.renderLogin);
@@ -13,8 +13,10 @@ router.post("/login", userController.login);
 router.post(
 	"/register",
 	multerMiddleware.user.single("image"),
+	validationMiddleware.userRegisterValidations,
 	userController.save,
 );
+router.delete("/:id", userController.delete);
 router.put("/:id", multerMiddleware.user.single("image"), userController.save);
 
 module.exports = router;
