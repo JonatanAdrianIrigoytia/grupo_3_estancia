@@ -1,3 +1,10 @@
+.container-user-container{
+	
+		display: flex;
+		flex-direction: column;
+	
+}
+
 .user-profile-container {
 	display: flex;
 	width: 100%;

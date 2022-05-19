@@ -5,11 +5,17 @@
 	<%- include("../partials/header.ejs")%>
 		<div class="page-container">
 			<main>
+                <div class="container-user-container">
+            
 			<div class="form-container">
 				<h5>Actualice sus datos</h5>
 					<div class="image-container">
 						<img src="/images/<%=user.image%>" alt="Imagen de perfil del usuario">
+                            
+                            <label for="image" class="form-label">Imagen de perfil</label>
+							<input type="file" id="image" name="image" class="controls">
 					</div>
+                    <div class="user-data">
 					<form action="/users/<%=user.id%>?_method=PUT" method='POST' enctype="multipart/form-data">
 						<div>
 							<label for="name">Nombre</label>
@@ -43,12 +49,13 @@
 								required
 							/>
 							
-							<label for="image" class="form-label">Imagen de perfil</label>
-							<input type="file" id="image" name="image" class="controls">
+							
 
 							<button class="button" type="submit"><h3>Editar</h3></button>
                             <button class="button" type="submit"><h3>Aceptar</h3></button>
 						</div>
+                    </div>
+                    </div>
 					</form>
 					
 			</div>
