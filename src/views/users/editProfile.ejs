@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("../partials/head.ejs", {style: "form-styles", title: " - Crear cuenta"})%>
+<%- include("../partials/head.ejs", {style: "form-styles", title: " - Edite su perfil"})%>
 	<body>
 	<%- include("../partials/header.ejs")%>
 		<div class="page-container">
 			<main>
 			<div class="form-container">
-				<h5>Bienvenido a Las Violetas</h5>
+				<h5>Actualice sus datos</h5>
+					<div class="image-container">
+						<img src="/images/<%=user.image%>" alt="Imagen de perfil del usuario">
+					</div>
 					<form action="/users/<%=user.id%>?_method=PUT" method='POST' enctype="multipart/form-data">
 						<div>
 							<label for="name">Nombre</label>
@@ -16,6 +19,7 @@
 								name="name"
 								id="name"
 								placeholder="Nombre"
+								value="<%=user.name%>"
 								required
 							/>
 							<label for="lastName">Apellido</label>
@@ -25,6 +29,7 @@
 								name="lastName"
 								id="lastName"
 								placeholder="Apellido"
+								value="<%=user.lastName%>"
 								required
 							/>
 							<label for="email">E-mail</label>
@@ -34,6 +39,7 @@
 								name="email"
 								id="email"
 								placeholder="E-mail"
+								value="<%=user.email%>"
 								required
 							/>
 							
