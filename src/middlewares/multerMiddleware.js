@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
 	filename: (req, file, cb) => {
 		let filename =
 			"img-" +
-			req.body.name.toLowerCase().replace(/\s/g, "-") + 
+			req.body.name.toLowerCase().replace(/\s/g, "-") +
 			req.body.lastName.toLowerCase().replace(/\s/g, "-") +
 			"_" +
 			Date.now() +
