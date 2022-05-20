@@ -54,7 +54,7 @@ input[type="file"]::-webkit-file-upload-button {
 	width: 100%;
 	border: 1px solid rgb(var(--clr-dark));
 	border-radius: 5px;
-	margin-bottom: 10px;
+	/* margin-bottom: 10px; */
 	padding: 8px;
 	background: white;
 }
@@ -171,6 +171,23 @@ input[type="file"]::-webkit-file-upload-button {
 #change-password:checked ~ #change-password-label ~ .password-fields {
 	display: flex;
 	flex-direction: column;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.error {
+	color: var(--clr-red);
+}
+.input-error {
+	border-color: var(--clr-red);
+}
+
+.input-error::after {
+	content: "hola";
 }
 
 @media (min-width: 480px) {

@@ -148,14 +148,14 @@ body {
 }
 
 .delete-button > i {
-	color: #de0307;
+	color: var(--clr-red);
 	font-size: 1rem;
 	margin-inline: 0.25rem;
 	transition: color 250 ease-in-out;
 }
 
 .delete-button:hover {
-	background-color: #9e0104;
+	background-color: var(--clr-dark-red);
 }
 
 .delete-button:hover > i {

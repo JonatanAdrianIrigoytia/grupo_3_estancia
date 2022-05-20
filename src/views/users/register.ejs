@@ -8,52 +8,93 @@
 			<div class="form-container">
 				<h5>Bienvenido a Las Violetas</h5>
 					<form action="/users/register" method="POST" enctype="multipart/form-data">
-						<div>
-							<label for="name">Nombre</label>
-							<input
-								class="controls"
-								type="text"
-								name="name"
-								id="name"
-								placeholder="Nombre"
-								
-							/>
-							<label for="lastName">Apellido</label>
-							<input
-								class="controls"
-								type="text"
-								name="lastName"
-								id="lastName"
-								placeholder="Apellido"
-								
-							/>
-							<label for="email">E-mail</label>
-							<input
-								class="controls"
-								type="email"
-								name="email"
-								id="email"
-								placeholder="E-mail"
-								
-							/>
-							<label for="password">Contraseña</label>
-							<input
-								class="controls"
-								name="password"
-								type="password"
-								id="password"
-								placeholder="Contraseña"
-							/>
-							<label for="password2">Confime su contraseña</label>
-							<input
-								class="controls"
-								name="password2"
-								type="password"
-								id="password2"
-								placeholder="Confirme su contraseña"
-							/>
-							<label for="image" class="form-label">Imagen de perfil</label>
-							<input type="file" id="image" name="image" class="controls">
+						<div class="input-container">
+							
+							<div class="field-container">
+								<label for="name">Nombre</label>
+								<input
+									class="controls <%= locals && locals.errors && errors.name ? "input-error" : ""%>"
+									type="text"
+									name="name"
+									id="name"
+									placeholder="Nombre"
+									value="<%=locals && locals.oldData && oldData.name ?  oldData.name : ""%>"
+								/>
+								<% if (locals && locals.errors && errors.name) { %>
+								 	<p class="error"><%=errors.name.msg%></p>
+								<% } %>
+							</div>
+							
+							<div class="field-container">
+								<label for="lastName">Apellido</label>
+								<input
+									class="controls <%= locals && locals.errors && errors.lastName ? "input-error" : ""%>"
+									type="text"
+									name="lastName"
+									id="lastName"
+									placeholder="Apellido"
+									value="<%=locals && locals.oldData && oldData.lastName ?  oldData.lastName : ""%>"
+								/>
+								<% if (locals && locals.errors && errors.lastName) { %>
+								 	<p class="error"><%=errors.lastName.msg%></p>
+								<% } %>
+							</div>
+							
+							<div class="field-container">
+								<label for="email">E-mail</label>
+								<input
+									class="controls <%= locals && locals.errors && errors.email ? "input-error" : ""%>"
+									type="email"
+									name="email"
+									id="email"
+									placeholder="E-mail"
+									value="<%=locals && locals.oldData && oldData.email ?  oldData.email : ""%>"
+								/>
+								<% if (locals && locals.errors && errors.email) { %>
+								 	<p class="error"><%=errors.email.msg%></p>
+								<% } %>
+							</div>
+							
+							<div class="field-container">
+								<label for="password">Contraseña</label>
+								<input
+									class="controls <%= locals && locals.errors && errors.password ? "input-error" : ""%>"
+									name="password"
+									type="password"
+									id="password"
+									placeholder="Contraseña"
+								/>
+								<% if (locals && locals.errors && errors.password) { %>
+								 	<p class="error"><%=errors.password.msg%></p>
+								<% } %>
+							</div>
+							
+							<div class="field-container">
+								<label for="password2">Confime su contraseña</label>
+								<input
+									class="controls <%= locals && locals.errors && errors.password2 ? "input-error" : ""%>"
+									name="password2"
+									type="password"
+									id="password2"
+									placeholder="Confirme su contraseña"
+								/>
+								<% if (locals && locals.errors && errors.password2) { %>
+								 	<p class="error"><%=errors.password2.msg%></p>
+								<% } %>
+							</div>
+
+							<div class="field-container">
+								<label for="image" class="form-label">Imagen de perfil</label>
+								<input 
+									type="file" 
+									id="image" 
+									name="image" 
+									class="controls <%= locals && locals.errors && errors.image ? "input-error" : ""%>"
+								>
+								<% if (locals && locals.errors && errors.image) { %>
+								 	<p class="error"><%=errors.image.msg%></p>
+								<% } %>
+							</div>
 
 							<button class="button" type="submit"><h3>Registrarse</h3></button>
 							<button class="button" type="reset"><h3>Cancelar</h3></button>

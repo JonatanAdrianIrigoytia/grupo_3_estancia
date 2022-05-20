@@ -23,7 +23,9 @@ const userRegisterValidations = [
 		.isLength({ min: 5 })
 		.withMessage("La contraseña debe tener como mínimo 5 caracteres"),
 	check("image").custom((value, { req }) => {
+		if (!req.file) return true;
 		let file = req.file;
+		console.log(file);
 		let acceptedExtensions = [".jpg", ".png"];
 		let fileExtension = path.extname(file.originalname);
 		if (!acceptedExtensions.includes(fileExtension)) {
@@ -31,7 +33,7 @@ const userRegisterValidations = [
 				`los formatos permitidos son ${acceptedExtensions.join(", ")}`,
 			);
 		}
-		return true;
+		// return true;
 	}),
 ];
 
