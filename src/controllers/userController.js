@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
 const User = require("../models/User");
+const fs = require("fs");
 
 const userController = {
 	renderLogin: (req, res) => {
@@ -29,6 +30,7 @@ const userController = {
 		const resultValidation = validationResult(req);
 
 		if (resultValidation.errors.length > 0) {
+			if (req.file) fs.unlinkSync(req.file.path);
 			return res.render("register", {
 				errors: resultValidation.mapped(),
 				oldData: req.body,
