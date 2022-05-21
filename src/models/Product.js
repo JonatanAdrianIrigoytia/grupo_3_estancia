@@ -42,7 +42,7 @@ const Product = {
 		let id = this.generateID(products);
 		let product = fillProductData(id, productData, filename);
 		products.push(product);
-		fs.writeFileSync(this.filepath, JSON.stringify(products), null, " ");
+		fs.writeFileSync(this.filepath, JSON.stringify(products, null, " "));
 	},
 
 	edit: function (id, productData, filename) {
@@ -57,7 +57,7 @@ const Product = {
 		let products = this.findAll();
 		let index = this.findIndexByID(id, products);
 		products.splice(index, 1);
-		fs.writeFileSync(this.filepath, JSON.stringify(products), null, " ");
+		fs.writeFileSync(this.filepath, JSON.stringify(products, null, " "));
 	},
 
 	fillProductData: function (id, productData, filename) {

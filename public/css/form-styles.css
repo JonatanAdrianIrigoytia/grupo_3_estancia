@@ -59,7 +59,7 @@ input[type="file"]::-webkit-file-upload-button {
 	background: white;
 }
 .products-title {
-	margin-bottom: 0.5rem;
+	margin-block: 1.5rem;
 }
 
 .button {
@@ -75,7 +75,16 @@ input[type="file"]::-webkit-file-upload-button {
 	font-size: 1.25rem;
 }
 
+.buy-now-button {
+	margin-top: 1rem;
+}
+.create-container {
+	width: 80%;
+}
 .form-fields {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 	margin-top: 0.5rem;
 }
 
