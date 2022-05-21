@@ -75,9 +75,6 @@ input[type="file"]::-webkit-file-upload-button {
 	font-size: 1.25rem;
 }
 
-.buy-now-button {
-	margin-top: 1rem;
-}
 .create-container {
 	width: 80%;
 }
