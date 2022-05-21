@@ -23,7 +23,6 @@ const storageProducts = multer.diskStorage({
 	destination: (req, file, cb) => {
 		let dest = "../../public/images/products/";
 		dest += req.body.category == "room" ? "rooms" : "activities";
-		console.log(dest);
 		cb(null, path.resolve(__dirname, dest));
 	},
 	filename: (req, file, cb) => {
