@@ -16,8 +16,9 @@
 # Reunion 21/05 11:00 AM
 
 ## Temas charlados
--Nos reunimos con Alejandro Bagnat,el nuevo integrante del grupo.
--Le explicamos a donde apunta nuestro proyecto y lo pusimos al corriente del mismo.
+
+- Nos reunimos con Alejandro Bagnat,el nuevo integrante del grupo.
+- Le explicamos a donde apunta nuestro proyecto y lo pusimos al corriente del mismo.
 
 ## Impedimentos
 
@@ -25,4 +26,4 @@
 
 ## Tareas a realizar en la semana
 
-- Diego se encargará de cargar los datos en el JSON.
+- Diego se encargará de cargar los datos en el products.json.
