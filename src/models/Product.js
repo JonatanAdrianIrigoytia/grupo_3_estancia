@@ -76,7 +76,7 @@ const Product = {
 
 		return product;
 	},
-
+	//Genera el nombre de la imagen dependiendo si es una habitacion o una actividad
 	getFilePath: function (category, filename) {
 		if (filename) {
 			if (category == "room") return "/products/rooms/" + filename;
