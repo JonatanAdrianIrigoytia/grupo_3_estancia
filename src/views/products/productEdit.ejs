@@ -11,58 +11,80 @@
 					<form action="/products/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
 				
 						<div class="form-fields">
-								<label for="name" class="form-label">Nombre del producto:</label>
-								<input type="text" id="name" name="name" placeholder="Ej: Habitación de lujo" class="controls" value="<%=product.name%>"required>
+								<div class="field-container">
+									<label for="name" class="form-label">Nombre del producto:</label>
+									<input type="text" id="name" name="name" placeholder="Ej: Habitación de lujo" class="controls" value="<%=product.name%>"required>
+								</div>
 				
-								<label for="price" class="form-label">Precio de la Habitación:</label>
-								<input type="number" id="price" name="price" placeholder="Ej: 5678" class="controls" value="<%=product.price%>"required>
+								<div class="field-container">
+									<label for="price" class="form-label">Precio de la Habitación:</label>
+									<input type="number" id="price" name="price" placeholder="Ej: 5678" class="controls" value="<%=product.price%>"required>
+								</div>
 				
-								<label for="category" class="form-label">Categoría:</label>
-								<select name="category" id="category" class="controls" required>
-									<% if (product.category == "room") { %>
-										<option id=room value="room" selected>Habitación</option>
-										<option id=activity value="activity">Actividad</option>
-									<% }else { %>
-										<option id=room value="room">Habitación</option>
-										<option id=activity value="activity" selected>Actividad</option>
-									<%}%>
-								</select>
+								<div class="field-container">
+									<label for="category" class="form-label">Categoría:</label>
+									<select name="category" id="category" class="controls" required>
+										<% if (product.category == "room") { %>
+											<option id=room value="room" selected>Habitación</option>
+											<option id=activity value="activity">Actividad</option>
+										<% }else { %>
+											<option id=room value="room">Habitación</option>
+											<option id=activity value="activity" selected>Actividad</option>
+										<%}%>
+									</select>
+								</div>
 				
-								<label for="description" class="form-label">Descripción:</label>
-								<input type="text" id="description" name="description" placeholder="Ej: Habitación de lujo" class="controls" value="<%=product.description%>">
+								<div class="field-container">
+									<label for="description" class="form-label">Descripción:</label>
+									<input type="text" id="description" name="description" placeholder="Ej: Habitación de lujo" class="controls" value="<%=product.description%>">
+								</div>
 				
-								<label for="long-description" class="form-label">Descripción:</label>
-								<textarea name="longDescription" id="long-description" class="controls"><%=product.longDescription%></textarea>
+								<div class="field-container">
+									<label for="long-description" class="form-label">Descripción:</label>
+									<textarea name="longDescription" id="long-description" class="controls"><%=product.longDescription%></textarea>
+								</div>
+
 								<% if (product.category == "room") { %>
-									<label for="capacity" class="form-label">Capacidad:</label>
-									<input type="number" id="capacity" name="capacity" placeholder="Ej: 2" class="controls" value="<%=product.capacity || ""%>">
+									<div class="field-container">
+										<label for="capacity" class="form-label">Capacidad:</label>
+										<input type="number" id="capacity" name="capacity" placeholder="Ej: 2" class="controls" value="<%=product.capacity || ""%>">
+									</div>
 								<% }else { %>
-									<label for="duration" class="form-label">Duración:</label>
-									<input type="number" id="duration" name="duration" placeholder="Ej: 60" class="controls" value="<%=product.duration || ""%>">
+									<div class="field-container">
+										<label for="duration" class="form-label">Duración:</label>
+										<input type="number" id="duration" name="duration" placeholder="Ej: 60" class="controls" value="<%=product.duration || ""%>">
+									</div>
 								<% } %>
-								<label for="discount" class="form-label">Porcentaje de descuento</label>
-								<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls" value="<%=product.discount%>">
+								
+								<div class="field-container">
+									<label for="discount" class="form-label">Porcentaje de descuento</label>
+									<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls" value="<%=product.discount%>">
+								</div>
 				
-								<label for="product-image" class="form-label">Imagen del producto</label>
-								<input type="file" id="product-image" name="product-image" multiple="multiple" class="controls">
+								<div class="field-container">
+									<label for="product-image" class="form-label">Imagen del producto</label>
+									<input type="file" id="product-image" name="product-image" multiple="multiple" class="controls">
+								</div>
 				
 								<% if (product.category == "room") { %>
-									<label for="services" class="form-label">Serivicios:</label>
-										<div class="services">
-											<% availableServicies.forEach((service, index) => { %>
-												<label for="service<%=index%>">
-														<input
-															type="checkbox"
-															name="services"
-															id="service<%=index%>"
-															value="<%=service%>"
-															<%=product.services.includes(service) ? "checked" : ""%>
-														/>
-														<%=service%>
-												</label>
-											<% }) %>
-										</div>
-									</label>
+									<div class="field-container">
+										<label for="services" class="form-label">Serivicios:</label>
+											<div class="services">
+												<% availableServicies.forEach((service, index) => { %>
+													<label for="service<%=index%>">
+															<input
+																type="checkbox"
+																name="services"
+																id="service<%=index%>"
+																value="<%=service%>"
+																<%=product.services.includes(service) ? "checked" : ""%>
+															/>
+															<%=service%>
+													</label>
+												<% }) %>
+											</div>
+										</label>
+									</div>
 								<% } %>
 								<button class="button buy-now-button" type="submit">Modificar</button>
 							</div>
