@@ -66,13 +66,13 @@ const Product = {
 			...productData,
 			image: this.getFile(productData.category, filename),
 		};
-
-		product.discount = productData.discount || 0;
+		product.price = parseFloat(product.price);
+		product.discount = parseInt(productData.discount) || 0;
 
 		if (productData.category == "room") {
-			product.capacity = productData.capacity || 0;
+			product.capacity = parseInt(productData.capacity) || 0;
 			product.services = productData.services ? [productData.services] : [];
-		} else product.duration = productData.duration || 0;
+		} else product.duration = parseInt(productData.duration) || 0;
 
 		return product;
 	},
