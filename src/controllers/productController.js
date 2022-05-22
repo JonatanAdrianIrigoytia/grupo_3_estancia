@@ -37,7 +37,10 @@ const productController = {
 		});
 	},
 	edit: (req, res) => {
-		res.render("productEdit", { product: Product.findByID(req.params.id) });
+		res.render("productEdit", {
+			product: Product.findByID(req.params.id),
+			availableServicies: Product.getAvailableServices(),
+		});
 	},
 
 	save: (req, res) => {
