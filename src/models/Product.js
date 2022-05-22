@@ -12,6 +12,9 @@ const Product = {
 	},
 
 	generateID: function (products = undefined) {
+		/* Por temas de performance agregue que los metodos que necesitan el listado de productos puedan recibirlo
+		Como parametro ya que si la funcion que los llama tiene el listado actualizado, se lo puede pasar
+		a la funcion subsiguiente y esta no necesita perder el tiempo en ir a buscar los datos */
 		if (!products) products = this.findAll();
 		let id = 1;
 		if (products.length > 0) id = products.at(-1).id + 1;
@@ -28,6 +31,9 @@ const Product = {
 	},
 
 	findIndexByID: function (id, products = undefined) {
+		/* Por temas de performance agregue que los metodos que necesitan el listado de productos puedan recibirlo
+		Como parametro ya que si la funcion que los llama tiene el listado actualizado, se lo puede pasar
+		a la funcion subsiguiente y esta no necesita perder el tiempo en ir a buscar los datos */
 		if (!products) products = this.findAll();
 		let productIndex = products.findIndex((product) => product.id == id);
 		return productIndex;
@@ -39,6 +45,9 @@ const Product = {
 
 	create: function (productData, filename) {
 		let products = this.findAll();
+		/* Por temas de performance agregue que los metodos que necesitan el listado de productos puedan recibirlo
+		Como parametro ya que si la funcion que los llama tiene el listado actualizado, se lo puede pasar
+		a la funcion subsiguiente y esta no necesita perder el tiempo en ir a buscar los datos */
 		let id = this.generateID(products);
 		let product = fillProductData(id, productData, filename);
 		products.push(product);
@@ -47,6 +56,9 @@ const Product = {
 
 	edit: function (id, productData, filename) {
 		let products = this.findAll();
+		/* Por temas de performance agregue que los metodos que necesitan el listado de productos puedan recibirlo
+		Como parametro ya que si la funcion que los llama tiene el listado actualizado, se lo puede pasar
+		a la funcion subsiguiente y esta no necesita perder el tiempo en ir a buscar los datos */
 		let index = this.findIndexByID(id, products);
 		let currentData = products[index];
 		let editedProduct = this.fillProductData(
@@ -74,35 +86,45 @@ const Product = {
 	) {
 		let product = {
 			id: id,
-			name: productData.name ? productData.name : currentData.name,
-			description: productData.description
-				? productData.description
-				: currentData.description,
+			name: productData.name,
+			description: productData.description,
+
+			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			longDescription: productData.longDescription
 				? productData.longDescription
-				: currentData.longDescription,
+				: currentData.longDescription || "",
 			category: productData.category,
+
+			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			price: productData.price ? parseFloat(product.price) : currentData.price,
+
+			// Valida si llego un valor para el descuento, si no llego lo pone en 0
 			discount: productData.discount ? parseInt(productData.discount) : 0,
 		};
 
 		if (productData.category == "room") {
+			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			product.capacity = productData.capacity
-				? parseInt(productData.capacity) || 0
-				: currentData.capacity;
+				? parseInt(productData.capacity)
+				: currentData.capacity || 0;
 
+			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			if (productData.services) product.services = [productData.services];
 			else if (currentData.services) product.services = [currentData.services];
 			else product.services = [];
 
+			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			if (productData.amenities) product.amenities = productData.amenities;
 			else if (currentData.amenities) product.amenities = currentData.amenities;
 			else product.amenities = [];
-		} else
+		}
+		// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
+		else
 			product.duration = productData.duration
 				? parseInt(productData.duration)
 				: currentData.duration || 0;
 
+		// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 		if (currentData.image && !filename) product.image = currentData.image;
 		else product.image = this.getFilePath(productData.category, filename);
 
