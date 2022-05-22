@@ -304,11 +304,11 @@ img {
 .icons {
 	display: flex;
 	justify-content: space-evenly;
-	margin-left: 2rem;
+	margin-bottom: 0.5rem;
 }
 
-.amenity > img {
-	width: 50%;
+.amenity {
+	text-align: center;
 }
 
 .detail-link {

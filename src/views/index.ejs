@@ -84,6 +84,13 @@
 							<%=selected.description%>
 						</p>
 						<div class="icons">
+							<% selected.amenities.forEach(amenity => { %>
+								<div class="amenity">
+									<img src="/images/icons/<%=amenity.icon%>"></img>
+									<p><%=amenity.name%></p>
+								</div>
+							<% }) %>
+						<!--
 							<div class="amenity bed">
 								<img src="/images/icons/bed.png"></img>
 							</div>
@@ -93,6 +100,7 @@
 							<div class="amenity key">
 								<img src="/images/icons/key.png"></img>
 							</div>
+						-->
 						</div>
 						<div class="buttons">
 							<a class="detail-link" href="/products/detail/<%=selected.id%>">
