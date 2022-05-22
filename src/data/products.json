@@ -1,212 +1,233 @@
 [
-	{
-		"id": 1,
-		"name": "Las Lavandas",
-		"description": "Habitación con cama Queen de 25m2",
-		"longDescription": "Las Lavandas es una pequeña habitación de 25m2 con una cama matrimonial y baño privado. Posee un hall de entrada decorado en estilo clásico",
-		"category": "room",
-		"price": 30000,
-		"capacity": 2,
-		"discount": 0,
-		"amenities": [{ "name": "Cama Queen", "icon": "bed.png" }],
-		"services": ["Aire acondicionado", "WiFi", "Desayuno", "Calefacción"],
-		"image": "/products/rooms/lavandas.jpg"
-	},
-	{
-		"id": 2,
-		"name": "Los Lirios",
-		"description": "Habitación de 30m2 con cama King y 2 camas twin",
-		"longDescription": "Los Lirios es una habitación de 30m2, con mobiliario de época, hidromasaje, frigobar y servicio de café/té, es la unica habitación con balcón de la estancia",
-		"category": "room",
-		"price": 45000,
-		"capacity": 4,
-		"discount": 5,
-		"amenities": [
-			{ "name": "Cama King y twin", "icon": "bed.png" },
-			{ "name": "Balcón", "icon": "balcony.png" },
-			{ "name": "Hidromasaje", "icon": "jacuzzi.png" }
-		],
-		"services": [
-			"Aire acondicionado",
-			"WiFi",
-			"Desayuno",
-			"Calefacción",
-			"Frigobar",
-			"Balcón",
-			"Bañera con Hidromasaje"
-		],
-		"image": "/products/rooms/lirios.jpg"
-	},
-	{
-		"id": 3,
-		"name": "Las Glicinas",
-		"description": "Habitación de 40m2 con cama King",
-		"longDescription": "Las Glicinas es una habitación de 40m2 con una cama King y bañera con hidromasaje, al reservar esta habitación incluye 1 hora de cabalgata por noche y bebidas con y sin alcohol libres",
-		"category": "room",
-		"price": 60000,
-		"capacity": 2,
-		"discount": 0,
-		"amenities": [
-			{ "name": "Cama King", "icon": "bed.png" },
-			{ "name": "Bebidas sin alcohol", "icon": "soda.png" },
-			{ "name": "Bebidas con alcohol", "icon": "cocktail.png" }
-		],
-		"services": [
-			"Aire acondicionado",
-			"WiFi",
-			"Calefacción",
-			"Frigobar",
-			"Bañera con Hidromasaje",
-			"Pension completa",
-			"1 hora de Cabalgata",
-			"Bebidas sin alcohol",
-			"Bebidas alcohólicas"
-		],
-		"image": "/products/rooms/glicinas.jpg"
-	},
-	{
-		"id": 4,
-		"name": "Las Petunias",
-		"description": "Habitación doble de 45m2",
-		"longDescription": "Las Petunias es una habitación doble de 45m² con cama Queen, 2 camas twin y baño privado. Decorada en estilo clásico, poseee un gran ventanal colonial con vista a los jardines internos",
-		"category": "room",
-		"price": 65000,
-		"capacity": 4,
-		"discount": 0,
-		"amenities": [],
-		"services": [
-			"Aire acondicionado",
-			"WiFi",
-			"Calefacción",
-			"Frigobar",
-			"Bañera con Hidromasaje",
-			"Pension completa",
-			"1 hora de Cabalgata",
-			"Bañera con Hidromasaje"
-		],
-		"image": "/products/rooms/petunias.jpg"
-	},
-	{
-		"id": "5",
-		"name": "Los Azafranes",
-		"price": 70000,
-		"category": "room",
-		"description": "Habitación de 50m2 con sala de estar y Hogar",
-		"longDescription": "Los Azafranes es una habitación espaciosa de 50 m2, con grandes ventanales y una fantástica sala de estar con hogar. Su estilo clásico y decoración evocan al cuarto principal del dueño de una estancia.",
-		"capacity": 2,
-		"discount": "0",
-		"image": "/products/rooms/azafranes.jpg",
-		"services": [
-			"Aire acondicionado",
-			"WiFi",
-			"Calefacción",
-			"Frigobar",
-			"Bañera con Hidromasaje",
-			"Pension completa",
-			"1 hora de Cabalgata",
-			"Bebidas sin alcohol",
-			"Bebidas alcohólicas",
-			"Hogar"
-		],
-		"amenities": [
-			{ "name": "Cama King", "icon": "bed.png" },
-			{ "name": "Hogar", "icon": "fireplace.png" },
-			{ "name": "Sala de estar", "icon": "sofa.png" }
-		]
-	},
-	{
-		"id": 6,
-		"name": "Las Pasionarias",
-		"description": "Habitación de 65m2 con galeria propia y jardín interno",
-		"longDescription": "Las Pasionarias es una habitación de 65 m2 con una cama king size enfrentada a un hogar. La habitación combina muebles en estilo clásico con modernas esculturas en metal. Posee su propia galeria y un pequeño jardin lo que la convierten en la joya de la estancia.",
-		"category": "room",
-		"price": 80000,
-		"capacity": 2,
-		"discount": 0,
-		"amenities": [
-			{ "name": "Jardín", "icon": "garden.png" },
-			{ "name": "Hogar", "icon": "fireplace.png" },
-			{ "name": "Sala de estar", "icon": "sofa.png" }
-		],
-		"services": [
-			"Aire acondicionado",
-			"WiFi",
-			"Calefacción",
-			"Frigobar",
-			"Bañera con Hidromasaje",
-			"Pension completa",
-			"1 hora de Cabalgata",
-			"Bebidas sin alcohol",
-			"Bebidas alcohólicas",
-			"Hogar",
-			"Jardín"
-		],
-		"image": "/products/rooms/pasionarias.jpg"
-	},
-	{
-		"id": 7,
-		"name": "Cabalgatas",
-		"description": "Cabalgata de 1 hora",
-		"longDescription": "Cabalgue por 1 hora por nuestro prado de flores",
-		"category": "activity",
-		"price": 1250,
-		"duration": 60,
-		"discount": 0,
-		"image": "/products/activities/cabalgata.jpg"
-	},
-	{
-		"id": 8,
-		"name": "Clases de Polo",
-		"description": "Clase de Polo de 1 hora",
-		"longDescription": "Esta actividad lo introduce al deporte del polo, debe saber andar a caballo, se le proveerá de todo el equipamento necesario",
-		"category": "activity",
-		"price": 2500,
-		"duration": 60,
-		"discount": 0,
-		"image": "/products/activities/polo.jpg"
-	},
-	{
-		"id": 9,
-		"name": "Masajes",
-		"description": "45 minutos de masajes relajantes o descontracturantes",
-		"longDescription": "Disfruta un masaje en todo tu cuerpo que te devolverá a la vida relajado y feliz! 45 minutos de masajes realizados por un masajista profesional. Podes elegir entre un masaje descontracturante o relajante.",
-		"category": "activity",
-		"price": 3000,
-		"duration": 45,
-		"discount": 0,
-		"image": "/products/activities/masaje.jpg"
-	},
-	{
-		"id": 10,
-		"name": "Limpieza de cutis",
-		"description": "Limpieza facial con ceniza volcánica",
-		"longDescription": "Un facial totalmente energizante que utiliza el poder de la roca volcánica por su rico contenido de magnesio para estimular y desintoxicar la piel . Este tratamiento combina relajación y eficacia para una piel más resistente y una tez impecable.",
-		"category": "activity",
-		"price": 3500,
-		"duration": 50,
-		"discount": 0,
-		"image": "/products/activities/cutis.jpg"
-	},
-	{
-		"id": 11,
-		"name": "Clases de Yoga",
-		"description": "Clases para principiantes y avanzados",
-		"longDescription": "Esta es una excelente oportunidad para los principiantes del yoga, así como para los que desean mejorar su práctica con sólidos fundamentos de alineación en las posturas y fortaleza en la respiración. Intensifique su respiración, recurra a su fuerza interior y gane mayor conciencia de la relación entre su mente y su cuerpo.",
-		"category": "activity",
-		"price": 800,
-		"duration": 60,
-		"discount": 0,
-		"image": "/products/activities/yoga.jpg"
-	},
-	{
-		"id": 12,
-		"name": "Clases de empanadas",
-		"description": "Aprenda a hacer empanadas",
-		"longDescription": "Nuestro chef le enseñará su receta tradicional para elaborar las clásicas empanadas criollas, no se requiere experiencia previa, y por su puesto lo que cocines se te servira en tu próxima comida",
-		"category": "activity",
-		"price": 1000,
-		"duration": 60,
-		"discount": 0,
-		"image": "/products/activities/empanadas.jpg"
-	}
+ {
+  "id": 1,
+  "name": "Las Lavandas",
+  "description": "Habitación con cama Queen de 25m2",
+  "longDescription": "Las Lavandas es una pequeña habitación de 25m2 con una cama matrimonial y baño privado. Posee un hall de entrada decorado en estilo clásico",
+  "category": "room",
+  "price": 30000,
+  "capacity": 2,
+  "discount": 0,
+  "amenities": [
+   {
+    "name": "Cama Queen",
+    "icon": "bed.png"
+   }
+  ],
+  "services": [
+   "Aire acondicionado",
+   "WiFi",
+   "Desayuno",
+   "Calefacción"
+  ],
+  "image": "/products/rooms/lavandas.jpg"
+ },
+ {
+  "id": 2,
+  "name": "Los Lirios",
+  "description": "Habitación de 30m2 con cama King y 2 camas twin",
+  "longDescription": "Los Lirios es una habitación de 30m2, con mobiliario de época, hidromasaje, frigobar y servicio de café/té, es la unica habitación con balcón de la estancia",
+  "category": "room",
+  "price": 45000,
+  "capacity": 4,
+  "discount": 5,
+  "amenities": [
+   {
+    "name": "Cama King y twin",
+    "icon": "bed.png"
+   },
+   {
+    "name": "Balcón",
+    "icon": "balcony.png"
+   },
+   {
+    "name": "Hidromasaje",
+    "icon": "jacuzzi.png"
+   }
+  ],
+  "services": [
+   "Aire acondicionado",
+   "WiFi",
+   "Desayuno",
+   "Calefacción",
+   "Frigobar",
+   "Balcón",
+   "Bañera con Hidromasaje"
+  ],
+  "image": "/products/rooms/lirios.jpg"
+ },
+ {
+  "id": 3,
+  "name": "Las Glicinas",
+  "description": "Habitación de 40m2 con cama King",
+  "longDescription": "Las Glicinas es una habitación de 40m2 con una cama King y bañera con hidromasaje, al reservar esta habitación incluye 1 hora de cabalgata por noche y bebidas con y sin alcohol libres",
+  "category": "room",
+  "price": 60000,
+  "capacity": 2,
+  "discount": 0,
+  "amenities": [
+   {
+    "name": "Cama King",
+    "icon": "bed.png"
+   },
+   {
+    "name": "Bebidas sin alcohol",
+    "icon": "soda.png"
+   },
+   {
+    "name": "Bebidas con alcohol",
+    "icon": "cocktail.png"
+   }
+  ],
+  "services": [
+   "Aire acondicionado",
+   "WiFi",
+   "Calefacción",
+   "Frigobar",
+   "Bañera con Hidromasaje",
+   "Pension completa",
+   "1 hora de Cabalgata",
+   "Bebidas sin alcohol",
+   "Bebidas alcohólicas"
+  ],
+  "image": "/products/rooms/glicinas.jpg"
+ },
+ {
+  "id": 4,
+  "name": "Las Petunias",
+  "description": "Habitación doble de 45m2",
+  "longDescription": "Las Petunias es una habitación doble de 45m² con cama Queen, 2 camas twin y baño privado. Decorada en estilo clásico, poseee un gran ventanal colonial con vista a los jardines internos",
+  "category": "room",
+  "price": 65000,
+  "capacity": 4,
+  "discount": 0,
+  "amenities": [],
+  "services": [
+   "Aire acondicionado",
+   "WiFi",
+   "Calefacción",
+   "Frigobar",
+   "Bañera con Hidromasaje",
+   "Pension completa",
+   "1 hora de Cabalgata",
+   "Bañera con Hidromasaje"
+  ],
+  "image": "/products/rooms/petunias.jpg"
+ },
+ {
+  "id": "5",
+  "name": "Los Azafranes",
+  "price": 70000,
+  "category": "room",
+  "description": "Habitación de 50m2 con sala de estar y Hogar",
+  "longDescription": "Los Azafranes es una habitación espaciosa de 50 m2, con grandes ventanales y una fantástica sala de estar con hogar. Su estilo clásico y decoración evocan al cuarto principal del dueño de una estancia.",
+  "capacity": 2,
+  "discount": "0",
+  "image": "/products/rooms/azafranes.jpg",
+  "services": [
+   "Aire acondicionado",
+   "WiFi",
+   "Calefacción",
+   "Frigobar",
+   "Bañera con Hidromasaje",
+   "Pension completa",
+   "1 hora de Cabalgata",
+   "Bebidas sin alcohol",
+   "Bebidas alcohólicas",
+   "Hogar"
+  ],
+  "amenities": [
+   {
+    "name": "Cama King",
+    "icon": "bed.png"
+   },
+   {
+    "name": "Hogar",
+    "icon": "fireplace.png"
+   },
+   {
+    "name": "Sala de estar",
+    "icon": "sofa.png"
+   }
+  ]
+ },
+ {
+  "id": "6",
+  "name": "Las Pasionarias",
+  "price": 85000,
+  "category": "room",
+  "description": "Habitación de 65m2 con galeria propia y jardín interno",
+  "longDescription": "Las Pasionarias es una habitación de 65 m2 con una cama king size enfrentada a un hogar. La habitación combina muebles en estilo clásico con modernas esculturas en metal. Posee su propia galeria y un pequeño jardin lo que la convierten en la joya de la estancia.",
+  "capacity": 2,
+  "discount": 0,
+  "image": "default-image.png",
+  "services": [],
+  "amenities": []
+ },
+ {
+  "id": 7,
+  "name": "Cabalgatas",
+  "description": "Cabalgata de 1 hora",
+  "longDescription": "Cabalgue por 1 hora por nuestro prado de flores",
+  "category": "activity",
+  "price": 1250,
+  "duration": 60,
+  "discount": 0,
+  "image": "/products/activities/cabalgata.jpg"
+ },
+ {
+  "id": 8,
+  "name": "Clases de Polo",
+  "description": "Clase de Polo de 1 hora",
+  "longDescription": "Esta actividad lo introduce al deporte del polo, debe saber andar a caballo, se le proveerá de todo el equipamento necesario",
+  "category": "activity",
+  "price": 2500,
+  "duration": 60,
+  "discount": 0,
+  "image": "/products/activities/polo.jpg"
+ },
+ {
+  "id": 9,
+  "name": "Masajes",
+  "description": "45 minutos de masajes relajantes o descontracturantes",
+  "longDescription": "Disfruta un masaje en todo tu cuerpo que te devolverá a la vida relajado y feliz! 45 minutos de masajes realizados por un masajista profesional. Podes elegir entre un masaje descontracturante o relajante.",
+  "category": "activity",
+  "price": 3000,
+  "duration": 45,
+  "discount": 0,
+  "image": "/products/activities/masaje.jpg"
+ },
+ {
+  "id": 10,
+  "name": "Limpieza de cutis",
+  "description": "Limpieza facial con ceniza volcánica",
+  "longDescription": "Un facial totalmente energizante que utiliza el poder de la roca volcánica por su rico contenido de magnesio para estimular y desintoxicar la piel . Este tratamiento combina relajación y eficacia para una piel más resistente y una tez impecable.",
+  "category": "activity",
+  "price": 3500,
+  "duration": 50,
+  "discount": 0,
+  "image": "/products/activities/cutis.jpg"
+ },
+ {
+  "id": 11,
+  "name": "Clases de Yoga",
+  "description": "Clases para principiantes y avanzados",
+  "longDescription": "Esta es una excelente oportunidad para los principiantes del yoga, así como para los que desean mejorar su práctica con sólidos fundamentos de alineación en las posturas y fortaleza en la respiración. Intensifique su respiración, recurra a su fuerza interior y gane mayor conciencia de la relación entre su mente y su cuerpo.",
+  "category": "activity",
+  "price": 800,
+  "duration": 60,
+  "discount": 0,
+  "image": "/products/activities/yoga.jpg"
+ },
+ {
+  "id": 12,
+  "name": "Clases de empanadas",
+  "description": "Aprenda a hacer empanadas",
+  "longDescription": "Nuestro chef le enseñará su receta tradicional para elaborar las clásicas empanadas criollas, no se requiere experiencia previa, y por su puesto lo que cocines se te servira en tu próxima comida",
+  "category": "activity",
+  "price": 1000,
+  "duration": 60,
+  "discount": 0,
+  "image": "/products/activities/empanadas.jpg"
+ }
 ]

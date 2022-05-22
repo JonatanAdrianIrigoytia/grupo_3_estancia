@@ -63,8 +63,10 @@ let User = {
 			email: userData.email ? userData.email : currentData.email,
 			password: this.encryptPassword(userData, currentData),
 			category: "user",
-			image: filename ? `/users/${filename}` : "default-image.png",
 		};
+		if (currentData.image && !filename) user.image = currentData.image;
+		else if (filename) user.image = `/users/${filename}`;
+		else user.image = "default-user-image.png";
 
 		return user;
 	},

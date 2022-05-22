@@ -46,9 +46,15 @@ const Product = {
 	},
 
 	edit: function (id, productData, filename) {
-		let editedProduct = fillProductData(id, productData, filename);
 		let products = this.findAll();
 		let index = this.findIndexByID(id, products);
+		let currentData = products[index];
+		let editedProduct = this.fillProductData(
+			id,
+			productData,
+			currentData,
+			filename,
+		);
 		products[index] = editedProduct;
 		fs.writeFileSync(this.filepath, JSON.stringify(products, null, " "));
 	},
@@ -60,19 +66,45 @@ const Product = {
 		fs.writeFileSync(this.filepath, JSON.stringify(products, null, " "));
 	},
 
-	fillProductData: function (id, productData, filename) {
+	fillProductData: function (
+		id,
+		productData,
+		currentData = undefined,
+		filename,
+	) {
 		let product = {
 			id: id,
-			...productData,
-			image: this.getFile(productData.category, filename),
+			name: productData.name ? productData.name : currentData.name,
+			description: productData.description
+				? productData.description
+				: currentData.description,
+			longDescription: productData.longDescription
+				? productData.longDescription
+				: currentData.longDescription,
+			category: productData.category,
+			price: productData.price ? parseFloat(product.price) : currentData.price,
+			discount: productData.discount ? parseInt(productData.discount) : 0,
 		};
-		product.price = parseFloat(product.price);
-		product.discount = parseInt(productData.discount) || 0;
 
 		if (productData.category == "room") {
-			product.capacity = parseInt(productData.capacity) || 0;
-			product.services = productData.services ? [productData.services] : [];
-		} else product.duration = parseInt(productData.duration) || 0;
+			product.capacity = productData.capacity
+				? parseInt(productData.capacity) || 0
+				: currentData.capacity;
+
+			if (productData.services) product.services = [productData.services];
+			else if (currentData.services) product.services = [currentData.services];
+			else product.services = [];
+
+			if (productData.amenities) product.amenities = productData.amenities;
+			else if (currentData.amenities) product.amenities = currentData.amenities;
+			else product.amenities = [];
+		} else
+			product.duration = productData.duration
+				? parseInt(productData.duration)
+				: currentData.duration || 0;
+
+		if (currentData.image && !filename) product.image = currentData.image;
+		else product.image = this.getFilePath(productData.category, filename);
 
 		return product;
 	},
