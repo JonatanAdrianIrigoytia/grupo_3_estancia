@@ -32,7 +32,9 @@ const productController = {
 		res.render("productCart", { products: cart });
 	},
 	create: (req, res) => {
-		res.render("productCreate");
+		res.render("productCreate", {
+			availableServicies: Product.getAvailableServices(),
+		});
 	},
 	edit: (req, res) => {
 		res.render("productEdit", { product: Product.findByID(req.params.id) });

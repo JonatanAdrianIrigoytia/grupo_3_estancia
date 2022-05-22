@@ -49,41 +49,17 @@
 								<% if (product.category == "room") { %>
 									<label for="services" class="form-label">Serivicios:</label>
 										<div class="services">
-											<label for="king">
-												<input
-													type="checkbox"
-													name="services"
-													id="king"
-													value="Cama tamaño King"
-												/>
-												Cama tamaño King
-											</label>
-											<label for="hidro">
-												<input type="checkbox" name="services" id="hidro" value="hidromasaje" />
-												Hidromasaje
-											</label>
-											<label for="balcony">
-												<input type="checkbox" name="services" id="balcony" value="Balcón" />
-												Balcón
-											</label>
-											<label for="fireplace">
-												<input
-													type="checkbox"
-													name="services"
-													id="fireplace"
-													value="hogar a leña"
-												/>
-												Hogar a leña
-											</label>
-											<label for="living">
-												<input
-													type="checkbox"
-													name="services"
-													id="living"
-													value="Sala de estar"
-												/>
-												Sala de estar
-											</label>
+											<% availableServicies.forEach((service, index) => { %>
+												<label for="service<%=index%>">
+														<input
+															type="checkbox"
+															name="services"
+															id="service<%=index%>"
+															value="<%=service%>"
+														/>
+														<%=service%>
+												</label>
+											<% }) %>
 										</div>
 									</label>
 								<% } %>

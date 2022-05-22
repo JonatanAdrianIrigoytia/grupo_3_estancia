@@ -57,12 +57,24 @@
 								<div class="field-container">
 									<label for="services" class="form-label">Serivicios:</label>
 										<div class="services">
+											<% availableServicies.forEach((service, index) => { %>
+												<label for="service<%=index%>">
+														<input
+															type="checkbox"
+															name="services"
+															id="service<%=index%>"
+															value="<%=service%>"
+														/>
+														<%=service%>
+												</label>
+											<% }) %>
+										<!--
 											<label for="king">
 												<input
 													type="checkbox"
 													name="services"
 													id="king"
-													value="Cama tamaño King"
+													value="Cama King"
 												/>
 												Cama tamaño King
 											</label>
@@ -79,7 +91,7 @@
 													type="checkbox"
 													name="services"
 													id="fireplace"
-													value="hogar a leña"
+													value="Hogar"
 												/>
 												Hogar a leña
 											</label>
@@ -92,6 +104,16 @@
 												/>
 												Sala de estar
 											</label>
+											<label for="living">
+												<input
+													type="checkbox"
+													name="services"
+													id="living"
+													value="Sala de estar"
+												/>
+												Sala de estar
+											</label>
+											-->
 										</div>
 									</label>
 								</div>

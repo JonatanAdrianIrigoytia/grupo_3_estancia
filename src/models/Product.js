@@ -96,7 +96,9 @@ const Product = {
 			category: productData.category,
 
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
-			price: productData.price ? parseFloat(product.price) : currentData.price,
+			price: productData.price
+				? parseFloat(productData.price)
+				: currentData.price,
 
 			// Valida si llego un valor para el descuento, si no llego lo pone en 0
 			discount: productData.discount ? parseInt(productData.discount) : 0,
@@ -109,12 +111,13 @@ const Product = {
 				: currentData.capacity || 0;
 
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
+			console.log(currentData.services);
 			if (productData.services) product.services = [productData.services];
-			else if (currentData.services) product.services = [currentData.services];
+			else if (currentData.services) product.services = currentData.services;
 			else product.services = [];
 
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
-			if (productData.amenities) product.amenities = productData.amenities;
+			if (productData.amenities) product.amenities = [productData.amenities];
 			else if (currentData.amenities) product.amenities = currentData.amenities;
 			else product.amenities = [];
 		}
@@ -137,6 +140,22 @@ const Product = {
 			return "/products/activities/" + filename;
 		}
 		return "default-image.png";
+	},
+	getAvailableServices: function () {
+		let services = [
+			"Aire acondicionado",
+			"WiFi",
+			"Calefacción",
+			"Frigobar",
+			"Bañera con Hidromasaje",
+			"Pension completa",
+			"1 hora de Cabalgata",
+			"Bebidas sin alcohol",
+			"Bebidas alcohólicas",
+			"Hogar",
+			"Jardín",
+		];
+		return services;
 	},
 };
 
