@@ -254,5 +254,24 @@
   "duration": 60,
   "discount": 0,
   "image": "/products/activities/empanadas.jpg"
+ },
+ {
+  "id": 13,
+  "name": "prueba",
+  "description": "dsfsdf",
+  "longDescription": "dsgsdgsdgs",
+  "category": "room",
+  "price": 1,
+  "discount": 15,
+  "capacity": 2,
+  "services": [
+   [
+    "Aire acondicionado",
+    "WiFi",
+    "Calefacción"
+   ]
+  ],
+  "amenities": [],
+  "image": "default-image.png"
  }
 ]

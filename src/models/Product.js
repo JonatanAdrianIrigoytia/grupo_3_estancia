@@ -17,7 +17,7 @@ const Product = {
 		a la funcion subsiguiente y esta no necesita perder el tiempo en ir a buscar los datos */
 		if (!products) products = this.findAll();
 		let id = 1;
-		if (products.length > 0) id = products.at(-1).id + 1;
+		if (products.length > 0) id = products[products.length - 1].id + 1;
 		return id;
 	},
 
@@ -49,7 +49,7 @@ const Product = {
 		Como parametro ya que si la funcion que los llama tiene el listado actualizado, se lo puede pasar
 		a la funcion subsiguiente y esta no necesita perder el tiempo en ir a buscar los datos */
 		let id = this.generateID(products);
-		let product = fillProductData(id, productData, filename);
+		let product = this.fillProductData(id, productData, filename);
 		products.push(product);
 		fs.writeFileSync(this.filepath, JSON.stringify(products, null, " "));
 	},
@@ -111,14 +111,15 @@ const Product = {
 				: currentData.capacity || 0;
 
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
-			console.log(currentData.services);
 			if (productData.services) product.services = [productData.services];
-			else if (currentData.services) product.services = currentData.services;
+			else if (currentData && currentData.services)
+				product.services = currentData.services;
 			else product.services = [];
 
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			if (productData.amenities) product.amenities = [productData.amenities];
-			else if (currentData.amenities) product.amenities = currentData.amenities;
+			else if (currentData && currentData.amenities)
+				product.amenities = currentData.amenities;
 			else product.amenities = [];
 		}
 		// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
@@ -128,7 +129,8 @@ const Product = {
 				: currentData.duration || 0;
 
 		// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
-		if (currentData.image && !filename) product.image = currentData.image;
+		if (currentData && currentData.image && !filename)
+			product.image = currentData.image;
 		else product.image = this.getFilePath(productData.category, filename);
 
 		return product;

@@ -9,7 +9,7 @@ let User = {
 	generateId: function (users) {
 		if (!users) users = this.findAll();
 		let id = 1;
-		if (users.length > 0) id = users.at(-1).id + 1;
+		if (users.length > 0) id = users[users.length - 1].id + 1;
 		return id;
 	},
 
@@ -64,7 +64,8 @@ let User = {
 			password: this.encryptPassword(userData, currentData),
 			category: "user",
 		};
-		if (currentData.image && !filename) user.image = currentData.image;
+		if (currentData && currentData.image && !filename)
+			user.image = currentData.image;
 		else if (filename) user.image = `/users/${filename}`;
 		else user.image = "default-user-image.png";
 
