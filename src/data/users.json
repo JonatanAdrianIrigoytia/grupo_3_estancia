@@ -187,5 +187,14 @@
 		"password": "654321",
 		"category": "user",
 		"image": "default-image.png"
+	},
+	{
+		"id": "211",
+		"name": "Prueba",
+		"lastName": "Prueba",
+		"email": "prueba@hotmail.com",
+		"password": "1234567",
+		"category": "user",
+		"image": "default-user-image.png"
 	}
 ]
