@@ -36,7 +36,7 @@
 - Le explicamos a donde apunta nuestro proyecto y lo pusimos al corriente del mismo.
 - Nos dividimos las tareas del sprint 5
 - Agregamos comentarios y notas en el notion sobre las tareas
-- Se creo el issue tracker para que sea mas facil saber quien esta trabado con alguna tarea y nos podamos ayudar.
+- Se creo el issue tracker, en Notion, para que sea mas facil saber quien esta trabado con alguna tarea y nos podamos ayudar.
 
 ## Impedimentos
 
