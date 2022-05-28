@@ -66,3 +66,15 @@ El sprint anterior no tuvo suficiente complejidad como para implementar el issue
 ## 5. Dejar de hacer
 
 Utilizar Liveshare para compartir el código, no le encontramos valor ya que por problemas tecnicos y ahora que solo somos 2 personas en el grupo es mas simple hacer una videollamada y compartir pantalla.
+
+# Retrospectiva del Sprint 4
+
+## 1. Comenzar a hacer
+
+## 2. Hacer más
+
+## 3. Continuar haciendo
+
+## 4. Hacer menos
+
+## 5. Dejar de hacer

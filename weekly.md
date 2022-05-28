@@ -27,3 +27,22 @@
 ## Tareas a realizar en la semana
 
 - Diego se encargará de cargar los datos en el products.json.
+
+# Reunion 28/05 19:00
+
+## Temas charlados
+
+- Nos reunimos con Nacho Gaitán,el nuevo integrante del grupo.
+- Le explicamos a donde apunta nuestro proyecto y lo pusimos al corriente del mismo.
+- Nos dividimos las tareas del sprint 5
+- Agregamos comentarios y notas en el notion sobre las tareas
+
+## Impedimentos
+
+- No se encontraron impedimentos.
+
+## Tareas a realizar en la semana
+
+- Descargar el video del login completo para tenerlo mas a mano
+- Comenzar con las tareas del sprint 5
+- Programamos la weekly para el Martes 31 a las 19
