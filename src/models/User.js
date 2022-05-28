@@ -9,7 +9,7 @@ let User = {
 	generateId: function (users) {
 		if (!users) users = this.findAll();
 		let id = 1;
-		if (users.length > 0) id = users[users.length - 1].id + 1;
+		if (users.length > 0) id = users[users.length - 1].id + 1; //users.at(-1).id soportado a patir de Node.js 16.6.0
 		return id;
 	},
 
@@ -79,8 +79,15 @@ let User = {
 				userData.newPassword &&
 				userData.newPassword2
 			) {
-				//Aca hay que comparar las claves entre si usando las funciones de bcrypt (SPRINT 5)
-				return userData.newPassword;
+				//Aca hay que comparar las claves entre si, usando las funciones de bcrypt (SPRINT 5)
+				//currentData, son los datos que estan en el JSON 
+				//userData son los datos que vienen del formulario de edicion de usuario
+				//Hay que comparar:
+				// 1. userData.newPassword y userData.newPassword2 que sean iguales (if simple)
+				// 2. userData.currentPassword y currentData.password sean iguales (aca hay que usar bcryptjs.compareSync)
+				// Si esto fue exitoso, hay que encriptar el valor userData.newPassword y devolverlo
+				// Si alguna de las 2 comparaciones dio error hay que devolver un array errores con el formato de express-validator.
+				return userData.newPassword; // Devolver encriptado
 			}
 		} else if (currentData && !userData.changePassword)
 			return currentData.password;

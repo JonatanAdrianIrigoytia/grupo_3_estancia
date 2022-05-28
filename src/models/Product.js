@@ -17,7 +17,7 @@ const Product = {
 		a la funcion subsiguiente y esta no necesita perder el tiempo en ir a buscar los datos */
 		if (!products) products = this.findAll();
 		let id = 1;
-		if (products.length > 0) id = products[products.length - 1].id + 1;
+		if (products.length > 0) id = products[products.length - 1].id + 1; //products.at(-1).id soportado a patir de Node.js 16.6.0
 		return id;
 	},
 
