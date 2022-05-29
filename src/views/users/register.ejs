@@ -72,14 +72,14 @@
 							<div class="field-container">
 								<label for="password2">Confime su contraseña</label>
 								<input
-									class="controls <%= locals && locals.errors && errors.password2 ? "input-error" : ""%>"
-									name="password2"
+									class="controls <%= locals && locals.errors && errors.confirmPassword ? "input-error" : ""%>"
+									name="confirmPassword"
 									type="password"
 									id="password2"
 									placeholder="Confirme su contraseña"
 								/>
-								<% if (locals && locals.errors && errors.password2) { %>
-								 	<p class="error"><%=errors.password2.msg%></p>
+								<% if (locals && locals.errors && errors.confirmPassword) { %>
+								 	<p class="error"><%=errors.confirmPassword.msg%></p>
 								<% } %>
 							</div>
 
