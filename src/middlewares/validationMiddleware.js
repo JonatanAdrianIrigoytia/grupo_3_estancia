@@ -16,7 +16,7 @@ const userRegisterValidations = [
 		.bail()
 		.isLength({ min: 5 })
 		.withMessage("La contraseña debe tener como mínimo 5 caracteres"),
-	check("password2")
+	check("confirmPassword")
 		.notEmpty()
 		.withMessage("Debe confirmar su contraseña")
 		.bail()
