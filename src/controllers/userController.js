@@ -40,19 +40,35 @@ const userController = {
 				oldData: req.body,
 			});
 		}
-		let id = undefined;
-		if (req.params.id)
-			id = User.edit(
+		if (req.params.id) {
+			var { errors, id } = User.edit(
 				req.params.id,
 				req.body,
 				req.file ? req.file.filename : undefined,
 			);
-		else id = User.create(req.body, req.file ? req.file.filename : undefined);
+		} else {
+			var { errors, id } = User.create(
+				req.body,
+				req.file ? req.file.filename : undefined,
+			);
+		}
+		if (errors) {
+			console.log(errors);
+			if (req.params.id) {
+				return res.render("editProfile", {
+					errors: errors,
+					oldData: req.body,
+				});
+			}
+			return res.render("register", {
+				errors: errors,
+				oldData: req.body,
+			});
+		}
 		res.redirect(id ? `/users/profile/${id}` : "/");
 	},
 
 	delete: (req, res) => {
-		console.log("DELETE");
 		User.delete(req.params.id);
 		res.redirect("/");
 	},
