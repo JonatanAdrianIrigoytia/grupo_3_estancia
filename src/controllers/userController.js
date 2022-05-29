@@ -40,20 +40,21 @@ const userController = {
 				oldData: req.body,
 			});
 		}
+
+		let errors, id;
 		if (req.params.id) {
-			var { errors, id } = User.edit(
+			({ errors, id } = User.edit(
 				req.params.id,
 				req.body,
 				req.file ? req.file.filename : undefined,
-			);
+			));
 		} else {
-			var { errors, id } = User.create(
+			({ errors, id } = User.create(
 				req.body,
 				req.file ? req.file.filename : undefined,
-			);
+			));
 		}
 		if (errors) {
-			console.log(errors);
 			if (req.params.id) {
 				return res.render("editProfile", {
 					errors: errors,

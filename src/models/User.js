@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcryptjs");
+const errorHelper = require("../helpers/errorHelper");
+const { fillErrors } = require("../helpers/errorHelper");
 let User = {
 	filepath: path.resolve(__dirname, "../data/users.json"),
 
@@ -102,19 +104,11 @@ let User = {
 					//devuelvo error en el formato de express-validator
 					!bcrypt.compareSync(userData.currentPassword, currentData.password)
 				) {
-					errors = {
-						currentPassword: {
-							msg: "Las contraseñas no coinciden",
-						},
-
-						password: {
-							msg: "Las contraseñas no coinciden",
-						},
-
-						confirmPassword: {
-							msg: "Las contraseñas no coinciden",
-						},
-					};
+					errors = errorHelper.fillErrors([
+						{ field: "currentPassword", msg: "Las contraseñas no coinciden" },
+						{ field: "password", msg: "Las contraseñas no coinciden" },
+						{ field: "confirmPassword", msg: "Las contraseñas no coinciden" },
+					]);
 					return { errors, password: undefined };
 				}
 				//Si no encontre errores devuelvo errors como undifined y la clave hasheada
@@ -143,15 +137,10 @@ let User = {
 function validatePasswordConfirmation(password, confirmPassword) {
 	let errors = undefined;
 	if (password != confirmPassword) {
-		errors = {
-			password: {
-				msg: "Las contraseñas no coinciden",
-			},
-
-			confirmPassword: {
-				msg: "Las contraseñas no coinciden",
-			},
-		};
+		errors = errorHelper.fillErrors([
+			{ field: "password", msg: "Las contraseñas no coinciden" },
+			{ field: "confirmPassword", msg: "Las contraseñas no coinciden" },
+		]);
 	}
 	return errors;
 }

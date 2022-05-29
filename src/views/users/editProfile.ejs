@@ -22,9 +22,12 @@
 											name="name"
 											id="name"
 											placeholder="Nombre"
-											value="<%=user.name%>"
+											value="<%=user.name || oldData.name%> "
 											required
 										/>
+										<% if (locals && locals.errors && errors.name) { %>
+								 			<p class="error"><%=errors.name.msg%></p>
+										<% } %>
 									</div>
 									<div class="field-container">
 										<label for="lastName">Apellido</label>
@@ -34,9 +37,12 @@
 											name="lastName"
 											id="lastName"
 											placeholder="Apellido"
-											value="<%=user.lastName%>"
+											value="<%=user.lastName || oldData.lastName%>"
 											required
 										/>
+										<% if (locals && locals.errors && errors.lastName) { %>
+								 			<p class="error"><%=errors.lastName.msg%></p>
+										<% } %>
 									</div>
 									<div class="field-container">
 										<label for="email">E-mail</label>
@@ -46,9 +52,12 @@
 											name="email"
 											id="email"
 											placeholder="E-mail"
-											value="<%=user.email%>"
+											value="<%=user.email || oldData.email%>"
 											required
 										/>
+										<% if (locals && locals.errors && errors.email) { %>
+								 			<p class="error"><%=errors.email.msg%></p>
+										<% } %>
 									</div>
 
 									<input type="checkbox" name="changePassword" id="change-password">
@@ -62,8 +71,10 @@
 												name="currentPassword"
 												id="currentPassword"
 												placeholder="Contrseña actual"
-											
 											/>
+											<% if (locals && locals.errors && errors.currentPassword) { %>
+								 				<p class="error"><%=errors.currentPassword.msg%></p>
+											<% } %>
 										</div>
 										<div class="field-container">
 											<label for="newPassword">Nueva contraseña</label>
@@ -73,8 +84,10 @@
 												name="password"
 												id="newPassword"
 												placeholder="Nueva contraseña"
-											
 											/>
+											<% if (locals && locals.errors && errors.password) { %>
+								 				<p class="error"><%=errors.password.msg%></p>
+											<% } %>
 										</div>
 										<div class="field-container">
 											<label for="newPassword2">Confirme su nueva contraseña</label>
@@ -84,8 +97,10 @@
 												name="confirmPassword"
 												id="newPassword2"
 												placeholder="Nueva contraseña"
-											
 											/>
+											<% if (locals && locals.errors && errors.confirmPassword) { %>
+								 				<p class="error"><%=errors.confirmPassword.msg%></p>
+											<% } %>
 										</div>
 									</div>
 						
