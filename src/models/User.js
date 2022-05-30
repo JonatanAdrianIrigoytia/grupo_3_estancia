@@ -2,7 +2,6 @@ const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcryptjs");
 const errorHelper = require("../helpers/errorHelper");
-const { fillErrors } = require("../helpers/errorHelper");
 let User = {
 	filepath: path.resolve(__dirname, "../data/users.json"),
 
@@ -37,11 +36,23 @@ let User = {
 
 	create: function (userData, filename) {
 		let users = this.findAll();
+		//Validando si el usuarios ya existe
+		if (this.findByField("email", userData.email, users)) {
+			return {
+				errors: errorHelper.fillErrors([
+					{
+						field: "email",
+						msg: "Ya hay un usuario con ese email",
+					},
+				]),
+				id: undefined,
+			};
+		}
 		let id = this.generateId(users);
 		let { errors, user } = this.fillUserData(id, userData, filename);
 		if (errors) return { errors, id: undefined };
 		users.push(user);
-		fs.writeFileSync(this.filepath, JSON.stringify(users), null, " ");
+		fs.writeFileSync(this.filepath, JSON.stringify(users, null, " "));
 		return { errors: undefined, id };
 	},
 	edit: function (id, userData, filename) {
@@ -56,7 +67,7 @@ let User = {
 		);
 		if (errors) return { errors, id: undefined };
 		users[index] = editedUser;
-		fs.writeFileSync(this.filepath, JSON.stringify(users));
+		fs.writeFileSync(this.filepath, JSON.stringify(users, null, " "));
 		return { errors: undefined, id: userTobeEdited.id };
 	},
 	delete: function (id) {
@@ -66,7 +77,7 @@ let User = {
 		fs.writeFileSync(this.filepath, JSON.stringify(users, null, " "));
 	},
 	fillUserData: function (id, userData, currentData = undefined, filename) {
-		let { errors, password } = this.encryptPassword(userData, currentData);
+		let { errors, password } = encryptPassword(userData, currentData);
 		if (errors) {
 			return { errors, user: undefined };
 		}
@@ -84,56 +95,57 @@ let User = {
 		else user.image = "default-user-image.png";
 		return { errors: undefined, user };
 	},
-
-	encryptPassword: function (userData, currentData) {
-		let errors = {};
-		if (currentData && userData.changePassword) {
-			if (
-				userData.currentPassword &&
-				userData.password &&
-				userData.confirmPassword
-			) {
-				//Si la clave y su confirmacion no coinciden devuelvo error en el formato de express-validator
-				let validation = validatePasswordConfirmation(
-					userData.password,
-					userData.confirmPassword,
-				);
-				if (validation) return { errors: validation, password: undefined };
-				else if (
-					//Si la clave ingresada en el formulario y la que esta actualmente en la DB no coinciden
-					//devuelvo error en el formato de express-validator
-					!bcrypt.compareSync(userData.currentPassword, currentData.password)
-				) {
-					errors = errorHelper.fillErrors([
-						{ field: "currentPassword", msg: "Las contraseñas no coinciden" },
-						{ field: "password", msg: "Las contraseñas no coinciden" },
-						{ field: "confirmPassword", msg: "Las contraseñas no coinciden" },
-					]);
-					return { errors, password: undefined };
-				}
-				//Si no encontre errores devuelvo errors como undifined y la clave hasheada
-				return {
-					errors: undefined,
-					password: bcrypt.hashSync(userData.password),
-				}; // Devolver encriptado
-			}
-		} else if (currentData && !userData.changePassword)
-			return currentData.password;
-		else {
+};
+function encryptPassword(userData, currentData) {
+	let errors = {};
+	if (currentData && userData.changePassword) {
+		if (
+			userData.currentPassword &&
+			userData.password &&
+			userData.confirmPassword
+		) {
+			//Si la clave y su confirmacion no coinciden devuelvo error en el formato de express-validator
 			let validation = validatePasswordConfirmation(
 				userData.password,
 				userData.confirmPassword,
 			);
 			if (validation) return { errors: validation, password: undefined };
-			//No hay datos actuales es una creacion entonces encripto la clave
+			else if (
+				//Si la clave ingresada en el formulario y la que esta actualmente en la DB no coinciden
+				//devuelvo error en el formato de express-validator
+				!bcrypt.compareSync(userData.currentPassword, currentData.password)
+			) {
+				errors = errorHelper.fillErrors([
+					{ field: "currentPassword", msg: "Las contraseñas no coinciden" },
+					{ field: "password", msg: "Las contraseñas no coinciden" },
+					{ field: "confirmPassword", msg: "Las contraseñas no coinciden" },
+				]);
+				return { errors, password: undefined };
+			}
+			//Si no encontre errores devuelvo errors como undifined y la clave hasheada
 			return {
 				errors: undefined,
 				password: bcrypt.hashSync(userData.password),
-			};
+			}; // Devolver encriptado
 		}
-	},
-};
-
+	} else if (currentData && !userData.changePassword)
+		return currentData.password;
+	else {
+		let validation = validatePasswordConfirmation(
+			userData.password,
+			userData.confirmPassword,
+		);
+		if (validation) return { errors: validation, password: undefined };
+		//No hay datos actuales es una creacion entonces encripto la clave
+		return {
+			errors: undefined,
+			password: bcrypt.hashSync(userData.password),
+		};
+	}
+}
+function createSession(req, user) {
+	req.session.loggedUser = user;
+}
 function validatePasswordConfirmation(password, confirmPassword) {
 	let errors = undefined;
 	if (password != confirmPassword) {

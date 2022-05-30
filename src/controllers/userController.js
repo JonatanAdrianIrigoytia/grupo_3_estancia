@@ -12,17 +12,22 @@ const userController = {
 	//El login no va a hacer esto sino que deberia autenticar al usuario (SPRINT 5)
 	login: (req, res) => {
 		//Aca hay que llamar al metodo login que va a estar en el modelo del usuario
-		// let errors = User.login(req.body)
+		// let {errors, loggedUser} = User.login(req.body)
 		// if (errors)
 		// 	return res.render("login", {oldData: req.body, errors});
+		delete loggedUser.password;
+		req.session.loggedUser = loggedUser;
 		res.redirect("/");
 	},
 	forgotPassword: (req, res) => {
 		res.send("Revise su correo electronico");
 	},
 	profile: (req, res) => {
-		let user = User.findById(req.params.id);
-		if (user) return res.render("profile", { user });
+		if (req.params.id) {
+			let user = User.findById(req.params.id);
+			if (user) return res.render("profile", { user });
+		} else if (!req.params.id && req.session.loggedUser)
+			return res.render("profile", { user: req.session.loggedUser });
 		res.redirect("/");
 	},
 	editProfile: (req, res) => {
