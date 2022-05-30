@@ -1,7 +1,7 @@
 const { validationResult } = require("express-validator");
 const User = require("../models/User");
 const fs = require("fs");
-
+const { timeConverter } = require("../helpers/timeConverter");
 const userController = {
 	renderLogin: (req, res) => {
 		res.render("login");
@@ -17,6 +17,10 @@ const userController = {
 		// 	return res.render("login", {oldData: req.body, errors});
 		delete loggedUser.password;
 		req.session.loggedUser = loggedUser;
+		if (req.body.rememberme)
+			res.cookie("userEmail", loggedUser.email, {
+				maxAge: timeConverter(1, "days"),
+			});
 		res.redirect("/");
 	},
 	forgotPassword: (req, res) => {

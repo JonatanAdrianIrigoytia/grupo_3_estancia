@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const cookies = require("cookie-parser");
 const app = express();
 const path = require("path");
 const mainRouter = require("./routes/mainRouter");
@@ -15,6 +16,8 @@ app.use(
 		saveUninitialized: false,
 	}),
 );
+
+app.use(cookies());
 
 app.use(userLoggedMiddleware);
 
