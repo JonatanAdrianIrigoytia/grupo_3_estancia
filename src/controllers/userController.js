@@ -86,7 +86,6 @@ const userController = {
 	logout: (req,res)=>{
 		//borra todo lo que hay en sesion 
 		req.session.destroy();
-		console.log(req.session);
 		return res.redirect('/');
 	}
 };
