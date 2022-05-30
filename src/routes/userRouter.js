@@ -28,5 +28,8 @@ router.put(
 	multerMiddleware.user.single("image"),
 	userController.save,
 );
+//logout
+router.get("/logout", userController.logout);
+
 
 module.exports = router;
