@@ -1,10 +1,22 @@
 const express = require("express");
+const session = require("express-session");
 const app = express();
 const path = require("path");
 const mainRouter = require("./routes/mainRouter");
 const userRouter = require("./routes/userRouter");
 const productRouter = require("./routes/productRouter");
 const methodOverride = require("method-override");
+const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
+
+app.use(
+	session({
+		secret: "Secret for session",
+		resave: false,
+		saveUninitialized: false,
+	}),
+);
+
+app.use(userLoggedMiddleware);
 
 app.use(express.static(path.resolve(__dirname, "../public")));
 app.set("view engine", "ejs");

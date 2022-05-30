@@ -170,6 +170,13 @@ header {
 	font-size: 1rem;
 	color: rgb(var(--clr-bg));
 }
+
+.user-image-header {
+	width: 100%;
+	border: 1px solid rgb(var(--clr-accent));
+	border-radius: 50%;
+}
+
 .shopping-cart-icon {
 	display: block;
 	margin-top: 0.35rem;
