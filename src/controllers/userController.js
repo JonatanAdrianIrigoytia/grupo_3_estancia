@@ -73,7 +73,7 @@ const userController = {
 			return res.render("register", {
 				errors: errors,
 				oldData: req.body,
-			});   
+			});
 		}
 		res.redirect(id ? `/users/profile/${id}` : "/");
 	},
@@ -83,11 +83,12 @@ const userController = {
 		res.redirect("/");
 	},
 
-	logout: (req,res)=>{
-		//borra todo lo que hay en sesion 
+	logout: (req, res) => {
+		//borra todo lo que hay en sesion
 		req.session.destroy();
-		return res.redirect('/');
-	}
+		res.clearCookie("userEmail");
+		return res.redirect("/");
+	},
 };
 
 module.exports = userController;
