@@ -1,7 +1,7 @@
 <header>
     <div class="nav-icons">
         <div class="user-link">
-            <a class="profile-link" href="/users/profile"> <!-- Aca iria el id del usuario que este en session (Sprint 5) -->
+            <a class="profile-link" href="/users/profile">
                 <% if (locals.isLogged) { %>
                     <div class="user-image-container">
                         <img class="user-image-header" src="/images/<%=locals.loggedUser.image%>" alt="Imagen de perfil de <%=loggedUser.name%>">
