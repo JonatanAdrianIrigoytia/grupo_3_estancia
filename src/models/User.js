@@ -13,7 +13,21 @@ let User = {
 		if (users.length > 0) id = users[users.length - 1].id + 1; //users.at(-1).id soportado a patir de Node.js 16.6.0
 		return id;
 	},
-
+	login: function (userData) {
+		let loggedUser = this.findByField("email", userData.email);
+		let errors = undefined;
+		if (!loggedUser)
+			errors = errorHelper.fillErrors([
+				{ field: "email", msg: "Credenciales invalidas" },
+			]);
+		else if (bcrypt.compareSync(userData.password, loggedUser.password)) {
+			errors = errorHelper.fillErrors([
+				{ field: "email", msg: "Credenciales invalidas" },
+			]);
+			loggedUser = undefined;
+		}
+		return { errors, loggedUser };
+	},
 	findAll: function () {
 		return this.getData();
 	},
