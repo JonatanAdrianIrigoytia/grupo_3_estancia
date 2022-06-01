@@ -32,6 +32,7 @@ const storageProducts = multer.diskStorage({
 });
 
 function getFileName(body, file) {
+	console.log(file);
 	return (
 		"img-" +
 		body.name.toLowerCase().replace(/\s/g, "-") +
@@ -42,5 +43,4 @@ function getFileName(body, file) {
 }
 
 const productUploads = multer({ storageProducts });
-
 module.exports = { user: userUploads, products: productUploads };

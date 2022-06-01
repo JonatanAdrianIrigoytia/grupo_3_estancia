@@ -84,16 +84,19 @@ const Product = {
 		currentData = undefined,
 		filename,
 	) {
+		// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
+		let longDescription = "";
+		if (currentData && !productData.longDescription)
+			longDescription = currentData.longDescription;
+		else if (productData.longDescription)
+			longDescription = productData.longDescription;
 		let product = {
 			id: id,
 			name: productData.name,
 			description: productData.description,
 
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
-			longDescription: productData.longDescription
-				? productData.longDescription
-				: currentData.longDescription || "",
-			category: productData.category,
+			longDescription: longDescription,
 
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			price: productData.price
@@ -111,7 +114,7 @@ const Product = {
 				: currentData.capacity || 0;
 
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
-			if (productData.services) product.services = [productData.services];
+			if (productData.services) product.services = productData.services;
 			else if (currentData && currentData.services)
 				product.services = currentData.services;
 			else product.services = [];
@@ -133,10 +136,13 @@ const Product = {
 			product.image = currentData.image;
 		else product.image = this.getFilePath(productData.category, filename);
 
+		console.log(product);
+
 		return product;
 	},
 	//Genera el nombre de la imagen dependiendo si es una habitacion o una actividad
 	getFilePath: function (category, filename) {
+		console.log(filename);
 		if (filename) {
 			if (category == "room") return "/products/rooms/" + filename;
 			return "/products/activities/" + filename;

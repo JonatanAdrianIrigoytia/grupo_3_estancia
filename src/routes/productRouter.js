@@ -11,7 +11,7 @@ router.get("/activities", productController.listActivities);
 router.get("/detail/:id", productController.detail);
 router.get("/cart", productController.cart);
 router.post("/cart", productController.buy);
-router.get("/create", adminMiddleware, productController.create);
+router.get("/create", productController.create);
 router.post(
 	"/",
 	multerMiddleware.products.single("image"),

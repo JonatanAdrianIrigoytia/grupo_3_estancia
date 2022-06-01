@@ -16,14 +16,17 @@
                     <p class="description">
                         <%=product.longDescription%>
                     </p>
-                    <div class="icons">
-                        <% product.amenities.forEach(amenity => { %>
-                            <div class="amenity">
-                                <img src="/images/icons/<%=amenity.icon%>"></img>
-                                <p><%=amenity.name%></p>
-                            </div>
-                        <% }) %>
-                    </div>
+                    <% if (product.amenities) { %>
+                        <div class="icons">
+                            <% product.amenities.forEach(amenity => { %>
+                                <div class="amenity">
+                                    <img src="/images/icons/<%=amenity.icon%>"></img>
+                                    <p><%=amenity.name%></p>
+                                </div>
+                            <% }) %>
+                        </div>
+                    <% } %>
+
                 </div>
                 <% if (product.services && product.services.length > 0) { %>
                     <div class="container">
