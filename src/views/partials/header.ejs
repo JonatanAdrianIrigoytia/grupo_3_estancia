@@ -1,19 +1,21 @@
 <header>
     <div class="nav-icons">
         <div class="user-link">
-            <a class="profile-link" href="/users/profile">
                 <% if (locals.isLogged) { %>
-                    <div class="user-image-container">
-                        <img class="user-image-header" src="/images/<%=locals.loggedUser.image%>" alt="Imagen de perfil de <%=loggedUser.name%>">
+                    <div class="header-image-container">
+                        <a class="profile-link" href="/users/profile">
+                            <img class="header-image" src="/images/<%=locals.loggedUser.image%>" alt="Imagen de perfil de <%=loggedUser.name%>">
+                        </a>
                     </div>
                 <% } else { %>
-                    <i class="fa-solid fa-user usericon"></i>
+                    <a class="loginout-link" href="/users/login">
+                        <i class="fa-solid fa-user usericon"></i>
+                        <span>Ingresar</span>
+                    </a>
                 <% } %>
-            </a>
+            
             <% if (locals.isLogged) { %>
                 <a href="/users/logout" class="loginout-link"><span>Salir</span></a>
-            <% } else { %>
-                <a href="/users/login" class="loginout-link"><span>Ingresar</span></a>
             <% } %>
         </div>
         <div class="logo-link">

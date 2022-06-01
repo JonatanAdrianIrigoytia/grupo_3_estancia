@@ -90,11 +90,12 @@ const Product = {
 			longDescription = currentData.longDescription;
 		else if (productData.longDescription)
 			longDescription = productData.longDescription;
+
 		let product = {
 			id: id,
 			name: productData.name,
 			description: productData.description,
-
+			category: productData.category,
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			longDescription: longDescription,
 
@@ -136,13 +137,10 @@ const Product = {
 			product.image = currentData.image;
 		else product.image = this.getFilePath(productData.category, filename);
 
-		console.log(product);
-
 		return product;
 	},
 	//Genera el nombre de la imagen dependiendo si es una habitacion o una actividad
 	getFilePath: function (category, filename) {
-		console.log(filename);
 		if (filename) {
 			if (category == "room") return "/products/rooms/" + filename;
 			return "/products/activities/" + filename;

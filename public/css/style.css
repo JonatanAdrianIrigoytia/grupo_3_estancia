@@ -133,7 +133,6 @@ header {
 .menu-link-cart:hover > * {
 	color: rgb(var(--clr-accent));
 	border-color: rgb(var(--clr-accent));
-	/* filter: brightness(1.25); */
 }
 
 .usericon {
@@ -152,6 +151,9 @@ header {
 	text-decoration: none;
 	color: rgb(var(--clr-bg));
 }
+.loginout-link > span {
+	margin-left: 0.5rem;
+}
 
 .user-link > * {
 	transition: filer, color 280 ease;
@@ -160,7 +162,7 @@ header {
 .usericon:hover,
 .loginout-link:hover {
 	color: rgb(var(--clr-accent));
-	filter: brightness(1.5);
+	filter: brightness(1.25);
 }
 
 .usericon {
@@ -171,9 +173,15 @@ header {
 	color: rgb(var(--clr-bg));
 }
 
-.user-image-header {
+.header-image-container {
+	width: 30%;
+	display: flex;
+}
+.header-image {
 	width: 100%;
-	border: 1px solid rgb(var(--clr-accent));
+	align-self: center;
+	border: 2px solid rgb(var(--clr-accent));
+	padding: 0;
 	border-radius: 50%;
 }
 
