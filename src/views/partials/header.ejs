@@ -1,30 +1,35 @@
 <header>
     <div class="nav-icons">
-        <div class="user-link">
                 <% if (locals.isLogged) { %>
-                    <div class="header-image-container">
-                        <a class="profile-link" href="/users/profile">
-                            <img class="header-image" src="/images/<%=locals.loggedUser.image%>" alt="Imagen de perfil de <%=loggedUser.name%>">
+                    <div class="user-link">
+                            <a class="profile-link" href="/users/profile">
+                                <div class="header-image-container">
+                                    <img class="header-image" src="/images/<%=locals.loggedUser.image%>" alt="Imagen de perfil de <%=loggedUser.name%>">
+                                </div>
+                                <span class="user-name"><%=loggedUser.name%></span>
+                            </a>
+                        <a href="/users/logout" class="loginout-link">
+                            <i class="fa-solid fa-arrow-right-from-bracket logout-icon"></i>
+                            <!--<i class="fa-solid fa-power-off"></i>-->
                         </a>
                     </div>
                 <% } else { %>
-                    <a class="loginout-link" href="/users/login">
-                        <i class="fa-solid fa-user usericon"></i>
-                        <span>Ingresar</span>
-                    </a>
+                    <div class="user-link">
+                        <a class="loginout-link" href="/users/login">
+                            <i class="fa-solid fa-user usericon"></i>
+                            <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
+                        </a>
+                    </div>
                 <% } %>
-            
-            <% if (locals.isLogged) { %>
-                <a href="/users/logout" class="loginout-link"><span>Salir</span></a>
-            <% } %>
-        </div>
         <div class="logo-link">
             <a href="/">
-                <img
-                    class="logo"
-                    src="/images/logo-small.png"
-                    alt="Logo Las Violetas"
-                />
+                <div class="logo-container">
+                    <img
+                        class="logo"
+                        src="/images/logo-small.png"
+                        alt="Logo Las Violetas"
+                    />
+                </div>
             </a>
         </div>
         <div>
