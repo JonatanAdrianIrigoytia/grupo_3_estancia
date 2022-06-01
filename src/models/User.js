@@ -38,10 +38,12 @@ let User = {
 		if (!loggedUser)
 			errors = errorHelper.fillErrors([
 				{ field: "email", msg: "Credenciales inválidas" },
+				{ field: "password", msg: "Credenciales inválidas" },
 			]);
 		else if (bcrypt.compareSync(userData.password, loggedUser.password)) {
 			errors = errorHelper.fillErrors([
 				{ field: "email", msg: "Credenciales inválidas" },
+				{ field: "password", msg: "Credenciales inválidas" },
 			]);
 			loggedUser = undefined;
 		}
