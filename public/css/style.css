@@ -157,7 +157,13 @@ header {
 	text-decoration: none;
 	gap: 0.25rem;
 }
-
+.profile-link:hover > * {
+	color: rgb(var(--clr-accent));
+	filter: brightness(1.25);
+}
+.profile-link:hover > .user-name {
+	filter: brightness(1.5);
+}
 .loginout-link {
 	text-decoration: none;
 	color: rgb(var(--clr-bg));
@@ -205,6 +211,7 @@ header {
 	text-align: center;
 	align-self: center;
 	color: rgb(var(--clr-bg));
+	transition: color, filter 250ms ease-in-out;
 }
 
 .logout-icon {

@@ -39,6 +39,9 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 	margin-top: 10vh;
 }
 
