@@ -13,21 +13,6 @@ let User = {
 		if (users.length > 0) id = users[users.length - 1].id + 1; //users.at(-1).id soportado a patir de Node.js 16.6.0
 		return id;
 	},
-	login: function (userData) {
-		let loggedUser = this.findByField("email", userData.email);
-		let errors = undefined;
-		if (!loggedUser)
-			errors = errorHelper.fillErrors([
-				{ field: "email", msg: "Credenciales invalidas" },
-			]);
-		else if (bcrypt.compareSync(userData.password, loggedUser.password)) {
-			errors = errorHelper.fillErrors([
-				{ field: "email", msg: "Credenciales invalidas" },
-			]);
-			loggedUser = undefined;
-		}
-		return { errors, loggedUser };
-	},
 	findAll: function () {
 		return this.getData();
 	},
@@ -47,7 +32,21 @@ let User = {
 		let userIndex = users.findIndex((user) => user.id == id);
 		return userIndex;
 	},
-
+	login: function (userData) {
+		let loggedUser = this.findByField("email", userData.email);
+		let errors = undefined;
+		if (!loggedUser)
+			errors = errorHelper.fillErrors([
+				{ field: "email", msg: "Credenciales inválidas" },
+			]);
+		else if (bcrypt.compareSync(userData.password, loggedUser.password)) {
+			errors = errorHelper.fillErrors([
+				{ field: "email", msg: "Credenciales inválidas" },
+			]);
+			loggedUser = undefined;
+		}
+		return { errors, loggedUser };
+	},
 	create: function (userData, filename) {
 		let users = this.findAll();
 		//Validando si el usuarios ya existe
@@ -157,9 +156,7 @@ function encryptPassword(userData, currentData) {
 		};
 	}
 }
-function createSession(req, user) {
-	req.session.loggedUser = user;
-}
+
 function validatePasswordConfirmation(password, confirmPassword) {
 	let errors = undefined;
 	if (password != confirmPassword) {
