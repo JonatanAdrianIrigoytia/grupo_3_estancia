@@ -64,8 +64,8 @@ const Product = {
 		let editedProduct = this.fillProductData(
 			id,
 			productData,
-			currentData,
 			filename,
+			currentData,
 		);
 		products[index] = editedProduct;
 		fs.writeFileSync(this.filepath, JSON.stringify(products, null, " "));
