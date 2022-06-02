@@ -115,7 +115,10 @@ const Product = {
 				: currentData.capacity || 0;
 
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
-			if (productData.services) product.services = productData.services;
+			if (productData.services)
+				product.services = Array.isArray(productData.services)
+					? productData.services
+					: [productData.services];
 			else if (currentData && currentData.services)
 				product.services = currentData.services;
 			else product.services = [];
