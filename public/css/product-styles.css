@@ -81,7 +81,8 @@ body {
 }
 .date-section {
 	border: solid 1px rgba(var(--clr-dark), 0.5);
-	padding: 0.25rem;
+	padding-inline: 0.25rem;
+	padding-block: 0.5rem;
 }
 .date-text {
 	font-size: 0.6rem;

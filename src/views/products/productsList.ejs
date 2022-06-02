@@ -28,16 +28,19 @@
                         </div>
                     <% } %>
                 </div>
-                <div class="button-container">
-                    <a href="/products/create" class="create-product-link">
-                        <button class="create-product">
-                            <div class="create-product-container">
-                                <i class="fa-solid fa-plus plus-icon"></i>
-                                <span class="create-product-text">Crear Producto</span>
-                            </div>
-                        </button>
-                    </a>
-                </div>
+                <% if (locals && locals.isLogged && locals.loggedUser.category == "admin") { %>
+                    <div class="button-container">
+                        <a href="/products/create" class="create-product-link">
+                            <button class="create-product">
+                                <div class="create-product-container">
+                                    <i class="fa-solid fa-plus plus-icon"></i>
+                                    <span class="create-product-text">Crear Producto</span>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                <% } %>
+
             </main>
         </div>
         <%- include("../partials/footer.ejs")%>
