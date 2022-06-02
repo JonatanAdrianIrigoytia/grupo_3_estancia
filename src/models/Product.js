@@ -81,8 +81,8 @@ const Product = {
 	fillProductData: function (
 		id,
 		productData,
-		currentData = undefined,
 		filename,
+		currentData = undefined,
 	) {
 		// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 		let longDescription = "";
