@@ -13,9 +13,12 @@ const userController = {
 	login: (req, res) => {
 		//Aca hay que llamar al metodo login que va a estar en el modelo del usuario
 		let { errors, loggedUser } = User.login(req.body);
+		console.log(errors);
+		console.log(loggedUser);
 		if (errors) return res.render("login", { oldData: req.body, errors });
 		delete loggedUser.password;
 		req.session.loggedUser = loggedUser;
+		console.log(req.session);
 		if (req.body.rememberme)
 			res.cookie("userEmail", loggedUser.email, {
 				maxAge: timeConverter(1, "days"),

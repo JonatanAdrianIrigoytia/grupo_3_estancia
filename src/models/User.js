@@ -77,8 +77,8 @@ let User = {
 		let { errors, editedUser } = this.fillUserData(
 			id,
 			userData,
-			userTobeEdited,
 			filename,
+			userTobeEdited,
 		);
 		if (errors) return { errors, id: undefined };
 		users[index] = editedUser;
@@ -91,10 +91,11 @@ let User = {
 		users.splice(index, 1);
 		fs.writeFileSync(this.filepath, JSON.stringify(users, null, " "));
 	},
-	fillUserData: function (id, userData, currentData = undefined, filename) {
+	fillUserData: function (id, userData, filename, currentData = undefined) {
 		let { errors, password } = encryptPassword(userData, currentData);
+
 		if (errors) {
-			return { errors, user: undefined };
+			return { erorrs, user: undefined };
 		}
 		let user = {
 			id: parseInt(id),
@@ -150,6 +151,7 @@ function encryptPassword(userData, currentData) {
 			userData.password,
 			userData.confirmPassword,
 		);
+
 		if (validation) return { errors: validation, password: undefined };
 		//No hay datos actuales es una creacion entonces encripto la clave
 		return {
@@ -169,5 +171,4 @@ function validatePasswordConfirmation(password, confirmPassword) {
 	}
 	return errors;
 }
-
 module.exports = User;
