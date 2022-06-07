@@ -1,7 +1,6 @@
 const express = require("express");
 const productController = require("../controllers/productController");
 const router = express.Router();
-const multerMiddleware = require("../middlewares/multerMiddleware");
 const adminMiddleware = require("../middlewares/adminMiddleware");
 
 /*MULTER CONFIGURATION*/
