@@ -71,10 +71,23 @@ Utilizar Liveshare para compartir el código, no le encontramos valor ya que por
 
 ## 1. Comenzar a hacer
 
+- Usar el issue tracker de notion para que no se quede todo el proyecto parado por que alguien se trabo con alguna tarea en particular.
+- Replantearnos la idea de usar Live Share ahora que de nuevo somos mas integrantes en el grupo
+
 ## 2. Hacer más
+
+- Comentar el codigo
+- Crear Helpers para codigo reutilizable entre distintas capas.
 
 ## 3. Continuar haciendo
 
+- Mantener el codigo bien separado y agrupado en pequeños metodos para que sea mas facil de mantener y encontrar errores.
+- Reuniones Weekly y archivo con stoppers y progresos.
+
 ## 4. Hacer menos
 
+No vemos cosas que debamos hacer menos
+
 ## 5. Dejar de hacer
+
+No vemos cosas que debamos dejar de hacer
