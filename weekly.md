@@ -47,3 +47,19 @@
 - Descargar el video del login completo para tenerlo mas a mano
 - Comenzar con las tareas del sprint 5
 - Programamos la weekly para el Martes 31 a las 19
+
+# Reunion 07/06 19:00
+
+## Temas charlados
+
+- Actualizamos la retro del sprint 4.
+- Planteamos las complejidades que vemos que se podrian presentar en el sprint 6.
+- Discutimos como encarar el sprint 6 y mantener las buenas practicas y modularizacion del codigo
+
+## Impedimentos
+
+- No se encontraron impedimentos.
+
+## Tareas a realizar en la semana
+
+- No hay tareas para esta semana, la semana proxima comenzaremos el sprint 6.
