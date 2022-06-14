@@ -38,6 +38,10 @@ input[type="file"]::-webkit-file-upload-button {
 	border-radius: 20px;
 }
 
+input[type="checkbox"]:checked {
+	accent-color: rgb(var(--clr-accent));
+}
+
 .login-form {
 	display: flex;
 	flex-direction: column;

@@ -519,9 +519,7 @@ footer {
 	filter: brightness(1.35);
 }
 
-input[type="checkbox"]:checked {
-	accent-color: rgb(var(--clr-accent));
-}
+
 
 @media (min-width: 480px) {
 	.nav-icons {
