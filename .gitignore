@@ -1,3 +1,4 @@
 node_modules/
 .vscode/
 src/database/config/config.js
+./src/database/config/config.js
