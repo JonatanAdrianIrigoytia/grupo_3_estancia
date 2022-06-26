@@ -2,11 +2,11 @@
 DELETE FROM categories;
 ALTER TABLE categories AUTO_INCREMENT = 1;
 
-DELETE FROM productServices;
-ALTER TABLE productServices AUTO_INCREMENT = 1;
+DELETE FROM productsServices;
+ALTER TABLE productsServices AUTO_INCREMENT = 1;
 
-DELETE FROM productAmenities;
-ALTER TABLE productAmenities AUTO_INCREMENT = 1;
+DELETE FROM productsAmenities;
+ALTER TABLE productsAmenities AUTO_INCREMENT = 1;
 
 DELETE FROM products;
 ALTER TABLE products AUTO_INCREMENT = 1;
@@ -175,7 +175,7 @@ INSERT INTO amenities (name, icon) VALUES
 ("Balcón", "balcony.png"),
 ("Hidromasaje", "jacuzzi.png");
 
-INSERT INTO productServices (productId, serviceId) 
+INSERT INTO productsServices (productId, serviceId) 
 VALUES 
 (1, 1), (1, 2), (1, 3),(1, 12),
 (2, 1), (2, 2), (2, 3),(2, 12), (2, 4), (2, 5), (2, 13),
@@ -184,7 +184,7 @@ VALUES
 (5, 1), (5, 2), (5, 3),(5, 4), (5, 5), (5, 6), (5, 7), (5, 8), (5, 9), (5, 10),
 (6, 1), (6, 2), (6, 3),(6, 4), (6, 5), (6, 6), (6, 7), (6, 8), (6, 9), (6, 10), (6, 11);
 
-INSERT INTO productAmenities (productId, amenityId) 
+INSERT INTO productsAmenities (productId, amenityId) 
 VALUES 
 (1, 4),
 (2, 4), (2, 7), (2, 8),
