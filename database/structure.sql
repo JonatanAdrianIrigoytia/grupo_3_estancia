@@ -55,6 +55,8 @@ CREATE TABLE `productsAmenities` (
    `id` INT AUTO_INCREMENT,
    `productId` INT NOT NULL,
    `amenityId` INT NOT NULL,
+   `createdAt` DATETIME DEFAULT NULL,
+   `updatedAt` DATETIME DEFAULT NULL,
    PRIMARY KEY (`id`)
 );
 
@@ -62,6 +64,8 @@ CREATE TABLE `productsServices` (
    `id` INT AUTO_INCREMENT,
    `productId` INT NOT NULL,
    `serviceId` INT NOT NULL,
+   `createdAt` DATETIME DEFAULT NULL,
+   `updatedAt` DATETIME DEFAULT NULL,
    PRIMARY KEY (`id`)
 );
 
