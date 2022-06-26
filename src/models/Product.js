@@ -2,29 +2,48 @@
 // const fs = require("fs");
 const db = require("../database/models");
 const Op = require("sequelize").Op;
+const productIncludes = [
+	{ model: db.Category, as: "category" },
+	{
+		model: db.Amenity,
+		as: "amenities",
+	},
+	{
+		model: db.Service,
+		as: "services",
+	},
+];
 const Product = {
 	findAll: async function () {
 		return await db.Product.findAll({
-			include: ["category", "amenities", "services"],
+			include: productIncludes,
 		});
 	},
 	findById: async function (id) {
 		return await db.Product.findByPk(id, {
-			include: ["category", "amenities", "services"],
+			include: productIncludes,
 		});
 	},
 	findByField: async function (field, value) {
 		return await db.Product.findOne({
-			include: ["category", "amenities", "services"],
+			include: productIncludes,
 			where: { [field]: value },
 		});
 	},
 	findByCategory: async function (categoryName) {
 		return await db.Product.findAll({
 			include: [
-				{ model: db.Category, where: { name: categoryName } },
-				"amenities",
-				"services",
+				{ model: db.Category, as: "category", where: { name: categoryName } },
+				{
+					model: db.Amenity,
+					as: "amenities",
+					required: false,
+				},
+				{
+					model: db.Service,
+					as: "services",
+					required: false,
+				},
 			],
 		});
 	},
@@ -87,7 +106,7 @@ const Product = {
 			discount: productData.discount ? parseInt(productData.discount) : 0,
 		};
 
-		if (productData.category == 1) {
+		if (productData.category.name == "room") {
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			product.capacity = productData.capacity
 				? parseInt(productData.capacity)

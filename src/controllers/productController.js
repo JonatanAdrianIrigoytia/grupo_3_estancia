@@ -1,14 +1,17 @@
 const fs = require("fs");
 const path = require("path");
+const db = require("../database/models");
 const Product = require("../models/Product");
 /* En la constante "products" ya tienen los productos que están 
 guardados en la carpeta Data como Json (un array de objetos literales) */
-const productsFilePath = path.join(__dirname, "../data/products.json");
-const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+// const productsFilePath = path.join(__dirname, "../data/products.json");
+// const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productController = {
 	list: (req, res) => {
-		res.render("productsList", { products, title: "Nuestros productos" });
+		Product.findAll().then((products) => {
+			res.render("productsList", { products, title: "Nuestros productos" });
+		});
 	},
 	listRooms: (req, res) => {
 		Product.findByCategory("room").then((rooms) =>
@@ -27,9 +30,9 @@ const productController = {
 		);
 	},
 	detail: (req, res) => {
-		Product.findById(req.params.id).then((product) =>
-			res.render("productDetail", { product: Product.findByID(req.params.id) }),
-		);
+		Product.findById(req.params.id).then((product) => {
+			res.render("productDetail", { product });
+		});
 	},
 	cart: async (req, res) => {
 		let cart = await Product.findAll().slice(0, 3);
