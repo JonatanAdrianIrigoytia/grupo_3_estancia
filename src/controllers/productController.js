@@ -11,52 +11,58 @@ const productController = {
 		res.render("productsList", { products, title: "Nuestros productos" });
 	},
 	listRooms: (req, res) => {
-		let rooms = Product.findByCategory("room");
-		res.render("productsList", {
-			title: "Todas las habitaciones",
-			products: rooms,
-		});
+		Product.findByCategory("room").then((rooms) =>
+			res.render("productsList", {
+				title: "Todas las habitaciones",
+				products: rooms,
+			}),
+		);
 	},
 	listActivities: (req, res) => {
-		let activities = Product.findByCategory("activity");
-		res.render("productsList", {
-			title: "Todas las actividades",
-			products: activities,
-		});
+		Product.findByCategory("activity").then((activities) =>
+			res.render("productsList", {
+				title: "Todas las actividades",
+				products: activities,
+			}),
+		);
 	},
 	detail: (req, res) => {
-		res.render("productDetail", { product: Product.findByID(req.params.id) });
+		Product.findById(req.params.id).then((product) =>
+			res.render("productDetail", { product: Product.findByID(req.params.id) }),
+		);
 	},
-	cart: (req, res) => {
-		let cart = Product.findAll().slice(0, 3);
+	cart: async (req, res) => {
+		let cart = await Product.findAll().slice(0, 3);
 		res.render("productCart", { products: cart });
 	},
-	create: (req, res) => {
+	create: async (req, res) => {
 		res.render("productCreate", {
-			availableServicies: Product.getAvailableServices(),
+			availableServicies: await Product.getAvailableServices(),
 		});
 	},
-	edit: (req, res) => {
+	edit: async (req, res) => {
+		let products = await Product.findById(req.params.id);
+		let availableServicies = await Product.getAvailableServices();
 		res.render("productEdit", {
-			product: Product.findByID(req.params.id),
-			availableServicies: Product.getAvailableServices(),
+			product: products,
+			availableServicies: availableServicies,
 		});
 	},
 
-	save: (req, res) => {
+	save: async (req, res) => {
 		if (req.params.id)
-			Product.edit(
+			await Product.edit(
 				req.params.id,
 				req.body,
 				req.file ? req.file.filename : undefined,
 			);
-		else Product.create(req.body, req.file ? req.file.filename : undefined);
+		else
+			await Product.create(req.body, req.file ? req.file.filename : undefined);
 		res.redirect("/products");
 	},
 
 	delete: (req, res) => {
-		Product.delete(req.params.id);
-		res.redirect("/products");
+		Product.delete(req.params.id).then(res.redirect("/products"));
 	},
 
 	buy: (req, res) => {

@@ -1,31 +1,63 @@
 // const path = require("path");
 // const fs = require("fs");
 const db = require("../database/models");
+const Op = require("sequelize").Op;
 const Product = {
 	findAll: async function () {
-		return await db.Product.findAll();
+		return await db.Product.findAll({
+			include: ["category", "amenities", "services"],
+		});
 	},
 	findById: async function (id) {
-		return await db.Product.findByPk(id);
+		return await db.Product.findByPk(id, {
+			include: ["category", "amenities", "services"],
+		});
 	},
 	findByField: async function (field, value) {
 		return await db.Product.findOne({
+			include: ["category", "amenities", "services"],
 			where: { [field]: value },
 		});
 	},
 	findByCategory: async function (categoryName) {
 		return await db.Product.findAll({
-			include: [{ model: db.Category, where: { name: categoryName } }],
+			include: [
+				{ model: db.Category, where: { name: categoryName } },
+				"amenities",
+				"services",
+			],
 		});
 	},
 	create: async function (productData, filename) {
 		let product = this.fillProductData(productData, filename);
-		return await db.Product.create(product);
+		try {
+			let createdProduct = await db.Product.create(product);
+			if (productData.services) {
+				let services = Array.isArray(productData.services)
+					? productData.services
+					: [productData.services];
+				createdProduct.setServices(services);
+			}
+		} catch (error) {
+			return console.log(error);
+		}
 	},
 	edit: async function (id, productData, filename) {
 		let currentData = await db.Product.findByPk(id);
 		let product = this.fillProductData(productData, filename, currentData);
-		return await db.Product.update(product, { where: { id: productData.id } });
+		try {
+			let editedProduct = await db.Product.update(product, {
+				where: { id: productData.id },
+			});
+			if (productData.services) {
+				let services = Array.isArray(productData.services)
+					? productData.services
+					: [productData.services];
+				editedProduct.setServices(services);
+			}
+		} catch (error) {
+			return console.log(error);
+		}
 	},
 	delete: async function (id) {
 		return await db.Product.destroy({ where: { id: id } });

@@ -44,7 +44,7 @@
 									<textarea name="longDescription" id="long-description" class="controls"><%=product.longDescription%></textarea>
 								</div>
 
-								<% if (product.category == "room") { %>
+								<% if (product.category.name == "room") { %>
 									<div class="field-container">
 										<label for="capacity" class="form-label">Capacidad:</label>
 										<input type="number" id="capacity" name="capacity" placeholder="Ej: 2" class="controls" value="<%=product.capacity || ""%>">
@@ -66,7 +66,7 @@
 									<input type="file" id="image" name="image" multiple="multiple" class="controls">
 								</div>
 				
-								<% if (product.category == "room") { %>
+								<% if (product.category.name == "room") { %>
 									<div class="field-container">
 										<label for="services" class="form-label">Serivicios:</label>
 											<div class="services">
@@ -76,7 +76,7 @@
 																type="checkbox"
 																name="services"
 																id="service<%=index%>"
-																value="<%=service%>"
+																value="<%=service.id%>"
 																<%=product.services.includes(service) ? "checked" : ""%>
 															/>
 															<%=service%>
