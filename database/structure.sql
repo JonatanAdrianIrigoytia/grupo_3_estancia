@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS `lasvioletas`;
 CREATE DATABASE `lasvioletas`;
 USE `lasvioletas`;
 CREATE TABLE `users` (
-   `id` INT,
+   `id` INT AUTO_INCREMENT,
    `firstName` VARCHAR(100) NOT NULL,
    `lastName` VARCHAR(100) NOT NULL,
    `email` VARCHAR(255) NOT NULL,
@@ -13,12 +13,14 @@ CREATE TABLE `users` (
 );
 
 CREATE TABLE `products` (
-   `id` INT,
+   `id` INT AUTO_INCREMENT,
    `name` VARCHAR(100) NOT NULL,
    `description` VARCHAR(255) NOT NULL,
    `longDescription` TEXT,
+   `price` DECIMAL(10,2) NOT NULL,
    `categoryId` INT NOT NULL,
    `capacity` INT,
+   `duration` INT,
    `discount` INT,
    `image` VARCHAR(255),
    PRIMARY KEY (`id`)
