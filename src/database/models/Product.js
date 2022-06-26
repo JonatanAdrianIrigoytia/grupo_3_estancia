@@ -45,13 +45,13 @@ module.exports = (sequelize, dataTypes) => {
 			as: "category",
 			foreignKey: "categoryId",
 		});
-		Product.hasMany(models.Amenity, {
+		Product.belongsToMany(models.Amenity, {
 			as: "amenities",
 			through: "productsAmenities",
 			foreignKey: "productId",
 			otherKey: "amenityId",
 		});
-		Product.hasMany(models.Service, {
+		Product.belongsToMany(models.Service, {
 			as: "services",
 			through: "productsServices",
 			foreignKey: "productId",

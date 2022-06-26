@@ -9,11 +9,15 @@ module.exports = (sequelize, dataTypes) => {
 			type: dataTypes.STRING(100),
 			allowNull: false,
 		},
+		icon: {
+			type: dataTypes.STRING(100),
+			allowNull: false,
+		},
 	};
 	let config = {
 		timestamps: false,
 		tableName: "amenities",
 	};
 	const Amenity = sequelize.define("Amenity", cols, config);
-    return Amenity;
+	return Amenity;
 };
