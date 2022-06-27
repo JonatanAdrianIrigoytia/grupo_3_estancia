@@ -55,7 +55,7 @@
 									<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls">
 								</div>
 								<!-- Este campo deberia ocultarse si la categoria es Habitación pero aun no vimos como hacer eso -->
-								<div class="field-container">
+								<div class="field-container" id="services-container">
 									<label for="services" class="form-label">Serivicios:</label>
 										<div class="services">
 											<% availableServices.forEach((service, index) => { %>
@@ -86,6 +86,6 @@
 			</div>
 			
 			<%- include("../partials/footer.ejs")%>
-			<%- include("../partials/scripts.ejs")%>
+			<script src="/js/forms.js" type="text/javascript"></script>
 	</body>
 </html>
