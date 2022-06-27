@@ -23,8 +23,9 @@
 								<div class="field-container">
 									<label for="category" class="form-label">Categoría:</label>
 									<select name="category" id="category" class="controls">
-										<option id=room value="room">Habitación</option>
-										<option id=activity value="activity">Actividad</option>
+										<% categories.forEach(category => { %>
+										 	<option id="<%=category.name%>" value="<%=category.id%>"><%= category.name == 'room' ? 'Habitación' : 'Actividad'%></option>
+										<% }) %>
 									</select>
 								</div>
 				
@@ -57,7 +58,7 @@
 								<div class="field-container">
 									<label for="services" class="form-label">Serivicios:</label>
 										<div class="services">
-											<% availableServicies.forEach((service, index) => { %>
+											<% availableServices.forEach((service, index) => { %>
 												<label for="service<%=index%>">
 														<input
 															type="checkbox"

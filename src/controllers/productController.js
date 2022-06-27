@@ -39,16 +39,21 @@ const productController = {
 		res.render("productCart", { products: cart });
 	},
 	create: async (req, res) => {
-		res.render("productCreate", {
-			availableServicies: await Product.getAvailableServices(),
+		let categories = await Product.getCategories();
+		let availableServices = await Product.getAvailableServices();
+		return res.render("productCreate", {
+			availableServices,
+			categories,
 		});
 	},
 	edit: async (req, res) => {
-		let products = await Product.findById(req.params.id);
-		let availableServicies = await Product.getAvailableServices();
+		let product = await Product.findById(req.params.id);
+		let availableServices = await Product.getAvailableServices();
+		let categories = await Product.getCategories();
 		res.render("productEdit", {
-			product: products,
-			availableServicies: availableServicies,
+			product,
+			availableServices,
+			categories,
 		});
 	},
 

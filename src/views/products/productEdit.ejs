@@ -24,13 +24,11 @@
 								<div class="field-container">
 									<label for="category" class="form-label">Categoría:</label>
 									<select name="category" id="category" class="controls" required>
-										<% if (product.category == "room") { %>
-											<option id=room value="room" selected>Habitación</option>
-											<option id=activity value="activity">Actividad</option>
-										<% }else { %>
-											<option id=room value="room">Habitación</option>
-											<option id=activity value="activity" selected>Actividad</option>
-										<%}%>
+										<% categories.forEach(category => { %>
+										 	<option id=room value="<%=category.id%>" <%= category.id == product.categoryId ? "selected" : ""%>>
+												<%= category.name == "room" ? "Habitación" : "Actividad" %>
+											</option>
+										<% }) %>
 									</select>
 								</div>
 				
@@ -70,16 +68,17 @@
 									<div class="field-container">
 										<label for="services" class="form-label">Serivicios:</label>
 											<div class="services">
-												<% availableServicies.forEach((service, index) => { %>
+												<% availableServices.forEach((service, index) => { %>
+													<% let checked = product.services.find( productService => productService.name == service.name) %>
 													<label for="service<%=index%>">
 															<input
 																type="checkbox"
 																name="services"
 																id="service<%=index%>"
 																value="<%=service.id%>"
-																<%=product.services.includes(service) ? "checked" : ""%>
+																<%=checked ? "checked" : ""%>
 															/>
-															<%=service%>
+															<%=service.name%>
 													</label>
 												<% }) %>
 											</div>
