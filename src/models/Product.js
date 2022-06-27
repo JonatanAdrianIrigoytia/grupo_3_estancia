@@ -50,7 +50,9 @@ const Product = {
 	create: async function (productData, filename) {
 		let product = this.fillProductData(productData, filename);
 		try {
-			let createdProduct = await db.Product.create(product);
+			let createdProduct = await db.Product.create(product, {
+				include: productIncludes,
+			});
 			if (productData.services) {
 				let services = Array.isArray(productData.services)
 					? productData.services
@@ -65,14 +67,20 @@ const Product = {
 		let currentData = await db.Product.findByPk(id);
 		let product = this.fillProductData(productData, filename, currentData);
 		try {
-			let editedProduct = await db.Product.update(product, {
-				where: { id: productData.id },
+			await db.Product.update(product, {
+				where: { id: id },
+				include: productIncludes,
 			});
+
 			if (productData.services) {
 				let services = Array.isArray(productData.services)
 					? productData.services
 					: [productData.services];
-				editedProduct.setServices(services);
+				//Necesito volver a buscar el producto que edite para resetearle los servicios
+				//TODO: CONSULTAR SI HAY UNA MEJOR FORMA DE HACERLO, probé recibiendo el resultado del update pero no funcionó	
+				db.Product.findByPk(id).then((product) => {
+					product.setServices(services);
+				});
 			}
 		} catch (error) {
 			return console.log(error);
@@ -88,12 +96,10 @@ const Product = {
 			longDescription = currentData.longDescription;
 		else if (productData.longDescription)
 			longDescription = productData.longDescription;
-
 		let product = {
-			id: id,
 			name: productData.name,
 			description: productData.description,
-			category: productData.category,
+			categoryId: productData.category,
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			longDescription: longDescription,
 
