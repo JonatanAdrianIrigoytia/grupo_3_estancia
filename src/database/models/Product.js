@@ -18,6 +18,10 @@ module.exports = (sequelize, dataTypes) => {
 			type: dataTypes.TEXT,
 			allowNull: true,
 		},
+		price: {
+			type: dataTypes.DECIMAL(10, 2),
+			allowNull: false,
+		},
 		categoryId: {
 			type: dataTypes.INTEGER,
 			allowNull: false,
