@@ -19,7 +19,7 @@
                                         </figure>
                                         <section class="product-text">
                                             <p class="product-name"><%= product.name %></p>
-                                            <p class="product-category"><%= product.category == "room" ? "Habitación" : "Actividad"%></p>
+                                            <p class="product-category"><%= product.category.name == "room" ? "Habitación" : "Actividad"%></p>
                                             <p class="product-price"><%= product.price %></p>
                                             <span class="product-discount"><%= product.discount %> % OFF</span>
                                         </section>
