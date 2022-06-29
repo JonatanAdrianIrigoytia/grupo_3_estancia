@@ -8,27 +8,27 @@ module.exports = (sequelize, dataTypes) => {
         },
         firstName: {
             type: dataTypes.STRING(100),
-            allowNull: true
+            allowNull: false
         },
         lastName: {
             type: dataTypes.STRING(100),
-            allowNull: true
+            allowNull: false
         },
         email: {
             type: dataTypes.STRING(255),
-            allowNull: true
+            allowNull: false
         },
         password: {
             type: dataTypes.STRING(150),
-            allowNull: true
+            allowNull: false
         },
         roleId: {
             type: dataTypes.INTEGER,
-            allowNull: true
+            allowNull: false
         },
         image: {
             type: dataTypes.STRING(255),
-            allowNull: false
+            allowNull: true
         }
     };
     const config = {
