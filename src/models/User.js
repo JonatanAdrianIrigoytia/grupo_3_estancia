@@ -21,7 +21,7 @@ let User = {
 		)},
 		findById: async function (id) {
 			return await db.User.findByPk(id, {
-				include: UserIncludes,
+				include: ["role"]
 			});
 		},
 	/*findById: function (id, users = undefined) {
@@ -30,10 +30,16 @@ let User = {
 		let userFound = users.find((user) => user.id == id);
 		return userFound;
 	},*/
-	findByField: function (field, value, users = undefined) {
+	/*findByField: function (field, value, users = undefined) {
 		if (!users) users = this.findAll();
 		let userFound = users.find((user) => user[field] === value);
 		return userFound;
+	},*/
+	findByField: async function (field, value) {
+		return await db.User.findOne({
+			include: ["role"],
+			where: { [field]: value },
+		});
 	},
 	findIndexByID: function (id, users = undefined) {
 		if (!users) users = this.findAll();
