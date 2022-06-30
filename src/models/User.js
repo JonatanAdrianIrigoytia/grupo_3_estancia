@@ -4,47 +4,21 @@ const db = require("../database/models");
 const bcrypt = require("bcryptjs");
 const errorHelper = require("../helpers/errorHelper");
 let User = {
-	filepath: path.resolve(__dirname, "../data/users.json"),
-
-	getData: function () {
-		return JSON.parse(fs.readFileSync(this.filepath, "utf-8"));
-	},
-	generateId: function (users) {
-		if (!users) users = this.findAll();
-		if (users.length > 0) id = users[users.length - 1].id + 1; //users.at(-1).id soportado a patir de Node.js 16.6.0
-		return id;
-	},
 	findAll: async function () {
 		return await db.User.findAll({
-			include: ["role"]
-		}
-		)},
-		findById: async function (id) {
-			return await db.User.findByPk(id, {
-				include: ["role"]
-			});
-		},
-	/*findById: function (id, users = undefined) {
-		if (!users) users = this.findAll();
-		id = parseInt(id);
-		let userFound = users.find((user) => user.id == id);
-		return userFound;
-	},*/
-	/*findByField: function (field, value, users = undefined) {
-		if (!users) users = this.findAll();
-		let userFound = users.find((user) => user[field] === value);
-		return userFound;
-	},*/
+			include: ["role"],
+		});
+	},
+	findById: async function (id) {
+		return await db.User.findByPk(id, {
+			include: ["role"],
+		});
+	},
 	findByField: async function (field, value) {
 		return await db.User.findOne({
 			include: ["role"],
 			where: { [field]: value },
 		});
-	},
-	findIndexByID: function (id, users = undefined) {
-		if (!users) users = this.findAll();
-		let userIndex = users.findIndex((user) => user.id == id);
-		return userIndex;
 	},
 	login: function (userData) {
 		let loggedUser = this.findByField("email", userData.email);
@@ -64,9 +38,8 @@ let User = {
 		return { errors, loggedUser };
 	},
 	create: function (userData, filename) {
-		let users = this.findAll();
 		//Validando si el usuarios ya existe
-		if (this.findByField("email", userData.email, users)) {
+		if (this.findByField("email", userData.email)) {
 			return {
 				errors: errorHelper.fillErrors([
 					{
@@ -77,50 +50,45 @@ let User = {
 				id: undefined,
 			};
 		}
-		let id = this.generateId(users);
-		let { errors, user } = this.fillUserData(id, userData, filename);
+		let { errors, user } = this.fillUserData(userData, filename);
 		if (errors) return { errors, id: undefined };
-		users.push(user);
-		fs.writeFileSync(this.filepath, JSON.stringify(users, null, " "));
-		return { errors: undefined, id };
+		try {
+			let userCreated = await db.User.create(user)
+			return { errors: undefined, id: userCreated.id };
+		} catch (error) {
+			console.log(error);			
+		}
 	},
 	edit: function (id, userData, filename) {
-		let users = this.findAll();
-		let index = users.findIndex((user) => user.id == id);
 		let userTobeEdited = users[index];
 		let { errors, editedUser } = this.fillUserData(
-			id,
 			userData,
 			filename,
 			userTobeEdited,
 		);
 		if (errors) return { errors, id: undefined };
-		users[index] = editedUser;
-		fs.writeFileSync(this.filepath, JSON.stringify(users, null, " "));
-		return { errors: undefined, id: userTobeEdited.id };
-	},
-	delete: function (id) {
-		let users = this.findAll();
-		let index = this.findIndexByID(id, users);
-		users.splice(index, 1);
-		fs.writeFileSync(this.filepath, JSON.stringify(users, null, " "));
+		try{
+			await db.User.update(editedUser, {where: {id: id}, include: ["role"]});
+			return { errors: undefined, id: id };
+		}catch(e){
+			console.log(e);
+		}
 	},
 	delete: async function (id) {
 		return await db.User.destroy({ where: { id: id } });
 	},
-	fillUserData: function (id, userData, filename, currentData = undefined) {
+	fillUserData: function (userData, filename, currentData = undefined) {
 		let { errors, password } = encryptPassword(userData, currentData);
 
 		if (errors) {
 			return { erorrs, user: undefined };
 		}
 		let user = {
-			id: parseInt(id),
 			name: userData.name ? userData.name : currentData.name,
 			lastName: userData.lastName ? userData.lastName : currentData.lastName,
 			email: userData.email ? userData.email : currentData.email,
 			password: password,
-			category: "user",
+			category: 1,
 		};
 		if (currentData && currentData.image && !filename)
 			user.image = currentData.image;
