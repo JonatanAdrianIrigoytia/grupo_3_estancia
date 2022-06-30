@@ -2,7 +2,7 @@ const path = require("path");
 const { check } = require("express-validator");
 
 const userRegisterValidations = [
-	check("name").notEmpty().withMessage("Debe ingresar un nombre"),
+	check("firstName").notEmpty().withMessage("Debe ingresar un nombre"),
 	check("lastName").notEmpty().withMessage("Debe ingresar un apellido"),
 	check("email")
 		.notEmpty()

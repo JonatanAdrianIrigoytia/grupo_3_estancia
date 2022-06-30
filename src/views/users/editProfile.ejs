@@ -15,18 +15,18 @@
 							<form action="/users/<%=user.id%>?_method=PUT" method='POST' enctype="multipart/form-data">
 								<div class="input-container">
 									<div class="field-container">
-										<label for="name">Nombre</label>
+										<label for="firstName">Nombre</label>
 										<input
 											class="controls"
 											type="text"
-											name="name"
-											id="name"
+											name="firstName"
+											id="firstName"
 											placeholder="Nombre"
-											value="<%=user.name || oldData.name%> "
+											value="<%=user.firstName || oldData.firstName%> "
 											required
 										/>
-										<% if (locals && locals.errors && errors.name) { %>
-								 			<p class="error"><%=errors.name.msg%></p>
+										<% if (locals && locals.errors && errors.firstName) { %>
+								 			<p class="error"><%=errors.firstName.msg%></p>
 										<% } %>
 									</div>
 									<div class="field-container">

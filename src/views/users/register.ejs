@@ -13,15 +13,15 @@
 							<div class="field-container">
 								<label for="name">Nombre</label>
 								<input
-									class="controls <%= locals && locals.errors && errors.name ? "input-error" : ""%>"
+									class="controls <%= locals && locals.errors && errors.firstName ? "input-error" : ""%>"
 									type="text"
-									name="name"
-									id="name"
+									name="firstName"
+									id="firstName"
 									placeholder="Nombre"
-									value="<%=locals && locals.oldData && oldData.name ?  oldData.name : ""%>"
+									value="<%=locals && locals.oldData && oldData.firstName ?  oldData.firstName : ""%>"
 								/>
-								<% if (locals && locals.errors && errors.name) { %>
-								 	<p class="error"><%=errors.name.msg%></p>
+								<% if (locals && locals.errors && errors.firstName) { %>
+								 	<p class="error"><%=errors.firstName.msg%></p>
 								<% } %>
 							</div>
 							
