@@ -15,9 +15,9 @@ const userController = {
 		let { errors, loggedUser } = await User.login(req.body);
 		if (errors) return res.render("login", { oldData: req.body, errors });
 		delete loggedUser.password;
-		req.session.loggedUser = loggedUser;
+		req.session.loggedUser = loggedUser.dataValues;
 		if (req.body.rememberme)
-			res.cookie("userEmail", loggedUser.email, {
+			res.cookie("userEmail", loggedUser.dataValues.email, {
 				maxAge: timeConverter(1, "days"),
 			});
 		res.redirect("/");
@@ -25,19 +25,17 @@ const userController = {
 	forgotPassword: (req, res) => {
 		res.send("Revise su correo electronico");
 	},
-	profile: (req, res) => {
+	profile: async (req, res) => {
 		if (req.params.id) {
-			User.findById(req.params.id).then((user) => {
-				if (user) return res.render("profile", { user });
-			});
+			let user = await User.findById(req.params.id);
+			if (user) return res.render("profile", { user: user.dataValues });
 		} else if (!req.params.id && req.session.loggedUser)
 			return res.render("profile", { user: req.session.loggedUser });
 		res.redirect("/");
 	},
-	editProfile: (req, res) => {
-		User.findById(req.params.id).then((user) => {
-			if (user) return res.render("editProfile", { user });
-		});
+	editProfile: async (req, res) => {
+		let user = await User.findById(req.params.id);
+		if (user) return res.render("editProfile", { user });
 		res.redirect("/");
 	},
 	save: async (req, res) => {

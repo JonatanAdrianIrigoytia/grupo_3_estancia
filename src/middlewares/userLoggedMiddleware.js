@@ -1,14 +1,14 @@
 const User = require("../models/User");
-function userLoggedMiddleware(req, res, next) {
+async function userLoggedMiddleware(req, res, next) {
 	res.locals.isLogged = false;
 	let userFromCookie = undefined;
 	if (req.cookies.userEmail) {
 		let emailInCookie = req.cookies.userEmail;
-		userFromCookie = User.findByField("email", emailInCookie);
+		userFromCookie = await User.findByField("email", emailInCookie);
 	}
 	if (userFromCookie) {
 		delete userFromCookie.password;
-		req.session.loggedUser = userFromCookie;
+		req.session.loggedUser = userFromCookie.dataValues;
 	}
 	if (req.session.loggedUser) {
 		res.locals.isLogged = true;

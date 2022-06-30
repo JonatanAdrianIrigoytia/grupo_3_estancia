@@ -27,8 +27,8 @@ const userUploads = multer({ storage });
 router.get("/login", guestMiddleware, userController.renderLogin);
 router.get("/register", guestMiddleware, userController.register);
 router.get("/forgot-password", guestMiddleware, userController.forgotPassword);
-router.get("/profile/:id", authMiddleware, userController.profile);
 router.get("/profile", authMiddleware, userController.profile);
+router.get("/profile/:id", authMiddleware, userController.profile);
 router.get("/edit/:id", userController.editProfile);
 router.post("/login", userController.login);
 router.post(
