@@ -192,5 +192,10 @@ VALUES
 (5, 4), (5, 2), (5, 3),
 (6, 1), (6, 2), (6, 3);
 
+INSERT INTO roles (name) VALUES ("user"), ("admin");
 
-
+INSERT INTO users (firstName, lastName, email, password, roleId, image) 
+VALUES 
+("admin", "admin", "admin@admin.com", "$2a$10$XU9F2sBZ7qO7cksLFOu7m.g1hiGJSKt2nONlGSIMeYg6qhfgjsH3i", 2, "default-user-image.png"), 
+("User", "1", "user1@user.com", "$2a$10$1nURDFTo6bZ7Jxg16yPtY.s/7qSbE6NIKCUbaBZHRd9KXPwbBpT3y", 1, "default-user-image.png"), 
+("User", "2", "user2@user.com", "$2a$10$Yx79o3IJYWdEaaLY8Att6ey/azpH5dPlHUWu6gWt414TbalBJdKku", 1, "/users/img-user2_1656610501191.png");
