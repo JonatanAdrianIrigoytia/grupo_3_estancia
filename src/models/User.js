@@ -14,15 +14,22 @@ let User = {
 		if (users.length > 0) id = users[users.length - 1].id + 1; //users.at(-1).id soportado a patir de Node.js 16.6.0
 		return id;
 	},
-	findAll: function () {
-		return this.getData();
-	},
-	findById: function (id, users = undefined) {
+	findAll: async function () {
+		return await db.User.findAll({
+			include: ["role"]
+		}
+		)},
+		findById: async function (id) {
+			return await db.User.findByPk(id, {
+				include: UserIncludes,
+			});
+		},
+	/*findById: function (id, users = undefined) {
 		if (!users) users = this.findAll();
 		id = parseInt(id);
 		let userFound = users.find((user) => user.id == id);
 		return userFound;
-	},
+	},*/
 	findByField: function (field, value, users = undefined) {
 		if (!users) users = this.findAll();
 		let userFound = users.find((user) => user[field] === value);
