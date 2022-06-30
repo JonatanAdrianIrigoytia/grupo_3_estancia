@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const db = require("../database/models");
 const bcrypt = require("bcryptjs");
 const errorHelper = require("../helpers/errorHelper");
 let User = {
@@ -90,6 +91,9 @@ let User = {
 		let index = this.findIndexByID(id, users);
 		users.splice(index, 1);
 		fs.writeFileSync(this.filepath, JSON.stringify(users, null, " "));
+	},
+	delete: async function (id) {
+		return await db.User.destroy({ where: { id: id } });
 	},
 	fillUserData: function (id, userData, filename, currentData = undefined) {
 		let { errors, password } = encryptPassword(userData, currentData);
