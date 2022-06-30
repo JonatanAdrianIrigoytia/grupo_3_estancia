@@ -15,13 +15,15 @@ let User = {
 		});
 	},
 	findByField: async function (field, value) {
-		return await db.User.findOne({
+		let user = await db.User.findOne({
 			include: ["role"],
 			where: { [field]: value },
 		});
+		console.log(user);
+		return user;
 	},
-	login: function (userData) {
-		let loggedUser = this.findByField("email", userData.email);
+	login: async function (userData) {
+		let loggedUser = await this.findByField("email", userData.email);
 		let errors = undefined;
 		if (!loggedUser)
 			errors = errorHelper.fillErrors([
@@ -37,9 +39,9 @@ let User = {
 		}
 		return { errors, loggedUser };
 	},
-	create: function (userData, filename) {
+	create: async function (userData, filename) {
 		//Validando si el usuarios ya existe
-		if (this.findByField("email", userData.email)) {
+		if (await this.findByField("email", userData.email)) {
 			return {
 				errors: errorHelper.fillErrors([
 					{
@@ -53,13 +55,13 @@ let User = {
 		let { errors, user } = this.fillUserData(userData, filename);
 		if (errors) return { errors, id: undefined };
 		try {
-			let userCreated = await db.User.create(user)
+			let userCreated = await db.User.create(user);
 			return { errors: undefined, id: userCreated.id };
 		} catch (error) {
-			console.log(error);			
+			console.log(error);
 		}
 	},
-	edit: function (id, userData, filename) {
+	edit: async function (id, userData, filename) {
 		let userTobeEdited = users[index];
 		let { errors, editedUser } = this.fillUserData(
 			userData,
@@ -67,10 +69,13 @@ let User = {
 			userTobeEdited,
 		);
 		if (errors) return { errors, id: undefined };
-		try{
-			await db.User.update(editedUser, {where: {id: id}, include: ["role"]});
+		try {
+			await db.User.update(editedUser, {
+				where: { id: id },
+				include: ["role"],
+			});
 			return { errors: undefined, id: id };
-		}catch(e){
+		} catch (e) {
 			console.log(e);
 		}
 	},
@@ -84,11 +89,11 @@ let User = {
 			return { erorrs, user: undefined };
 		}
 		let user = {
-			name: userData.name ? userData.name : currentData.name,
+			firstName: userData.name ? userData.name : currentData.name,
 			lastName: userData.lastName ? userData.lastName : currentData.lastName,
 			email: userData.email ? userData.email : currentData.email,
 			password: password,
-			category: 1,
+			roleId: 1,
 		};
 		if (currentData && currentData.image && !filename)
 			user.image = currentData.image;

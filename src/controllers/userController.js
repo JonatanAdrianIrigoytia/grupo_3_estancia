@@ -10,9 +10,9 @@ const userController = {
 		res.render("register");
 	},
 	//El login no va a hacer esto sino que deberia autenticar al usuario (SPRINT 5)
-	login: (req, res) => {
+	login: async (req, res) => {
 		//Aca hay que llamar al metodo login que va a estar en el modelo del usuario
-		let { errors, loggedUser } = User.login(req.body);
+		let { errors, loggedUser } = await User.login(req.body);
 		if (errors) return res.render("login", { oldData: req.body, errors });
 		delete loggedUser.password;
 		req.session.loggedUser = loggedUser;
@@ -27,18 +27,20 @@ const userController = {
 	},
 	profile: (req, res) => {
 		if (req.params.id) {
-			let user = User.findById(req.params.id);
-			if (user) return res.render("profile", { user });
+			User.findById(req.params.id).then((user) => {
+				if (user) return res.render("profile", { user });
+			});
 		} else if (!req.params.id && req.session.loggedUser)
 			return res.render("profile", { user: req.session.loggedUser });
 		res.redirect("/");
 	},
 	editProfile: (req, res) => {
-		let user = User.findById(req.params.id);
-		if (user) return res.render("editProfile", { user });
+		User.findById(req.params.id).then((user) => {
+			if (user) return res.render("editProfile", { user });
+		});
 		res.redirect("/");
 	},
-	save: (req, res) => {
+	save: async (req, res) => {
 		const resultValidation = validationResult(req);
 
 		if (resultValidation.errors.length > 0) {
@@ -51,13 +53,13 @@ const userController = {
 
 		let errors, id;
 		if (req.params.id) {
-			({ errors, id } = User.edit(
+			({ errors, id } = await User.edit(
 				req.params.id,
 				req.body,
 				req.file ? req.file.filename : undefined,
 			));
 		} else {
-			({ errors, id } = User.create(
+			({ errors, id } = await User.create(
 				req.body,
 				req.file ? req.file.filename : undefined,
 			));
@@ -78,8 +80,7 @@ const userController = {
 	},
 
 	delete: (req, res) => {
-		User.delete(req.params.id);
-		res.redirect("/");
+		User.delete(req.params.id).then(res.redirect("/"));
 	},
 
 	logout: (req, res) => {
