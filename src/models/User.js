@@ -89,7 +89,9 @@ let User = {
 			return { erorrs, user: undefined };
 		}
 		let user = {
-			firstName: userData.name ? userData.name : currentData.name,
+			firstName: userData.firstName
+				? userData.firstName
+				: currentData.firstName,
 			lastName: userData.lastName ? userData.lastName : currentData.lastName,
 			email: userData.email ? userData.email : currentData.email,
 			password: password,
