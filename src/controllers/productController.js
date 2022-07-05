@@ -76,6 +76,13 @@ const productController = {
 	buy: (req, res) => {
 		res.send("Reserva recibida");
 	},
+
+	search: (req, res) => {
+		let search = req.query.search;
+		Product.search(search).then((products) => {
+			res.render("productsList", { products, title: "Resultados de la búsqueda" });
+		});
+	},
 };
 
 module.exports = productController;

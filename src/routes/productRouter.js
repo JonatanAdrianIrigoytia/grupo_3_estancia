@@ -30,6 +30,7 @@ router.get("/rooms", productController.listRooms);
 router.get("/activities", productController.listActivities);
 router.get("/detail/:id", productController.detail);
 router.get("/cart", productController.cart);
+router.get("/search", productController.search);
 router.post("/cart", productController.buy);
 router.get("/create", adminMiddleware, productController.create);
 router.post("/", uploads.single("image"), productController.save);

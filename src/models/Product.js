@@ -47,6 +47,17 @@ const Product = {
 			],
 		});
 	},
+	search: async function (search) {
+		return await db.Product.findAll({
+			include: productIncludes,
+			where: {
+				[Op.or]: [
+					{ name: { [Op.like]: `%${search}%` } },
+					{ description: { [Op.like]: `%${search}%` } },
+				],
+			},
+		});
+	},
 	create: async function (productData, filename) {
 		let product = this.fillProductData(productData, filename);
 		try {

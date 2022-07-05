@@ -42,10 +42,19 @@
     <nav class="nav">
         <div><i class="fa-solid fa-xmark close-menu"></i></div>
         <ul class="menu-list">
-            <li><a href="/" class="menu-link">Inicio</a></li>
+            <!-- <li><a href="/" class="menu-link">Inicio</a></li> -->
             <li><a href="/products/rooms" class="menu-link">Habitaciones</a></li>
             <li><a href="/products/activities" class="menu-link">Actividades</a></li>
-            <li><a href="#" class="menu-link">Contacto</a></li>
+            <!-- <li><a href="#" class="menu-link">Contacto</a></li> -->
+            <!-- Search bar -->
+            <li class="search-bar">
+                <form action="/products/search" method="get">
+                    <div class="searchbar-container">
+                        <input type="text" class="searchbar" name="search" placeholder="Buscar...">
+                        <button class="search-btn"type="submit"><i class="fa-solid fa-search"></i></button>
+                    </div>
+                </form>
+            </li>
             <li>
                 <a href="/products/cart" class="menu-link">
                     <div class="menu-link-cart">
