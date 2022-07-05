@@ -63,3 +63,33 @@
 ## Tareas a realizar en la semana
 
 - No hay tareas para esta semana, la semana proxima comenzaremos el sprint 6.
+
+# Reunion 21/06 19:00
+
+## Temas charlados
+
+- Creamos el DER
+- Discutimos los campos y distintos tipos de relaciones que se necesitaban
+
+## Impedimentos
+
+- No podremos avanzar con las tareas de codigo hasta que nos aprueben el DER
+
+## Tareas a realizar en la semana
+
+- Una vez que nos aprueben el DER hay que comenzar a crear los modelos de Sequelize
+
+# Reunion 28/06 19:30
+
+## Temas charlados
+
+- Con el DER aprobado nos dividimos mejor las tareas que cada uno debia realizar
+
+## Impedimentos
+
+- Ninguno
+
+## Tareas a realizar en la semana
+
+- Continuar con las tareas de Sequelize
+- Convertir los metodos de datos a metodos de Sequelize
