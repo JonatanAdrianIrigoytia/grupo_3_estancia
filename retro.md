@@ -91,3 +91,45 @@ No vemos cosas que debamos hacer menos
 ## 5. Dejar de hacer
 
 No vemos cosas que debamos dejar de hacer
+
+
+# Retrospectiva del Sprint 5
+
+## 1. Comenzar a hacer
+N/A
+
+## 2. Hacer más
+N/A
+
+## 3. Continuar haciendo
+Consideramos que ya encontramos una forma de trabajar que nos funciona bien
+
+
+## 4. Hacer menos
+N/A
+
+
+## 5. Dejar de hacer
+N/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
