@@ -86,7 +86,7 @@ let User = {
 		let { errors, password } = encryptPassword(userData, currentData);
 
 		if (errors) {
-			return { erorrs, user: undefined };
+			return { errors, user: undefined };
 		}
 		let user = {
 			firstName: userData.firstName
