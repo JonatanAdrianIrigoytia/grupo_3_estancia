@@ -199,10 +199,6 @@ input[type="checkbox"]:checked {
 	border-color: var(--clr-red);
 }
 
-.input-error::after {
-	content: "hola";
-}
-
 @media (min-width: 480px) {
 	.form-container {
 		margin-top: 7rem;
