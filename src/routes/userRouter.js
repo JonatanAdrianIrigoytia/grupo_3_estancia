@@ -1,7 +1,7 @@
 const express = require("express");
 const userController = require("../controllers/userController");
 const router = express.Router();
-const validationMiddleware = require("../middlewares/validationMiddleware");
+const { userValidations } = require("../middlewares/validationMiddleware");
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
 const adminMiddleware = require("../middlewares/adminMiddleware");
@@ -34,7 +34,7 @@ router.post("/login", userController.login);
 router.post(
 	"/register",
 	userUploads.single("image"),
-	validationMiddleware.userRegisterValidations,
+	userValidations,
 	userController.save,
 );
 router.delete("/:id", adminMiddleware, userController.delete);
@@ -42,6 +42,7 @@ router.put(
 	"/:id",
 	authMiddleware,
 	userUploads.single("image"),
+	userValidations,
 	userController.save,
 );
 //logout

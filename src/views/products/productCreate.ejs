@@ -12,12 +12,30 @@
 							<div class="form-fields">
 								<div class="field-container">
 									<label for="name" class="form-label">Nombre del producto:</label>
-									<input type="text" id="name" name="name" placeholder="Ej: Habitación de lujo" class="controls" required>
+									<input type="text" 
+										   id="name" name="name" 
+										   placeholder="Ej: Habitación de lujo" 
+										   class="controls <%= locals && locals.errors && errors.name ? "input-error" : ""%>"
+										   value="<%=locals && locals.oldData && oldData.name ? oldData.name : "" %>" 
+										   required
+									/>
+									<% if (locals && locals.errors && errors.name) { %>
+								 		<p class="error"><%=errors.name.msg%></p>
+									<% } %>
 								</div>
 
 								<div class="field-container">
 									<label for="price" class="form-label">Precio:</label>
-									<input type="number" id="price" name="price" placeholder="Ej: 5678" class="controls" required>
+									<input type="number" 
+										   id="price" 
+										   name="price" 
+										   placeholder="Ej: 5678" 
+										   class="controls <%= locals && locals.errors && errors.price ? "input-error" : ""%>"
+										   value="<%=locals && locals.oldData && oldData.price ? oldData.price : "" %>" 
+										   required>
+									<% if (locals && locals.errors && errors.price) { %>
+								 		<p class="error"><%=errors.price.msg%></p>
+									<% } %>
 								</div>
 				
 								<div class="field-container">
@@ -31,7 +49,16 @@
 				
 								<div class="field-container">
 									<label for="description" class="form-label">Descripción:</label>
-									<input type="text" id="description" name="description" placeholder="Ej: Habitación de lujo" class="controls">
+									<input type="text" 
+										   id="description" 
+										   name="description" 
+										   placeholder="Ej: Habitación de lujo" 
+										   value="<%=locals && locals.oldData && oldData.description ? oldData.description : "" %>" 
+										   class="controls <%= locals && locals.errors && errors.description ? "input-error" : ""%>"
+									/>
+									<% if (locals && locals.errors && errors.description) { %>
+								 		<p class="error"><%=errors.description.msg%></p>
+									<% } %>
 								</div>
 				
 								<div class="field-container">
@@ -39,12 +66,12 @@
 									<textarea name="longDescription" id="long-description" class="controls"></textarea>
 								</div>
 				
-								<!-- Este campo deberia ocultarse si la categoria es Actividad pero aun no vimos como hacer eso -->
+								
 								<div class="field-container">
 									<label for="capacity" class="form-label">Capacidad:</label>
 									<input type="number" id="capacity" name="capacity" placeholder="Ej: 2" class="controls">
 								</div>
-								<!-- Este campo deberia ocultarse si la categoria es Habitación pero aun no vimos como hacer eso -->
+								
 								<div class="field-container">
 									<label for="duration" class="form-label">Duración:</label>
 									<input type="number" id="duration" name="duration" placeholder="Ej: 60" class="controls">
@@ -54,7 +81,7 @@
 									<label for="discount" class="form-label">Porcentaje de descuento</label>
 									<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls">
 								</div>
-								<!-- Este campo deberia ocultarse si la categoria es Habitación pero aun no vimos como hacer eso -->
+								
 								<div class="field-container" id="services-container">
 									<label for="services" class="form-label">Serivicios:</label>
 										<div class="services">
@@ -74,7 +101,14 @@
 								</div>
 								<div class="field-container">
 									<label for="image" class="form-label">Imagen del producto</label>
-									<input type="file" id="image" name="image" class="controls">
+									<input type="file" 
+										   id="image" 
+										   name="image" 
+										   class="controls <%= locals && locals.errors && errors.description ? "input-error" : ""%>"
+									/>
+									<% if (locals && locals.errors && errors.image) { %>
+								 		<p class="error"><%=errors.image.msg%></p>
+									<% } %>
 								</div>
 				
 								<button class="button buy-now-button" type="submit">Guardar producto</button>

@@ -1,11 +1,6 @@
 const fs = require("fs");
-const path = require("path");
-const db = require("../database/models");
 const Product = require("../models/Product");
-/* En la constante "products" ya tienen los productos que están 
-guardados en la carpeta Data como Json (un array de objetos literales) */
-// const productsFilePath = path.join(__dirname, "../data/products.json");
-// const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const { validationResult } = require("express-validator");
 
 const productController = {
 	list: (req, res) => {
@@ -58,9 +53,27 @@ const productController = {
 	},
 
 	save: async (req, res) => {
-		if (req.params.id)
+		let id = req.params.id;
+		let product = undefined;
+		const resultValidation = validationResult(req);
+
+		if (resultValidation.errors.length > 0) {
+			if (req.file) fs.unlinkSync(req.file.path);
+			let categories = await Product.getCategories();
+			let availableServices = await Product.getAvailableServices();
+			if (id) product = await Product.findById(id);
+			console.log(resultValidation.mapped());
+			return res.render(id ? "productEdit" : "productCreate", {
+				errors: resultValidation.mapped(),
+				oldData: req.body,
+				availableServices,
+				categories,
+				product,
+			});
+		}
+		if (id)
 			await Product.edit(
-				req.params.id,
+				id,
 				req.body,
 				req.file ? req.file.filename : undefined,
 			);
@@ -80,7 +93,10 @@ const productController = {
 	search: (req, res) => {
 		let search = req.query.search;
 		Product.search(search).then((products) => {
-			res.render("productsList", { products, title: "Resultados de la búsqueda" });
+			res.render("productsList", {
+				products,
+				title: "Resultados de la búsqueda",
+			});
 		});
 	},
 };

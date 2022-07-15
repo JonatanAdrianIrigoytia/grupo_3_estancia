@@ -2,6 +2,7 @@ const express = require("express");
 const productController = require("../controllers/productController");
 const router = express.Router();
 const adminMiddleware = require("../middlewares/adminMiddleware");
+const { productValidations } = require("../middlewares/validationMiddleware");
 
 /*MULTER CONFIGURATION*/
 const path = require("path");
@@ -33,9 +34,19 @@ router.get("/cart", productController.cart);
 router.get("/search", productController.search);
 router.post("/cart", productController.buy);
 router.get("/create", adminMiddleware, productController.create);
-router.post("/", uploads.single("image"), productController.save);
+router.post(
+	"/",
+	uploads.single("image"),
+	productValidations,
+	productController.save,
+);
 router.get("/edit/:id", adminMiddleware, productController.edit);
-router.put("/:id", uploads.single("image"), productController.save);
+router.put(
+	"/:id",
+	uploads.single("image"),
+	productValidations,
+	productController.save,
+);
 router.delete("/:id", productController.delete);
 
 module.exports = router;

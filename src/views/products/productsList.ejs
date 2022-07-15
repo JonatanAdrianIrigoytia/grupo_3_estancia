@@ -28,7 +28,7 @@
                         </div>
                     <% } %>
                 </div>
-                <% if (locals && locals.isLogged && locals.loggedUser.category == "admin") { %>
+                <% if (locals && locals.isLogged && locals.loggedUser.role.name == "admin") { %>
                     <div class="button-container">
                         <a href="/products/create" class="create-product-link">
                             <button class="create-product">

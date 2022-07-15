@@ -13,18 +13,35 @@
 						<div class="form-fields">
 								<div class="field-container">
 									<label for="name" class="form-label">Nombre del producto:</label>
-									<input type="text" id="name" name="name" placeholder="Ej: Habitación de lujo" class="controls" value="<%=product.name%>"required>
+									<input type="text" 
+										   id="name" name="name" 
+										   placeholder="Ej: Habitación de lujo" 
+										   class="controls <%= locals && locals.errors && errors.name ? "input-error" : ""%>"
+										   value="<%=product.name || oldData.name : "" %>" 
+										   required
+									/>
+									<% if (locals && locals.errors && errors.name) { %>
+								 		<p class="error"><%=errors.name.msg%></p>
+									<% } %>
 								</div>
 				
 								<div class="field-container">
 									<label for="price" class="form-label">Precio de la Habitación:</label>
-									<input type="number" id="price" name="price" placeholder="Ej: 5678" class="controls" value="<%=product.price%>"required>
+									<input type="number" 
+										   id="price" 
+										   name="price" 
+										   placeholder="Ej: 5678" 
+										   class="controls <%= locals && locals.errors && errors.price ? "input-error" : ""%>"
+										   value="<%= product.price || oldData.price %>" 
+										   required>
+									<% if (locals && locals.errors && errors.price) { %>
+								 		<p class="error"><%=errors.price.msg%></p>
+									<% } %>
 								</div>
 
-								<!-- La categoria de un producto no se puede modificar 
 								<div class="field-container">
 									<label for="category" class="form-label">Categoría:</label>
-									<select name="category" id="category" class="controls" required>
+									<select name="category" id="category" class="controls" disabled>
 										<% categories.forEach(category => { %>
 										 	<option id=room value="<%=category.id%>" <%= category.id == product.categoryId ? "selected" : ""%>>
 												<%= category.name == "room" ? "Habitación" : "Actividad" %>
@@ -32,10 +49,19 @@
 										<% }) %>
 									</select>
 								</div>
-								-->
+
 								<div class="field-container">
 									<label for="description" class="form-label">Descripción:</label>
-									<input type="text" id="description" name="description" placeholder="Ej: Habitación de lujo" class="controls" value="<%=product.description%>">
+									<input type="text" 
+										   id="description" 
+										   name="description" 
+										   placeholder="Ej: Habitación de lujo" 
+										   value="<%= product.description || oldData.description %>" 
+										   class="controls <%= locals && locals.errors && errors.description ? "input-error" : ""%>"
+									/>
+									<% if (locals && locals.errors && errors.description) { %>
+								 		<p class="error"><%=errors.description.msg%></p>
+									<% } %>
 								</div>
 				
 								<div class="field-container">
@@ -59,12 +85,7 @@
 									<label for="discount" class="form-label">Porcentaje de descuento</label>
 									<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="controls" value="<%=product.discount%>">
 								</div>
-				
-								<div class="field-container">
-									<label for="image" class="form-label">Imagen del producto</label>
-									<input type="file" id="image" name="image" multiple="multiple" class="controls">
-								</div>
-				
+
 								<% if (product.category.name == "room") { %>
 									<div class="field-container">
 										<label for="services" class="form-label">Serivicios:</label>
@@ -86,6 +107,19 @@
 										</label>
 									</div>
 								<% } %>
+
+								<div class="field-container">
+									<label for="image" class="form-label">Imagen del producto</label>
+									<input type="file" 
+										   id="image" 
+										   name="image" 
+										   class="controls <%= locals && locals.errors && errors.description ? "input-error" : ""%>"
+									/>
+									<% if (locals && locals.errors && errors.image) { %>
+								 		<p class="error"><%=errors.image.msg%></p>
+									<% } %>
+								</div>
+
 								<button class="button buy-now-button" type="submit">Modificar</button>
 							</div>
 						</div>
