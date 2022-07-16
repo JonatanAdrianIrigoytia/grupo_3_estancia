@@ -20,9 +20,12 @@
 									placeholder="Nombre"
 									value="<%=locals && locals.oldData && oldData.firstName ?  oldData.firstName : ""%>"
 								/>
-								<% if (locals && locals.errors && errors.firstName) { %>
-								 	<p class="error"><%=errors.firstName.msg%></p>
-								<% } %>
+								<div class="field-errors">
+									<ul id="firstNameErrors"></ul>
+									<% if (locals && locals.errors && errors.firstName) { %>
+										<p class="error"><%=errors.firstName.msg%></p>
+									<% } %>
+								</div>
 							</div>
 							
 							<div class="field-container">
@@ -35,9 +38,12 @@
 									placeholder="Apellido"
 									value="<%=locals && locals.oldData && oldData.lastName ?  oldData.lastName : ""%>"
 								/>
-								<% if (locals && locals.errors && errors.lastName) { %>
-								 	<p class="error"><%=errors.lastName.msg%></p>
-								<% } %>
+								<div class="field-errors">
+									<ul id="lastNameErrors"></ul>
+									<% if (locals && locals.errors && errors.lastName) { %>
+										<p class="error"><%=errors.lastName.msg%></p>
+									<% } %>
+								</div>
 							</div>
 							
 							<div class="field-container">
@@ -50,9 +56,12 @@
 									placeholder="E-mail"
 									value="<%=locals && locals.oldData && oldData.email ?  oldData.email : ""%>"
 								/>
-								<% if (locals && locals.errors && errors.email) { %>
-								 	<p class="error"><%=errors.email.msg%></p>
-								<% } %>
+								<div class="field-errors">
+									<ul id="emailErrors"></ul>
+									<% if (locals && locals.errors && errors.email) { %>
+										<p class="error"><%=errors.email.msg%></p>
+									<% } %>
+								</div>
 							</div>
 							
 							<div class="field-container">
@@ -64,9 +73,18 @@
 									id="password"
 									placeholder="Contraseña"
 								/>
-								<% if (locals && locals.errors && errors.password) { %>
-								 	<p class="error"><%=errors.password.msg%></p>
-								<% } %>
+								<div class="field-errors">
+									<ul id="passwordErrors" class="hidden">
+										<li id="lowerCaseError">La contraseña debe contener minusculas</li>
+										<li id="upperCaseError">La contraseña debe contener mayusculas</li>
+										<li id="numberError">La contraseña debe contener al menos 1 numero</li>
+										<li id="symbolError">La contraseña debe contener al menos 1 caracter especial</li>
+										<li id="lengthError">La contraseña debe tener al menos 8 caracteres</li>
+									</ul>
+									<% if (locals && locals.errors && errors.password) { %>
+										<p class="error"><%=errors.password.msg%></p>
+									<% } %>
+								</div>
 							</div>
 							
 							<div class="field-container">
@@ -75,12 +93,22 @@
 									class="controls <%= locals && locals.errors && errors.confirmPassword ? "input-error" : ""%>"
 									name="confirmPassword"
 									type="password"
-									id="password2"
+									id="confirmPassword"
 									placeholder="Confirme su contraseña"
 								/>
-								<% if (locals && locals.errors && errors.confirmPassword) { %>
-								 	<p class="error"><%=errors.confirmPassword.msg%></p>
-								<% } %>
+								<div class="field-errors">
+									<ul id="confirmPasswordErrors" class="hidden">
+										<li id="lowerCaseError2">La contraseña debe contener minusculas</li>
+										<li id="upperCaseError2">La contraseña debe contener mayusculas</li>
+										<li id="numberError2">La contraseña debe contener al menos 1 numero</li>
+										<li id="symbolError2">La contraseña debe contener al menos 1 caracter especial</li>
+										<li id="lengthError2">La contraseña debe tener al menos 8 caracteres</li>
+									</ul>
+									<% if (locals && locals.errors && errors.confirmPassword) { %>
+										<p class="error"><%=errors.confirmPassword.msg%></p>
+									<% } %>
+								</div>
+
 							</div>
 
 							<div class="field-container">
@@ -91,9 +119,12 @@
 									name="image" 
 									class="controls <%= locals && locals.errors && errors.image ? "input-error" : ""%>"
 								>
-								<% if (locals && locals.errors && errors.image) { %>
-								 	<p class="error"><%=errors.image.msg%></p>
-								<% } %>
+								<div class="field-errors">
+									<ul id="imageErrors"></ul>
+									<% if (locals && locals.errors && errors.image) { %>
+										<p class="error"><%=errors.image.msg%></p>
+									<% } %>
+								</div>
 							</div>
 
 							<button class="button" type="submit"><h3>Registrarse</h3></button>
@@ -109,5 +140,6 @@
 		</div>
 		<%- include("../partials/footer.ejs")%>
 		<%- include("../partials/scripts.ejs")%>
+		<script src="/js/register.js"></script>
 	</body>
 </html>

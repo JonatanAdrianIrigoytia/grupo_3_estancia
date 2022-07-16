@@ -199,6 +199,38 @@ input[type="checkbox"]:checked {
 	border-color: var(--clr-red);
 }
 
+.input-valid {
+	border-color: var(--clr-green);
+}
+
+.field-errors {
+	background-color: var(--clr-light-red);
+	border-radius: 5px;
+}
+
+.field-errors ul {
+	list-style: none;
+	margin-top: 0.25rem;
+}
+
+.valid {
+	color: #02af5b
+}
+
+.valid::before {
+	content: "✔";
+	margin-inline: 0.5rem;
+}
+
+.invalid {
+	color: var(--clr-red);
+}
+
+.invalid::before {
+	content: "✖";
+	margin-inline: 0.5rem;
+}
+
 @media (min-width: 480px) {
 	.form-container {
 		margin-top: 7rem;
