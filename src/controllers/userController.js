@@ -87,6 +87,11 @@ const userController = {
 		res.clearCookie("userEmail");
 		return res.redirect("/");
 	},
+	checkEmail: async (req, res) => {
+		console.log("Body", req.body);
+		let emailExists = await User.checkEmail(req.body.email);
+		res.json({ emailExists });
+	},
 };
 
 module.exports = userController;

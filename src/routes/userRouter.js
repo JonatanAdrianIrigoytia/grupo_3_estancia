@@ -48,4 +48,6 @@ router.put(
 //logout
 router.get("/logout", userController.logout);
 
+router.post("/check-email", userController.checkEmail);
+
 module.exports = router;

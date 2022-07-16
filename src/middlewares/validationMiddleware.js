@@ -48,19 +48,19 @@ const userValidations = [
 			"La contraseña debe tener como mínimo una mayúscula, una minúscula, un número y un símbolo",
 		)
 		.custom((value, { req }) => {
-			console.log(value);
 			if (value != req.body.password) {
 				throw new Error("Las contraseñas no coinciden");
 			}
 			return true;
 		}),
 	check("image").custom((_value, { req }) => {
+		console.log(req.file);
 		if (req.file) {
 			if (
-				req.file.mimeType !== "image/jpeg" ||
-				req.file.mimeType !== "image/png" ||
-				req.file.mimeType !== "image/jpeg" ||
-				req.file.mimeType !== "image/gif"
+				req.file.mimetype !== "image/jpeg" &&
+				req.file.mimetype !== "image/png" &&
+				req.file.mimetype !== "image/jpeg" &&
+				req.file.mimetype !== "image/gif"
 			) {
 				throw new Error(
 					"El formato de la imagen es inválido, la imagen debe ser (JPG, JPEG, PNG, GIF)",

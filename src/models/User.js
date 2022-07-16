@@ -39,9 +39,12 @@ let User = {
 		}
 		return { errors, loggedUser };
 	},
+	checkEmail: async function (email) {
+		return (await this.findByField("email", email)) ? true : false;
+	},
 	create: async function (userData, filename) {
 		//Validando si el usuarios ya existe
-		if (await this.findByField("email", userData.email)) {
+		if (await this.checkEmail(userData.email)) {
 			return {
 				errors: errorHelper.fillErrors([
 					{

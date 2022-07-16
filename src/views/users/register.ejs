@@ -7,7 +7,7 @@
 			<main>
 			<div class="form-container">
 				<h5>Bienvenido a Las Violetas</h5>
-					<form action="/users/register" method="POST" enctype="multipart/form-data">
+					<form action="/users/register" method="POST" id="registerForm" enctype="multipart/form-data">
 						<div class="input-container">
 							
 							<div class="field-container">
@@ -103,6 +103,7 @@
 										<li id="numberError2">La contraseña debe contener al menos 1 numero</li>
 										<li id="symbolError2">La contraseña debe contener al menos 1 caracter especial</li>
 										<li id="lengthError2">La contraseña debe tener al menos 8 caracteres</li>
+										<li id="passwordMatchError">La contraseñas deben ser iguales</li>
 									</ul>
 									<% if (locals && locals.errors && errors.confirmPassword) { %>
 										<p class="error"><%=errors.confirmPassword.msg%></p>

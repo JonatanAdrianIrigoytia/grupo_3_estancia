@@ -213,8 +213,13 @@ input[type="checkbox"]:checked {
 	margin-top: 0.25rem;
 }
 
+.field-errors ul li,
+.field-errors p {
+	padding: 0.25rem;
+}
+
 .valid {
-	color: #02af5b
+	color: #02af5b;
 }
 
 .valid::before {
