@@ -1,3 +1,4 @@
+import { checkIfEmailExists } from "./util.js";
 window.addEventListener("load", function () {
 	const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	const lowerCase = /[a-z]/g;
@@ -84,20 +85,6 @@ window.addEventListener("load", function () {
 			return false;
 		}
 	}
-
-	async function checkIfEmailExists() {
-		let body = JSON.stringify({ email: email.value });
-		let response = await fetch("/users/check-email", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: body,
-		});
-		let { emailExists } = await response.json();
-		return emailExists;
-	}
-
 	function checkPassword() {
 		if (password.value.match(lowerCase)) {
 			lowerCaseError.classList.remove("invalid");
