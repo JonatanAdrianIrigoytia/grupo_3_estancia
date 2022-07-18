@@ -283,7 +283,8 @@ window.addEventListener("load", function () {
 		event.preventDefault();
 		let emailExists = await checkIfEmailExists();
 		if (emailExists) {
-			emailErrors.innerHTML += "<li>El email ya existe</li>";
+			if (!emailErrors.innerHTML.includes("<li>El email ya existe</li>"))
+				emailErrors.innerHTML += "<li>El email ya existe</li>";
 			email.classList.remove("input-valid");
 			email.classList.add("input-error");
 		}
