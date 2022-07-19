@@ -1,4 +1,4 @@
-import { checkIfEmailExists } from "./util.js";
+import { checkIfEmailExists, checkImage } from "./util.js";
 window.addEventListener("load", function () {
 	const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	const lowerCase = /[a-z]/g;
@@ -217,25 +217,8 @@ window.addEventListener("load", function () {
 		}
 	}
 
-	function checkImage() {
-		if (image.files.length > 0) {
-			if (validFileTypes.includes(image.files[0].type)) {
-				image.classList.remove("input-error");
-				image.classList.add("input-valid");
-				imageErrors.innerHTML = "";
-				return true;
-			} else {
-				image.classList.remove("input-valid");
-				image.classList.add("input-error");
-				imageErrors.innerHTML +=
-					"<li>El formato de la imagen es invalido, los tipos permitidos son (JPG, JPEG, PNG, GIF)</li>";
-				return false;
-			}
-		}
-	}
-
 	image.onchange = function () {
-		checkImage();
+		checkImage(image, imageErrors);
 	};
 
 	firstName.oninput = () => {
@@ -295,7 +278,7 @@ window.addEventListener("load", function () {
 			!emailExists &&
 			checkPassword() &&
 			checkPassword2() &&
-			checkImage()
+			checkImage(image, imageErrors)
 		) {
 			form.submit();
 		}
