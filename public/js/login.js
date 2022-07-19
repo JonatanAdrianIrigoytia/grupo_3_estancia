@@ -19,10 +19,6 @@ window.addEventListener("load", function () {
 
 	//Errores de contraseña
 	let passwordErrors = document.getElementById("passwordErrors");
-	let lowerCaseError = document.getElementById("lowerCaseError");
-	let upperCaseError = document.getElementById("upperCaseError");
-	let numberError = document.getElementById("numberError");
-	let symbolError = document.getElementById("symbolError");
 	let lengthError = document.getElementById("lengthError");
 
 	function checkEmail() {
@@ -39,42 +35,6 @@ window.addEventListener("load", function () {
 		}
 	}
 	function checkPassword() {
-		if (password.value.match(lowerCase)) {
-			lowerCaseError.classList.remove("invalid");
-			lowerCaseError.classList.add("valid");
-			passwordErrorArray[0] = false;
-		} else {
-			lowerCaseError.classList.remove("valid");
-			lowerCaseError.classList.add("invalid");
-			passwordErrorArray[0] = true;
-		}
-		if (password.value.match(upperCase)) {
-			upperCaseError.classList.remove("invalid");
-			upperCaseError.classList.add("valid");
-			passwordErrorArray[1] = false;
-		} else {
-			upperCaseError.classList.remove("valid");
-			upperCaseError.classList.add("invalid");
-			passwordErrorArray[1] = true;
-		}
-		if (password.value.match(number)) {
-			numberError.classList.remove("invalid");
-			numberError.classList.add("valid");
-			passwordErrorArray[2] = false;
-		} else {
-			numberError.classList.remove("valid");
-			numberError.classList.add("invalid");
-			passwordErrorArray[2] = true;
-		}
-		if (password.value.match(specialChar)) {
-			symbolError.classList.remove("invalid");
-			symbolError.classList.add("valid");
-			passwordErrorArray[3] = false;
-		} else {
-			symbolError.classList.remove("valid");
-			symbolError.classList.add("invalid");
-			passwordErrorArray[3] = true;
-		}
 		if (password.value.length >= 8) {
 			lengthError.classList.remove("invalid");
 			lengthError.classList.add("valid");
