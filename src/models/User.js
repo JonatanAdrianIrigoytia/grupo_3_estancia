@@ -83,6 +83,11 @@ let User = {
 		}
 	},
 	delete: async function (id) {
+		this.findById(id).then((user) => {
+			fs.unlinkSync(
+				path.join(__dirname, `../../public/images/${user.image}`),
+			);
+		});
 		return await db.User.destroy({ where: { id: id } });
 	},
 	fillUserData: function (userData, filename, currentData = undefined) {

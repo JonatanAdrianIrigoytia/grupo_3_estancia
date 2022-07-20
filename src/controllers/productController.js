@@ -79,6 +79,7 @@ const productController = {
 			);
 		else
 			await Product.create(req.body, req.file ? req.file.filename : undefined);
+
 		res.redirect("/products");
 	},
 

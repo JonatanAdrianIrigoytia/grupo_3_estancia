@@ -3,10 +3,11 @@
     <%- include("../partials/head.ejs", {style: "product-styles", title: " - Detalle del producto"})%>
     <body>
         <%- include("../partials/header.ejs")%>
+        <%= console.log(product) %>
         <div class="page-container">
             <main>
                 <div class="titles">
-                    <h3 class="subtititle"><%= product.category == "room" ? "Habitación" : "Actividad"%></h3>
+                    <h3 class="subtititle"><%= product.category.name == "room" ? "Habitación" : "Actividad"%></h3>
                     <h2 class="main-titulo"><%=product.name%></h2>
                 </div>
                 <div class="container">
@@ -64,7 +65,7 @@
                     </span>
                 </div>
                 <div class="button-container">
-                <% if (locals && locals.isLogged && locals.loggedUser.category == "admin") { %>
+                <% if (locals && locals.isLogged && locals.loggedUser.role.name == "admin") { %>
                     <form action="/products/<%=product.id%>?_method=DELETE" method="POST">
                         <button class="delete-button">
                             <i class="fa-solid fa-trash-can"></i>

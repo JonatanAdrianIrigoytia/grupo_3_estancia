@@ -10,7 +10,7 @@ const multer = require("multer");
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		let dest = "../../public/images/products/";
-		dest += req.body.category == "room" ? "rooms" : "activities";
+		dest += req.body.category == 1 ? "rooms" : "activities";
 		cb(null, path.join(__dirname, dest));
 	},
 	filename: (req, file, cb) => {

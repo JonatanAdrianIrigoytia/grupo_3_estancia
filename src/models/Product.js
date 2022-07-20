@@ -1,5 +1,5 @@
-// const path = require("path");
-// const fs = require("fs");
+const path = require("path");
+const fs = require("fs");
 const db = require("../database/models");
 const Op = require("sequelize").Op;
 const productIncludes = [
@@ -98,6 +98,12 @@ const Product = {
 		}
 	},
 	delete: async function (id) {
+		this.findById(id).then((product) => {
+			fs.unlinkSync(
+				path.join(__dirname, `../../public/images/${product.image}`),
+			);
+		});
+
 		return await db.Product.destroy({ where: { id: id } });
 	},
 	fillProductData: function (productData, filename, currentData = undefined) {
@@ -127,13 +133,17 @@ const Product = {
 			// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 			product.capacity = productData.capacity
 				? parseInt(productData.capacity)
-				: currentData.capacity || 0;
+				: currentData && currentData.capacity
+				? parseInt(currentData.capacity)
+				: 0;
 		}
 		// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 		else
 			product.duration = productData.duration
 				? parseInt(productData.duration)
-				: currentData.duration || 0;
+				: currentData && currentData.duration
+				? parseInt(currentData.duration)
+				: 0;
 
 		// Valida si me llegaron datos del formulario, si llegaron pone esos sino deja los actuales del producto
 		if (currentData && currentData.image && !filename)
@@ -146,8 +156,8 @@ const Product = {
 	getFilePath: function (category, filename) {
 		if (filename) {
 			//category == 1 'room'
-			if (category == 1) return "/products/rooms/" + filename;
-			return "/products/activities/" + filename;
+			if (category == 1) return "products/rooms/" + filename;
+			return "products/activities/" + filename;
 		}
 		return "default-image.png";
 	},
