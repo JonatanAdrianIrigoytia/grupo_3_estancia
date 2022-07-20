@@ -54,7 +54,6 @@ const userValidations = [
 			return true;
 		}),
 	check("image").custom((_value, { req }) => {
-		console.log(req.file);
 		if (req.file) {
 			if (
 				req.file.mimetype !== "image/jpeg" &&
@@ -79,14 +78,15 @@ const productValidations = [
 		.withMessage("La descripción debe tener al menos 20 caracteres"),
 	check("image").custom((_value, { req }) => {
 		if (req.file) {
+			console.log(req.file);
 			if (
-				req.file.mimeType !== "image/jpeg" ||
-				req.file.mimeType !== "image/png" ||
-				req.file.mimeType !== "image/jpeg" ||
-				req.file.mimeType !== "image/gif"
+				req.file.mimetype !== "image/jpeg" &&
+				req.file.mimetype !== "image/png" &&
+				req.file.mimetype !== "image/jpeg" &&
+				req.file.mimetype !== "image/gif"
 			) {
 				throw new Error(
-					"El formato de la imagen es inválido, la imagen debe ser (JPG, JPEG, PNG, GIF)",
+					"El formato de la imagen es inválido, la imagen debe ser (JPG, JPEG, PNG, GIF) back",
 				);
 			}
 		}

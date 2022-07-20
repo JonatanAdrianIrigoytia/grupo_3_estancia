@@ -5,7 +5,6 @@ window.addEventListener("load", function () {
 	const upperCase = /[A-Z]/g;
 	const number = /[0-9]/g;
 	const specialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
-	const validFileTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
 
 	let form = document.querySelector("#registerForm");
 	//Campos

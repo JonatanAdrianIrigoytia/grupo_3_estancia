@@ -8,7 +8,7 @@
 				<main>
 				<h3 class="products-title">Formulario de edición de productos</h3>
 					<div class="container">
-					<form action="/products/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+					<form action="/products/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id="productForm">
 				
 						<div class="form-fields">
 								<div class="field-container">
@@ -20,9 +20,12 @@
 										   value="<%=product.name || oldData.name : "" %>" 
 										   required
 									/>
-									<% if (locals && locals.errors && errors.name) { %>
-								 		<p class="error"><%=errors.name.msg%></p>
-									<% } %>
+									<div class="field-errors">
+										<ul id="nameErrors"></ul>
+										<% if (locals && locals.errors && errors.name) { %>
+											<p class="error"><%=errors.name.msg%></p>
+										<% } %>
+									</div>
 								</div>
 				
 								<div class="field-container">
@@ -34,9 +37,11 @@
 										   class="controls <%= locals && locals.errors && errors.price ? "input-error" : ""%>"
 										   value="<%= product.price || oldData.price %>" 
 										   required>
-									<% if (locals && locals.errors && errors.price) { %>
-								 		<p class="error"><%=errors.price.msg%></p>
-									<% } %>
+									<div class="field-errors">
+										<% if (locals && locals.errors && errors.price) { %>
+											<p class="error"><%=errors.price.msg%></p>
+										<% } %>
+									</div>
 								</div>
 
 								<div class="field-container">
@@ -59,9 +64,12 @@
 										   value="<%= product.description || oldData.description %>" 
 										   class="controls <%= locals && locals.errors && errors.description ? "input-error" : ""%>"
 									/>
-									<% if (locals && locals.errors && errors.description) { %>
-								 		<p class="error"><%=errors.description.msg%></p>
-									<% } %>
+									<div class="field-errors">
+										<ul id="descriptionErrors"></ul>
+										<% if (locals && locals.errors && errors.description) { %>
+											<p class="error"><%=errors.description.msg%></p>
+										<% } %>
+									</div>
 								</div>
 				
 								<div class="field-container">
@@ -115,9 +123,12 @@
 										   name="image" 
 										   class="controls <%= locals && locals.errors && errors.description ? "input-error" : ""%>"
 									/>
-									<% if (locals && locals.errors && errors.image) { %>
-								 		<p class="error"><%=errors.image.msg%></p>
-									<% } %>
+									<div class="field-errors">
+										<ul id="imageErrors"></ul>
+										<% if (locals && locals.errors && errors.image) { %>
+											<p class="error"><%=errors.image.msg%></p>
+										<% } %>
+									</div>
 								</div>
 
 								<button class="button buy-now-button" type="submit">Modificar</button>
@@ -129,7 +140,7 @@
 			</div>
 			<%- include("../partials/footer.ejs")%>
 			<%- include("../partials/scripts.ejs")%>
-
+			<script src="/js/productForm.js" type="module"></script>
 	</body>
 
 </html>

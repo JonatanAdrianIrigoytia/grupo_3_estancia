@@ -1,4 +1,4 @@
-export async function checkIfEmailExists() {
+async function checkIfEmailExists() {
 	let body = JSON.stringify({ email: email.value });
 	let response = await fetch("/users/check-email", {
 		method: "POST",
@@ -12,7 +12,7 @@ export async function checkIfEmailExists() {
 }
 
 const validFileTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
-export function checkImage(imageInput, imageErrors) {
+function checkImage(imageInput, imageErrors) {
 	if (imageInput.files.length > 0) {
 		if (validFileTypes.includes(imageInput.files[0].type)) {
 			imageInput.classList.remove("input-error");
@@ -27,4 +27,7 @@ export function checkImage(imageInput, imageErrors) {
 			return false;
 		}
 	}
+	return true;
 }
+
+export { checkIfEmailExists, checkImage };
