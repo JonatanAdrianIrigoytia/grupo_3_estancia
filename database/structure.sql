@@ -9,6 +9,8 @@ CREATE TABLE `users` (
    `password` VARCHAR(150) NOT NULL,
    `roleId` INT NOT NULL,
    `image` VARCHAR(255),
+   `createdAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   `updatedAt` DATETIME NOT NULL,
    PRIMARY KEY (`id`)
 );
 
@@ -23,6 +25,8 @@ CREATE TABLE `products` (
    `duration` INT,
    `discount` INT,
    `image` VARCHAR(255),
+   `createdAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   `updatedAt` DATETIME NOT NULL,
    PRIMARY KEY (`id`)
 );
 
