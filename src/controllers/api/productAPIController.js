@@ -41,7 +41,7 @@ const productController = {
 					name: product.name,
 					description: product.description,
 					category: product.category.name,
-					image: `http://localhost:3001/public/images/${product.image}`,
+					image: `/images/${product.image}`,
 					detail: `http://localhost:3001/api/products/detail/${product.id}`,
 				},
 			});
@@ -58,7 +58,7 @@ const productController = {
 				name: product.name,
 				description: product.description,
 				category: product.category.name,
-				image: `http://localhost:3001/public/images/${product.image}`,
+				image: `/images/${product.image}`,
 				services: product.services.map((service) => service.name),
 				amenities: product.amenities.map((amenity) => amenity.name),
 			};
