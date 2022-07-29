@@ -17,7 +17,7 @@
 										   placeholder="Ej: Habitación de lujo" 
 										   class="controls <%= locals && locals.errors && errors.name ? "input-error" : ""%>"
 										   value="<%=locals && locals.oldData && oldData.name ? oldData.name : "" %>" 
-										   required
+										   
 									/>
 
 									<div class="field-errors">
@@ -36,7 +36,7 @@
 										   placeholder="Ej: 5678" 
 										   class="controls <%= locals && locals.errors && errors.price ? "input-error" : ""%>"
 										   value="<%=locals && locals.oldData && oldData.price ? oldData.price : "" %>" 
-										   required>
+										   >
 									<div class="field-errors">
 										<% if (locals && locals.errors && errors.price) { %>
 											<p class="error"><%=errors.price.msg%></p>

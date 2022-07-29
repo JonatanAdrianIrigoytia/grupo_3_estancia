@@ -38,4 +38,4 @@ app.use("/", mainRouter);
 app.use("/users", userRouter);
 app.use("/products", productRouter);
 
-app.listen(3000, () => console.log("Corriendo en http://localhost:3000"));
+app.listen(3001, () => console.log("Corriendo en http://localhost:3001"));
