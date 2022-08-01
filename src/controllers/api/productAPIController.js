@@ -28,7 +28,7 @@ const productController = {
 						}),
 				};
 			});
-			return res.json({ count: products.length, countByCategory, products });
+			return res.json({ count: total, countByCategory, products });
 		}
 		return res.status(404).json({ message: "No se encontraron productos" });
 	},
