@@ -25,7 +25,7 @@ const userController = {
 						}),
 				};
 			});
-			return res.json({ count: total, countByCategory, users });
+			return res.json({ count: total, users });
 		}
 		return res.status(404).json({ message: "No se encontraron usuarios" });
 	},
