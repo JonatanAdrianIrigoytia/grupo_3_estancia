@@ -5,5 +5,5 @@ const router = express.Router();
 router.get("/last", productController.last);
 router.get("/:page?", productController.list);
 router.get("/detail/:id", productController.detail);
-router.delete("/delete/:id", productController.delete);
+router.post("/delete/:id", productController.delete);
 module.exports = router;
