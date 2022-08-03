@@ -39,6 +39,9 @@ const Product = {
 			include: productIncludes,
 		});
 	},
+	delete: async function (id) {
+		return await db.Product.destroy({ where: { id: id } });
+	},
 };
 
 module.exports = Product;
