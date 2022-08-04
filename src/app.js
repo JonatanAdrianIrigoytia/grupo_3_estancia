@@ -7,6 +7,7 @@ const mainRouter = require("./routes/mainRouter");
 const userRouter = require("./routes/userRouter");
 const productRouter = require("./routes/productRouter");
 const productAPIRouter = require("./routes/api/productAPIRouter");
+const userAPIRouter = require("./routes/api/userAPIRouter");
 const methodOverride = require("method-override");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 
@@ -39,5 +40,6 @@ app.use("/", mainRouter);
 app.use("/users", userRouter);
 app.use("/products", productRouter);
 app.use("/api/products", productAPIRouter);
+app.use("/api/users", userAPIRouter);
 
 app.listen(3001, () => console.log("Corriendo en http://localhost:3001"));

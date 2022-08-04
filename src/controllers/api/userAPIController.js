@@ -9,7 +9,6 @@ const userController = {
 
 		if (users.length > 0) {
 			users = users.map((user) => {
-				fillCountByCategory(user, countByCategory);
 				return {
 					id: user.id,
 					firstName: user.firstName,
