@@ -57,11 +57,13 @@
 				con los datos del producto seleccionado, pero tiene que haber una forma mejor, tal vez con JS en el front end o algo-->
 				<div class="container">
 					<div class="carrousel">
+					<!--
 						<div class="carrousel-button">
 							<a href="" class="prev-image">
 								<i class="fa-solid fa-caret-left prev-button"></i>
 							</a>
 						</div>
+						-->
 						<div class="image-container">
 							<img src="/images/<%=selected.image%>" alt="Primera imagen del producto seleccionado" class="carrousel-image" />
 						</div>
@@ -72,11 +74,13 @@
 							<span class="image-selector"></span>
 							<span class="image-selector"></span>
 						</div>
+						<!--
 						<div class="carrousel-button">
 							<a href="" class="next-image">
 								<i class="fa-solid fa-caret-right next-button"></i>
 							</a>
 						</div>
+						-->
 					</div>
 					<div class="item-description">
 						<h3 class="titulo"><%=selected.name%></h3>
@@ -90,17 +94,6 @@
 									<p><%=amenity.name%></p>
 								</div>
 							<% }) %>
-						<!--
-							<div class="amenity bed">
-								<img src="/images/icons/bed.png"></img>
-							</div>
-							<div class="amenity sofa">
-								<img src="/images/icons/sofa.png"></img>
-							</div>
-							<div class="amenity key">
-								<img src="/images/icons/key.png"></img>
-							</div>
-						-->
 						</div>
 						<div class="buttons">
 							<a class="detail-link" href="/products/detail/<%=selected.id%>">
