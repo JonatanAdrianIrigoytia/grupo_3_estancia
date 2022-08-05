@@ -2,7 +2,7 @@ const Product = require("../../models/api/Product");
 
 const productController = {
 	list: async (req, res) => {
-		page = req.params.page ? parseInt(req.params.page) : undefined;
+		let page = req.params.page ? Number(req.params.page) : undefined;
 		const result = await Product.findAll(page);
 		let products = result.rows;
 		const total = result.count;
