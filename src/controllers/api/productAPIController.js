@@ -28,9 +28,16 @@ const productController = {
 						}),
 				};
 			});
-			return res.json({ count: total, countByCategory, products });
+			return res.json({
+				count: total,
+				pageTotal: Math.ceil(total / 10),
+				countByCategory,
+				products,
+			});
 		}
-		return res.status(404).json({ message: "No se encontraron productos" });
+		return res
+			.status(404)
+			.json({ status: 404, message: "No se encontraron productos" });
 	},
 	last: async (req, res) => {
 		const product = await Product.findLast();
