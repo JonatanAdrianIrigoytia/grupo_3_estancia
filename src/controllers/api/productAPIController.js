@@ -63,10 +63,17 @@ const productController = {
 			let formattedProduct = {
 				id: product.id,
 				name: product.name,
+				category: product.category,
 				description: product.description,
-				category: product.category.name,
-				image: `/images/${product.image}`,
-				services: product.services.map((service) => service.name),
+				longDescription: product.longDescription,
+				price: product.price,
+				discount: product.discount,
+				capacity: product.capacity,
+				duration: product.duration,
+				image: `/images${product.image}`,
+				services: product.services.map((service) => {
+					return { id: service.id, name: service.name };
+				}),
 				amenities: product.amenities.map((amenity) => amenity.name),
 			};
 
