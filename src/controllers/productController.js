@@ -30,7 +30,8 @@ const productController = {
 		});
 	},
 	cart: async (req, res) => {
-		let cart = await Product.findAll().slice(0, 3);
+		let cart = await Product.findAll();
+		cart = cart.slice(0, 3);
 		res.render("productCart", { products: cart });
 	},
 	create: async (req, res) => {
