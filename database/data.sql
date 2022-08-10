@@ -28,7 +28,7 @@ ALTER TABLE roles AUTO_INCREMENT = 1;
 INSERT INTO categories (name) VALUES ("room"), ("activity");
 
 INSERT INTO products 
-(name, description, longDescription, price, categoryId, capacity, duration, discount, image) 
+(name, description, longDescription, price, categoryId, capacity, duration, discount, image, createdAt, updatedAt) 
 values 
 ("Las Lavandas", 
  "Habitación con cama Queen de 25m2", 
@@ -38,7 +38,9 @@ values
  2,
  0,
  0,
- "/products/rooms/lavandas.jpg"
+ "/products/rooms/lavandas.jpg",
+ CURRENT_TIMESTAMP,
+ CURRENT_TIMESTAMP
  ), 
  ("Los Lirios", 
  "Habitación de 30m2 con cama King y 2 camas twin", 
@@ -48,7 +50,9 @@ values
  4,
  0,
  5,
- "/products/rooms/lirios.jpg"
+ "/products/rooms/lirios.jpg",
+ CURRENT_TIMESTAMP,
+ CURRENT_TIMESTAMP
  ),
  ("Las Glicinas", 
  "Habitación de 40m2 con cama King", 
@@ -58,7 +62,9 @@ values
  2,
  0,
  0,
- "/products/rooms/glicinas.jpg"
+ "/products/rooms/glicinas.jpg",
+ CURRENT_TIMESTAMP,
+ CURRENT_TIMESTAMP
  ),
  ("Las Petunias", 
  "Habitación doble de 45m2", 
@@ -68,7 +74,9 @@ values
  4,
  0,
  0,
- "/products/rooms/petunias.jpg"
+ "/products/rooms/petunias.jpg",
+ CURRENT_TIMESTAMP,
+ CURRENT_TIMESTAMP
  ),
 ("Los Azafranes", 
  "Habitación de 50m2 con sala de estar y Hogar", 
@@ -78,7 +86,9 @@ values
  2,
  0,
  0,
-"/products/rooms/azafranes.jpg"
+"/products/rooms/azafranes.jpg",
+CURRENT_TIMESTAMP,
+CURRENT_TIMESTAMP
  ),
  ("Las Pasionarias", 
  "Habitación de 65m2 con galeria propia y jardín interno", 
@@ -88,7 +98,9 @@ values
  2,
  0,
  0,
-"/products/rooms/pasionarias.jpg"
+"/products/rooms/pasionarias.jpg",
+CURRENT_TIMESTAMP,
+CURRENT_TIMESTAMP
  ),
 ("Cabalgatas",
 "Cabalgata de 1 hora",
@@ -98,7 +110,9 @@ values
 0,
 60,
 0,
-"/products/activities/cabalgata.jpg"
+"/products/activities/cabalgata.jpg",
+CURRENT_TIMESTAMP,
+CURRENT_TIMESTAMP
 ),
 ("Clases de Polo",
 "Clase de Polo de 1 hora",
@@ -108,7 +122,9 @@ values
 0,
 60,
 0,
-"/products/activities/polo.jpg"
+"/products/activities/polo.jpg",
+CURRENT_TIMESTAMP,
+CURRENT_TIMESTAMP
 ),
 ("Masajes",
 "45 minutos de masajes relajantes o descontracturantes",
@@ -118,7 +134,9 @@ values
 0,
 45,
 0,
-"/products/activities/masaje.jpg"
+"/products/activities/masaje.jpg",
+CURRENT_TIMESTAMP,
+CURRENT_TIMESTAMP
 ),
 ("Limpieza de cutis",
 "Limpieza facial con ceniza volcánica",
@@ -128,7 +146,9 @@ values
 0,
 50,
 0,
-"/products/activities/cutis.jpg"
+"/products/activities/cutis.jpg",
+CURRENT_TIMESTAMP,
+CURRENT_TIMESTAMP
 ),
 ("Clases de Yoga",
 "Clases para principiantes y avanzados",
@@ -138,7 +158,9 @@ values
 0,
 60,
 0,
-"/products/activities/yoga.jpg"
+"/products/activities/yoga.jpg",
+CURRENT_TIMESTAMP,
+CURRENT_TIMESTAMP
 ),
 ("Clases de empanadas",
 "Aprenda a hacer empanadas",
@@ -148,7 +170,9 @@ values
 0,
 60,
 0,
-"/products/activities/empanadas.jpg"
+"/products/activities/empanadas.jpg",
+CURRENT_TIMESTAMP,
+CURRENT_TIMESTAMP
 );
 
 INSERT INTO services (name) VALUES ("Aire acondicionado"),
@@ -194,8 +218,8 @@ VALUES
 
 INSERT INTO roles (name) VALUES ("user"), ("admin");
 
-INSERT INTO users (firstName, lastName, email, password, roleId, image) 
+INSERT INTO users (firstName, lastName, email, password, roleId, image, createdAt, updatedAt)
 VALUES 
-("admin", "admin", "admin@admin.com", "$2a$10$XU9F2sBZ7qO7cksLFOu7m.g1hiGJSKt2nONlGSIMeYg6qhfgjsH3i", 2, "default-user-image.png"), -- La contraseña es 123456
-("User", "1", "user1@user.com", "$2a$10$1nURDFTo6bZ7Jxg16yPtY.s/7qSbE6NIKCUbaBZHRd9KXPwbBpT3y", 1, "default-user-image.png"), -- La contraseña es 123456
-("User", "2", "user2@user.com", "$2a$10$Yx79o3IJYWdEaaLY8Att6ey/azpH5dPlHUWu6gWt414TbalBJdKku", 1, "/users/img-user2_1656610501191.png"); -- La contraseña es 123456
+("admin", "admin", "admin@admin.com", "$2a$10$XU9F2sBZ7qO7cksLFOu7m.g1hiGJSKt2nONlGSIMeYg6qhfgjsH3i", 2, "default-user-image.png", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP), -- La contraseña es 123456
+("User", "1", "user1@user.com", "$2a$10$1nURDFTo6bZ7Jxg16yPtY.s/7qSbE6NIKCUbaBZHRd9KXPwbBpT3y", 1, "default-user-image.png", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP), -- La contraseña es 123456
+("User", "2", "user2@user.com", "$2a$10$Yx79o3IJYWdEaaLY8Att6ey/azpH5dPlHUWu6gWt414TbalBJdKku", 1, "/users/img-user2_1656610501191.png", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP); -- La contraseña es 123456
